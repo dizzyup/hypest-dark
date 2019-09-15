@@ -22,12 +22,88 @@ atom-text-editor[mini] {
 }
 
 atom-text-editor.editor {
+
+  .gutter-container {
+
+  }
+
   .gutter.line-numbers {
     background: transparent;
 
     .line-number {
-      background: fade(#000, 3%);
+      min-width: 60px;
+      padding-left: calc(0.5em - 4px);
+      padding-right: 4px;
+      background: @lighter-color;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-right: 4px solid @white-color;
+        background: fade(@black-color, 5%);
+        width: 5px;
+      }
+
+      &.cursor-line {
+        background: @light-color;
+
+        &::after {
+          border-right: 4px solid @white-color;
+          right: 0;
+        }
+      }
+
+      &.cursor-line-no-selection {
+        background: @light-color;
+
+        &::after {
+          border-right: 4px solid @lighter-color;
+          right: 0;
+        }
+      }
+
+      &.git-line-modified {
+        border: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 4px;
+          width: 2px;
+          top: 0;
+          bottom: 0;
+          background: @orange-color;
+        }
+      }
+
+      &.git-line-added {
+        border: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 4px;
+          width: 2px;
+          top: 0;
+          bottom: 0;
+          background: @green-color;
+        }
+      }
+
+      &.git-line-removed:before,
+      &.git-previous-line-removed:before {
+        left: auto;
+        right: -2px;
+        z-index: 2;
+      }
     }
+  }
+
+  .cursor-line {
+    background: @lighter-color;
   }
 
   .gutter:not(.line-numbers) {
@@ -36,16 +112,20 @@ atom-text-editor.editor {
     overflow: visible;
 
     .line-number.cursor-line {
-      background: transparent;
+      background: @light-color;
+
+      &::before {
+        display: none;
+      }
     }
 
     .line-number.cursor-line.cursor-line-no-selection {
-      background: fade(#000, 5%);
+      background: @light-color;
     }
   }
 
   .lines {
-    margin-left: 2px;
+
   }
 
   .custom-decorations {
@@ -58,7 +138,7 @@ atom-text-editor.editor {
     }
 
     .decoration {
-      margin-left: -4px;
+      margin-left: -8px;
     }
   }
 

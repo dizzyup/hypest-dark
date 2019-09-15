@@ -10,11 +10,15 @@
 // A good start is to change the color of the `@base-background-color` variable.
 
 // Base colors
-@base-background-color: fade(@light-color, 70%);
-@base-border-color: fade(#000, 10%);
+@base-background-color: @white-color;
+@base-border-color: #DAD9DB;
 
+@black-color: #000;
+@darker-color: #161616;
 @dark-color: #222;
-@light-color: #fff;
+@light-color: #f2f2f2;
+@lighter-color: #fafafa;
+@white-color: #fff;
 
 @blue-color: #0095ff;
 @green-color: #00cb24;
@@ -25,7 +29,7 @@
 @text-color: fade(@dark-color, 80%);
 @text-color-subtle: fade(@dark-color, 40%);
 @text-color-highlight: fade(@dark-color, 90%);
-@text-color-selected: fade(@light-color, 90%);
+@text-color-selected: fade(@white-color, 90%);
 
 @text-color-info: @blue-color;
 @text-color-success: @green-color;
@@ -38,7 +42,7 @@
 @background-color-warning: hsl(32, 60%, 50%);
 @background-color-error: hsl(0, 70%, 50%);
 
-@background-color-highlight: fade(#000, 15%);
+@background-color-highlight: fade(@black-color, 25%);
 @background-color-selected: @blue-color;
 @app-background-color: @base-background-color;
 
@@ -52,27 +56,27 @@
 @tool-panel-background-color: @base-background-color;
 @tool-panel-border-color: @base-border-color;
 
-@inset-panel-background-color: lighten(@base-background-color, 4%);
+@inset-panel-background-color: @base-background-color;
 @inset-panel-border-color: @base-border-color;
 
-@panel-heading-background-color: lighten(@base-background-color, 4%);
+@panel-heading-background-color: @base-background-color;
 @panel-heading-border-color: @base-border-color;
 
-@overlay-background-color: lighten(@base-background-color, 5%);
+@overlay-background-color: @base-background-color;
 @overlay-border-color: @base-border-color;
 
-@button-background-color: lighten(@base-background-color, 10%);
-@button-background-color-hover: lighten(@button-background-color, 12%);
+@button-background-color: @base-background-color;
+@button-background-color-hover: @button-background-color;
 @button-background-color-selected: @button-background-color-hover;
 @button-border-color: @base-border-color;
 
 @tab-bar-background-color: @base-background-color;
 @tab-bar-border-color: @base-border-color;
 @tab-background-color: @tab-bar-background-color;
-@tab-background-color-active: lighten(@tab-bar-background-color, 10%);
+@tab-background-color-active: @tab-bar-background-color;
 @tab-border-color: @base-border-color;
 
-@tree-view-background-color: @base-background-color;
+@tree-view-background-color: @light-color;
 @tree-view-border-color: @base-border-color;
 
 // Site colors
@@ -93,7 +97,7 @@
 @component-icon-size: 16px;
 @component-line-height: 25px;
 
-@tab-height: 34px;
+@tab-height: 32px;
 
 // Misc
 @component-border-radius: 2px;

@@ -5,10 +5,35 @@
 // Overrides: atom/tree-view
 
 .tree-view {
+  background: @light-color;
+  
+  .list-item,
+  .list-nested-item {
+    &::before {
+      margin-left: 4px;
+      margin-right: 4px;
+      border-radius: 4px;
+    }
+
+    &.selected::before {
+      background: @background-color-highlight;
+    }
+  }
+
+  &:focus-within {
+    .list-item.selected,
+    .list-nested-item.selected {
+      &::before {
+        background: @background-color-selected;
+      }
+    }
+  }
+
   .list-item.selected,
   .list-nested-item.selected {
     &::before {
       margin-left: 4px;
+      margin-right: 4px;
       border-radius: 4px;
     }
   }

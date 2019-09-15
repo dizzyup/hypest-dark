@@ -12,16 +12,56 @@ body {
   background-color: @app-background-color;
 }
 
+atom-panel-container.left, atom-panel-container.right {
+
+  .atom-dock-resize-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+}
+
 atom-panel-container.left {
-  box-shadow: inset -1px 0 0 @base-border-color;
+  box-shadow: 1px 0 0 rgba(0,0,0,.15);
+  z-index: 3;
+
+  .atom-dock-resize-handle {
+    right: 0;
+  }
 }
 
 atom-panel-container.right {
-  box-shadow: inset 1px 0 0 @base-border-color;
+  box-shadow: -1px 0 0 rgba(0,0,0,.15);
+  z-index: 1;
+
+  .atom-dock-resize-handle {
+    left: 0;
+  }
 }
 
-atom-pane {
+atom-panel-container.bottom {
+  box-shadow: 0 -1px 0 @base-border-color;
+  z-index: 2;
+
+  .find-and-replace {
+    border-top: none;
+  }
+}
+
+.atom-dock-toggle-button {
+
+  .atom-dock-toggle-button-inner {
+    background: @light-color;
+    border-radius: 8px;
+    border-color: @base-border-color;
+  }
+}
+
+atom-pane, .tool-panel {
+  background: @light-color;
   border-right: 1px solid @base-border-color;
+
   &:last-child {
     border-right: none;
   }

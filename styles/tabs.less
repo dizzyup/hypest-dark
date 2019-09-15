@@ -7,29 +7,45 @@
 .tab-bar {
   overflow-x: auto;
   overflow-y: hidden;
-  box-shadow: inset 0 -1px 0 @tab-border-color !important;
+  background: #A8A8A8;
+  border-radius: 0;
 
   .tab {
-    color: @text-color-subtle;
+    text-align: center;
+    color: fade(@text-color, 70%);
     height: @tab-height;
     line-height: @tab-height;
     font-size: @font-size;
     min-width: 120px;
+    flex: 1 1 100%;
+    padding: 0 30px;
+    max-width: 100%;
+    margin-right: 1px;
+    background: #BEBEBE;
+    box-shadow: inset 0 -1px 0 0 #A8A8A8;
 
     &:hover {
       color: @text-color;
+      background: #A8A8A8;
     }
+
     &.active {
-      flex: 1;
+      flex: 1 1 100%;
       color: @text-color;
-      box-shadow: -1px 0 0 @tab-border-color, 1px 0 0 @tab-border-color !important;
+      background: #D5D5D5;
+      box-shadow: inset 0 -1px 0 #BFBFBF;
+      transition: none;
+    }
+
+    &:last-child {
+      margin: 0;
     }
 
     // Modified Icon (the circle) -------------------
     &.modified:not(:hover) .close-icon {
       top: 50%;
-      right: @component-padding + 4px; // 4px -> half of icon size
-      margin-top: -3px;
+      left: @component-padding + 4px; // 4px -> half of icon size
+      margin-top: -4px;
       border-color: @text-color-info !important;
     }
     &.modified:hover .close-icon {
@@ -37,11 +53,33 @@
     }
 
     // Close Icon (the X) -------------------
+    .close-icon {
+      width: 16px;
+      height: 16px;
+      top: 8px;
+      left: 6px;
+      right: auto;
+      opacity: 0;
+      border-radius: 3px;
+      transition: ease .3s;
+    }
+    &:hover {
+      .close-icon {
+        opacity: 1;
+      }
+    }
     .close-icon:hover {
       color: @text-color;
+      background: fade(@dark-color, 10%);
     }
     &.active .close-icon:hover {
       color: @text-color;
+    }
+    .close-icon::before {
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      line-height: 13px;
     }
 
     // Dragging -------------------
@@ -54,15 +92,81 @@
         visibility: hidden;
       }
     }
+
+    .title {
+      padding: 0 !important;
+    }
   }
 }
 
+.is-blurred {
+
+  .tab-bar {
+    background: #D5D5D5;
+  }
+
+  .tab {
+    color: @text-color-subtle;
+    background: #E1E1E1;
+    box-shadow: inset 0 -1px 0 0 fade(#A8A8A8, 30%);
+    transition: none;
+
+    &.active {
+      color: @text-color-subtle;
+      background: @light-color;
+      box-shadow: inset 0 -1px 0 fade(#BFBFBF, 50%);
+    }
+  }
+}
+
+atom-panel-container.left, atom-panel-container.right {
+  .tab-bar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: #DADADB;
+    border-radius: 0;
+
+    .tab {
+      color: fade(@text-color-subtle, 60%);
+      background: @light-color;
+      box-shadow: inset 0 -1px 0 #DADADB;
+
+      &:hover {
+        color: @text-color;
+        background: @lighter-color;
+      }
+
+      &.active {
+        color: @text-color;
+        font-weight: 500;
+        background: @lighter-color;
+        box-shadow: inset 0 -1px 0 #DADADB;
+      }
+
+      &:only-child {
+        text-align: left !important;
+        background: @light-color !important;
+        box-shadow: none !important;
+        padding: 0 10px;
+
+        .title {
+          color: fade(@text-color, 60%);
+          padding-top: 2px !important;
+        }
+
+        .close-icon {
+          left: auto;
+          right: 6px;
+        }
+      }
+    }
+  }
+}
+
+body:hover .tab {
+  transition: ease .2s;
+}
+
 .tab-bar::-webkit-scrollbar {
-  height: 3px !important;
-}
-.tab-bar::-webkit-scrollbar-track {
-  background: fade(@light-color, 60%);
-}
-.tab-bar::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  height: 0 !important;
 }
