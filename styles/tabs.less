@@ -1,4 +1,3 @@
-
 // Tabs
 // -------------------
 
@@ -6,52 +5,64 @@
 // Overrides: atom/tabs
 
 .tab-bar {
-  background-color: @tab-bar-background-color;
-  border-bottom: 1px solid @base-border-color;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-shadow: inset 0 -1px 0 @tab-border-color !important;
 
   .tab {
-    color: @text-color;
+    color: @text-color-subtle;
     height: @tab-height;
     line-height: @tab-height;
     font-size: @font-size;
-    border-right: 1px solid @tab-border-color;
-    background-color: @tab-background-color;
-    &.active {
-      color: @text-color-selected;
-      background-color: @tab-background-color-active;
-    }
+    min-width: 120px;
 
+    &:hover {
+      color: @text-color;
+    }
+    &.active {
+      flex: 1;
+      color: @text-color;
+      box-shadow: -1px 0 0 @tab-border-color, 1px 0 0 @tab-border-color !important;
+    }
 
     // Modified Icon (the circle) -------------------
     &.modified:not(:hover) .close-icon {
       top: 50%;
       right: @component-padding + 4px; // 4px -> half of icon size
       margin-top: -3px;
-      border-color: @text-color-info;
+      border-color: @text-color-info !important;
     }
     &.modified:hover .close-icon {
       color: currentColor;
     }
 
-
     // Close Icon (the X) -------------------
     .close-icon:hover {
-      color: @text-color-selected;
+      color: @text-color;
     }
     &.active .close-icon:hover {
       color: @text-color;
     }
-
 
     // Dragging -------------------
     // Styles get applied while dragging a tab
     &.is-dragging {
       background: darken(@tab-background-color, 10%);
       border-color: transparent;
-      opacity: .5;
+      opacity: 0.5;
       & .close-icon {
         visibility: hidden;
       }
     }
   }
+}
+
+.tab-bar::-webkit-scrollbar {
+  height: 3px !important;
+}
+.tab-bar::-webkit-scrollbar-track {
+  background: fade(@light-color, 60%);
+}
+.tab-bar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
 }

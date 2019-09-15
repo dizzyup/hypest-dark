@@ -1,4 +1,3 @@
-
 // UI Variables
 // -------------------
 
@@ -10,71 +9,78 @@
 // Try to edit some of the values below to see your theme change.
 // A good start is to change the color of the `@base-background-color` variable.
 
+// Base colors
+@base-background-color: fade(@light-color, 70%);
+@base-border-color: fade(#000, 10%);
+
+@dark-color: #222;
+@light-color: #fff;
+
+@blue-color: #0095ff;
+@green-color: #00cb24;
+@orange-color: #ff8d18;
+@red-color: #ff3f3f;
 
 // Text Colors
-@text-color:           hsl(0,0%,66%);
-@text-color-subtle:    hsl(0,0%,50%);
-@text-color-highlight: hsl(0,0%,94%);
-@text-color-selected:  hsl(0,0%,100%);
+@text-color: fade(@dark-color, 80%);
+@text-color-subtle: fade(@dark-color, 40%);
+@text-color-highlight: fade(@dark-color, 90%);
+@text-color-selected: fade(@light-color, 90%);
 
-@text-color-info:    hsl(219,  79%, 66%);
-@text-color-success: hsl(140,  44%, 62%);
-@text-color-warning: hsl( 36,  60%, 72%);
-@text-color-error:   hsl(  9, 100%, 64%);
+@text-color-info: @blue-color;
+@text-color-success: @green-color;
+@text-color-warning: @orange-color;
+@text-color-error: @red-color;
 
 // Background colors
-@background-color-info:    hsl(208, 100%, 50%);
-@background-color-success: hsl(160,  70%, 36%);
-@background-color-warning: hsl(32,   60%, 50%);
-@background-color-error:   hsl(0,    70%, 50%);
+@background-color-info: hsl(208, 100%, 50%);
+@background-color-success: hsl(160, 70%, 36%);
+@background-color-warning: hsl(32, 60%, 50%);
+@background-color-error: hsl(0, 70%, 50%);
 
-@background-color-highlight: lighten(@base-background-color, 5%);
-@background-color-selected:  lighten(@base-background-color, 10%);
-@app-background-color:       darken(@base-background-color, 5%);
-
-// Base colors
-@base-background-color: hsl(222,6%,22%);
-@base-border-color:     darken(@base-background-color, 8%);
+@background-color-highlight: fade(#000, 15%);
+@background-color-selected: @blue-color;
+@app-background-color: @base-background-color;
 
 // Component colors
 @pane-item-background-color: @base-background-color;
-@pane-item-border-color:     @base-border-color;
+@pane-item-border-color: @base-border-color;
 
 @input-background-color: @app-background-color;
-@input-border-color:     @base-border-color;
+@input-border-color: @base-border-color;
 
 @tool-panel-background-color: @base-background-color;
-@tool-panel-border-color:     @base-border-color;
+@tool-panel-border-color: @base-border-color;
 
 @inset-panel-background-color: lighten(@base-background-color, 4%);
-@inset-panel-border-color:     @base-border-color;
+@inset-panel-border-color: @base-border-color;
 
 @panel-heading-background-color: lighten(@base-background-color, 4%);
-@panel-heading-border-color:     @base-border-color;
+@panel-heading-border-color: @base-border-color;
 
 @overlay-background-color: lighten(@base-background-color, 5%);
-@overlay-border-color:     @base-border-color;
+@overlay-border-color: @base-border-color;
 
-@button-background-color:          lighten(@base-background-color, 10%);
-@button-background-color-hover:    lighten(@button-background-color, 12%);
+@button-background-color: lighten(@base-background-color, 10%);
+@button-background-color-hover: lighten(@button-background-color, 12%);
 @button-background-color-selected: @button-background-color-hover;
-@button-border-color:              @base-border-color;
+@button-border-color: @base-border-color;
 
-@tab-bar-background-color:    @base-background-color;
-@tab-bar-border-color:        @base-border-color;
-@tab-background-color:        @tab-bar-background-color;
+@tab-bar-background-color: @base-background-color;
+@tab-bar-border-color: @base-border-color;
+@tab-background-color: @tab-bar-background-color;
 @tab-background-color-active: lighten(@tab-bar-background-color, 10%);
-@tab-border-color:            @base-border-color;
+@tab-border-color: @base-border-color;
 
 @tree-view-background-color: @base-background-color;
-@tree-view-border-color:     @base-border-color;
+@tree-view-border-color: @base-border-color;
 
 // Site colors
 @ui-site-color-1: hsl(208, 100%, 50%); // blue
-@ui-site-color-2: hsl(160,  70%, 42%); // green
-@ui-site-color-3: hsl(32,   60%, 50%); // orange
-@ui-site-color-4: #D831B0;             // pink
-@ui-site-color-5: #EBDD5B;             // yellow
+@ui-site-color-2: hsl(160, 70%, 42%); // green
+@ui-site-color-3: hsl(32, 60%, 50%); // orange
+@ui-site-color-4: #d831b0; // pink
+@ui-site-color-5: #ebdd5b; // yellow
 
 // Sizes
 @font-size: 12px;
@@ -87,8 +93,8 @@
 @component-icon-size: 16px;
 @component-line-height: 25px;
 
-@tab-height: 30px;
+@tab-height: 34px;
 
 // Misc
 @component-border-radius: 2px;
-@font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+@font-family: system-ui;
