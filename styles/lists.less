@@ -145,11 +145,9 @@
 // Used as a popover for something like autocomplete.
 .select-list.popover-list {
   @popover-list-padding: @component-padding/2;
-
   padding: @popover-list-padding;
-  border-radius: @component-border-radius;
   background-color: @overlay-background-color;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+  box-shadow: 0 2px 30px fade(@black-color, 30%), 0 1px 3px 1px fade(@black-color, 20%);
 
   .list-group {
     margin-top: @popover-list-padding;
