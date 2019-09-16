@@ -42,7 +42,21 @@ atom-panel-container.right {
 
 atom-panel-container.bottom {
   box-shadow: 0 -1px 0 @base-border-color;
+  border-right: 1px solid @base-border-color;
   z-index: 2;
+
+  atom-dock {
+    box-shadow: 0 -1px 0 @base-border-color;
+    z-index: 2;
+  }
+
+  .atom-dock-resize-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
 
   .find-and-replace {
     border-top: none;
@@ -58,11 +72,20 @@ atom-panel-container.bottom {
   }
 }
 
-atom-pane, .tool-panel {
+atom-pane {
   background: @light-color;
-  border-right: 1px solid @base-border-color;
+}
 
-  &:last-child {
-    border-right: none;
+.tool-panel {
+  background: @lighter-color;
+}
+
+.pane-row {
+  atom-pane {
+    border-right: 1px solid @base-border-color;
+
+    &:last-child {
+      border-right: none;
+    }
   }
 }

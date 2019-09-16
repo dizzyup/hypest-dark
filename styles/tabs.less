@@ -18,7 +18,7 @@
     font-size: @font-size;
     min-width: 120px;
     flex: 1 1 100%;
-    padding: 0 30px;
+    padding: 0 24px;
     max-width: 100%;
     margin-right: 1px;
     background: #BEBEBE;
@@ -41,39 +41,46 @@
       margin: 0;
     }
 
-    // Modified Icon (the circle) -------------------
-    &.modified:not(:hover) .close-icon {
+    &.modified::after {
+      content: '';
+      position: absolute;
       top: 50%;
-      left: @component-padding + 4px; // 4px -> half of icon size
-      margin-top: -4px;
-      border-color: @text-color-info !important;
-    }
-    &.modified:hover .close-icon {
-      color: currentColor;
+      right: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: -3px;
+      opacity: 1;
+      background: fade(@text-color, 70%);
     }
 
-    // Close Icon (the X) -------------------
-    .close-icon {
+    &.active.modified::after {
+      background: @text-color-info;
+    }
+
+    .close-icon, &.modified .close-icon, &.modified:not(:hover) .close-icon {
+      color: @text-color;
       width: 16px;
       height: 16px;
       top: 8px;
       left: 6px;
       right: auto;
+      border: none;
       opacity: 0;
       border-radius: 3px;
-      transition: ease .3s;
+      transition: opacity ease .3s, color ease .1s, background ease .1s;
     }
     &:hover {
-      .close-icon {
+      .close-icon, &.modified .close-icon, &.modified:not(:hover) .close-icon {
+        color: @text-color;
         opacity: 1;
       }
     }
-    .close-icon:hover {
-      color: @text-color;
-      background: fade(@dark-color, 10%);
-    }
-    &.active .close-icon:hover {
-      color: @text-color;
+    .close-icon, &.modified .close-icon, &.modified:not(:hover) .close-icon {
+
+      &:hover {
+        background: fade(@dark-color, 10%);
+      }
     }
     .close-icon::before {
       position: absolute;
@@ -82,8 +89,6 @@
       line-height: 13px;
     }
 
-    // Dragging -------------------
-    // Styles get applied while dragging a tab
     &.is-dragging {
       background: darken(@tab-background-color, 10%);
       border-color: transparent;
@@ -95,6 +100,10 @@
 
     .title {
       padding: 0 !important;
+    }
+
+    [class*="icon-"]::before {
+      font-size: 13px;
     }
   }
 }
@@ -119,7 +128,8 @@
   }
 }
 
-atom-panel-container.left, atom-panel-container.right {
+atom-panel-container.left, atom-panel-container.right, atom-panel-container.bottom {
+
   .tab-bar {
     overflow-x: auto;
     overflow-y: hidden;
@@ -151,7 +161,6 @@ atom-panel-container.left, atom-panel-container.right {
 
         .title {
           color: fade(@text-color, 60%);
-          padding-top: 2px !important;
         }
 
         .close-icon {

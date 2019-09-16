@@ -14,11 +14,70 @@
     &.selected {
       color: @text-color-selected;
       background-color: @background-color-selected;
-      &:before{ display: none; }
+      border-radius: 4px;
+      &:before {
+        display: none;
+      }
+      .icon {
+        color: @white-color;
+      }
     }
   }
 }
 
+.fuzzy-finder {
+
+  .list-group {
+    padding-bottom: 0 !important;
+
+    .selected .character-match {
+      color: @white-color;
+    }
+  }
+
+  .primary-line, .secondary-line {
+    line-height: 1.5;
+  }
+
+  .primary-line {
+    font-size: 12px;
+    font-weight: 500;
+    color: @text-color;
+  }
+
+  .secondary-line {
+    color: @text-color-subtle;
+    padding-bottom: 2px;
+
+    .character-match {
+      color: @text-color-subtle;
+    }
+  }
+
+  .selected {
+
+    .primary-line {
+      color: @white-color;
+    }
+
+    .secondary-line {
+      color: @light-color;
+
+      .character-match {
+        color: @light-color;
+      }
+    }
+  }
+
+  atom-text-editor + span {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    color: @text-color-subtle;
+    text-align: center;
+    padding: 6px 20px 16px;
+  }
+}
 
 // List Tree -------------------
 .list-tree {
@@ -39,6 +98,48 @@
   }
 }
 
+.project-manager {
+
+  .text-smaller {
+    font-size: 12px;
+    color: @text-color-subtle;
+    padding: 6px 10px;
+  }
+
+  li {
+    border: none !important;
+  }
+
+  .project-manager-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: @text-color;
+  }
+
+  .primary-line, .secondary-line {
+    line-height: 1.5;
+  }
+
+  .primary-line .icon::before {
+    top: 2px;
+  }
+
+  .secondary-line {
+    color: @text-color-subtle;
+    padding-bottom: 2px;
+  }
+
+  .selected {
+
+    .project-manager-title {
+      color: @white-color;
+    }
+
+    .secondary-line {
+      color: @light-color;
+    }
+  }
+}
 
 // Popover List -------------------
 // Used as a popover for something like autocomplete.

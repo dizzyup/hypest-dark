@@ -31,6 +31,7 @@ atom-text-editor.editor {
     background: transparent;
 
     .line-number {
+      color: @text-color-subtle;
       min-width: 60px;
       padding-left: calc(0.5em - 4px);
       padding-right: 4px;
@@ -48,6 +49,7 @@ atom-text-editor.editor {
       }
 
       &.cursor-line {
+        font-weight: 600;
         background: @light-color;
 
         &::after {
@@ -112,7 +114,7 @@ atom-text-editor.editor {
     overflow: visible;
 
     .line-number.cursor-line {
-      background: @light-color;
+      background: @white-color;
 
       &::before {
         display: none;
@@ -120,7 +122,7 @@ atom-text-editor.editor {
     }
 
     .line-number.cursor-line.cursor-line-no-selection {
-      background: @light-color;
+      background: @lighter-color;
     }
   }
 
