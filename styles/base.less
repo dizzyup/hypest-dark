@@ -65,34 +65,42 @@ atom-panel-container.bottom {
 
 .atom-dock-toggle-button {
   padding: 10px;
+  overflow: visible;
+  transition: opacity ease .3s, transform ease .3s;
 
   &.left {
-    width: 60px;
+    width: 56px;
     left: 100%;
   }
 
   &.right {
-    width: 60px;
+    width: 56px;
     right: 100%;
   }
 
   &.bottom {
     width: 59px;
-    height: 60px;
+    height: 54px;
     bottom: 100%;
   }
 
   &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.left {
-    transform: translateX(calc(~"-100% - " 20px)) !important;
+    transform: translateX(-30px) !important;
+    pointer-events: none;
+    opacity: 0;
   }
 
   &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.right {
-    transform: translateX(calc(~"100% + " 20px)) !important;
+    transform: translateX(30px) !important;
+    pointer-events: none;
+    opacity: 0;
   }
 
   &:not(.atom-dock-toggle-button-visible)
     .atom-dock-toggle-button-inner.bottom {
-    transform: translateY(calc(~"100% + " 20px)) !important;
+    transform: translateY(30px) !important;
+    pointer-events: none;
+    opacity: 0;
   }
 
   .atom-dock-toggle-button-inner {
@@ -106,6 +114,7 @@ atom-panel-container.bottom {
 
     .icon {
       transform: none !important;
+      transition: none !important;
       height: 13px;
     }
 
