@@ -12,8 +12,8 @@ body {
   background-color: @app-background-color;
 }
 
-atom-panel-container.left, atom-panel-container.right {
-
+atom-panel-container.left,
+atom-panel-container.right {
   .atom-dock-resize-handle {
     position: absolute;
     top: 0;
@@ -23,7 +23,7 @@ atom-panel-container.left, atom-panel-container.right {
 }
 
 atom-panel-container.left {
-  box-shadow: 1px 0 0 rgba(0,0,0,.15);
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
   z-index: 3;
 
   .atom-dock-resize-handle {
@@ -32,7 +32,7 @@ atom-panel-container.left {
 }
 
 atom-panel-container.right {
-  box-shadow: -1px 0 0 rgba(0,0,0,.15);
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.15);
   z-index: 1;
 
   .atom-dock-resize-handle {
@@ -64,11 +64,106 @@ atom-panel-container.bottom {
 }
 
 .atom-dock-toggle-button {
+  padding: 10px;
+
+  &.left {
+    width: 60px;
+    left: 100%;
+  }
+
+  &.right {
+    width: 60px;
+    right: 100%;
+  }
+
+  &.bottom {
+    width: 59px;
+    height: 60px;
+    bottom: 100%;
+  }
+
+  &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.left {
+    transform: translateX(calc(~"-100% - " 20px)) !important;
+  }
+
+  &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.right {
+    transform: translateX(calc(~"100% + " 20px)) !important;
+  }
+
+  &:not(.atom-dock-toggle-button-visible)
+    .atom-dock-toggle-button-inner.bottom {
+    transform: translateY(calc(~"100% + " 20px)) !important;
+  }
 
   .atom-dock-toggle-button-inner {
-    background: @light-color;
-    border-radius: 8px;
-    border-color: @base-border-color;
+    width: auto;
+    height: 35px;
+    background: @lighter-color;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 8px fade(@black-color, 10%),
+      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+
+    .icon {
+      transform: none !important;
+      height: 13px;
+    }
+
+    &.left {
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-left::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M5,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L5,12 L5,12 L5,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,1 L4,1 C4.55228475,1 5,1.44771525 5,2 L5,11 C5,11.5522847 4.55228475,12 4,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 6 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='8.5 8.5 10.5 6.5 8.5 4.5' transform='matrix(-1 0 0 1 19 0)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-right::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M5,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L5,12 L5,12 L5,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,1 L4,1 C4.55228475,1 5,1.44771525 5,2 L5,11 C5,11.5522847 4.55228475,12 4,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 6 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='8.5 8.5 10.5 6.5 8.5 4.5'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+
+    &.right {
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-left::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M1,1 L10,1 C10.5522847,1 11,1.44771525 11,2 L11,11 C11,11.5522847 10.5522847,12 10,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 12 0)'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M11,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L11,12 L11,12 L11,1 Z'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='5.5 8.5 7.5 6.5 5.5 4.5' transform='matrix(-1 0 0 1 13 0)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-right::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M1,1 L10,1 C10.5522847,1 11,1.44771525 11,2 L11,11 C11,11.5522847 10.5522847,12 10,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 12 0)'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M11,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L11,12 L11,12 L11,1 Z'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='5.5 8.5 7.5 6.5 5.5 4.5'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+
+    &.bottom {
+      top: 10px;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-up::before {
+        content: "";
+        width: 15px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L13,0 C14.1045695,0 15,0.8954305 15,2 L15,11 C15,12.1045695 14.1045695,13 13,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M2,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,9 L14,9 L1,9 L1,2 C1,1.44771525 1.44771525,1 2,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,9 L14,9 L14,11 C14,11.5522847 13.5522847,12 13,12 L2,12 C1.44771525,12 1,11.5522847 1,11 L1,9 L1,9 Z' transform='matrix(-1 0 0 1 15 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='6.5 7.5 8.5 5.5 6.5 3.5' transform='rotate(-90 7.5 5.5)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-down::before {
+        content: "";
+        width: 15px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L13,0 C14.1045695,0 15,0.8954305 15,2 L15,11 C15,12.1045695 14.1045695,13 13,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M2,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,9 L14,9 L1,9 L1,2 C1,1.44771525 1.44771525,1 2,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,9 L14,9 L14,11 C14,11.5522847 13.5522847,12 13,12 L2,12 C1.44771525,12 1,11.5522847 1,11 L1,9 L1,9 Z' transform='matrix(-1 0 0 1 15 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='6.5 7.5 8.5 5.5 6.5 3.5' transform='matrix(0 1 1 0 2 -2)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
   }
 }
 
@@ -82,10 +177,11 @@ atom-pane {
 
 .pane-row {
   atom-pane {
-    border-right: 1px solid @base-border-color;
+    box-shadow: -1px 0 0 fade(@darker-color, 15%);
+    border-right: none;
 
-    &:last-child {
-      border-right: none;
+    &:first-child {
+      box-shadow: none;
     }
   }
 }

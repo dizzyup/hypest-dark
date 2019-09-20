@@ -1,0 +1,247 @@
+#linter-tooltip {
+  margin-top: 3px;
+  max-width: 64em;
+}
+#linter-tooltip linter-message.error {
+  color: rgba(34, 34, 34, 0.8);
+  background-color: #fff;
+  border-left: 8px solid #ff3f3f;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.error:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.error:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.error:last-child::before {
+  border-color: transparent transparent #ff3f3f #ff3f3f;
+}
+#linter-tooltip linter-message.error a {
+  color: rgba(34, 34, 34, 0.8);
+}
+#linter-tooltip linter-message.warning {
+  color: rgba(34, 34, 34, 0.8);
+  background-color: #fff;
+  border-left: 8px solid #ff8d18;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.warning:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.warning:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.warning:last-child::before {
+  border-color: transparent transparent #ff8d18 #ff8d18;
+}
+#linter-tooltip linter-message.warning a {
+  color: rgba(34, 34, 34, 0.8);
+}
+#linter-tooltip linter-message.info {
+  color: rgba(34, 34, 34, 0.8);
+  background-color: #fff;
+  border-left: 8px solid #0095ff;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.info:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.info:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+#linter-tooltip linter-message.info:last-child::before {
+  border-color: transparent transparent #0095ff #0095ff;
+}
+#linter-tooltip linter-message.info a {
+  color: rgba(34, 34, 34, 0.8);
+}
+#linter-tooltip linter-message.info::before {
+  opacity: 0;
+}
+#linter-tooltip linter-message:last-child::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  border: 4px solid;
+  display: none;
+}
+#linter-tooltip linter-message a {
+  font-weight: bold;
+}
+#linter-tooltip linter-message p {
+  margin-bottom: 0;
+}
+#linter-tooltip linter-message .linter-line {
+  display: block;
+}
+#linter-tooltip linter-message .badge {
+  color: rgba(34, 34, 34, 0.9);
+}
+linter-message {
+  display: block;
+  padding: 2px 5px;
+}
+.icon.linter-icon::before {
+  font-size: 14px;
+}
+atom-text-editor.editor .linter-row {
+  /* Take up the full allowed width */
+  left: 0;
+  right: 0;
+  /* Align the linter dot in the middle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.linter-ui-default-fix-btn {
+  color: #0088ff;
+  background-color: #fff;
+  border-color: #dad9db;
+  border-radius: 2px;
+  margin: 0 10px;
+  padding: 5px 10px;
+  line-height: 100%;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.linter-gutter.linter-gutter-info {
+  color: #0088ff;
+  z-index: 1;
+}
+.linter-gutter.linter-gutter-warning {
+  color: #cc8533;
+  z-index: 1;
+}
+.linter-gutter.linter-gutter-error {
+  color: #d92626;
+  z-index: 1;
+}
+atom-text-editor.editor .linter-highlight.linter-info,
+.linter-highlight.linter-info {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #0088ff 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #0088ff 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #0088ff 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #0088ff 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+atom-text-editor.editor .linter-highlight.linter-warning,
+.linter-highlight.linter-warning {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #cc8533 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #cc8533 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #cc8533 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #cc8533 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+atom-text-editor.editor .linter-highlight.linter-error,
+.linter-highlight.linter-error {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #d92626 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #d92626 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #d92626 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #d92626 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view span.name {
+  position: relative;
+}
+.tree-view .linter-info {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #0088ff 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #0088ff 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #0088ff 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #0088ff 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view .linter-warning {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #cc8533 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #cc8533 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #cc8533 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #cc8533 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view .linter-error {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #d92626 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #d92626 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #d92626 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #d92626 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.linter-gutter.icon::before {
+  width: 100%;
+  margin-right: 0px;
+  font-size: 1em;
+}
+.linter-status-count a {
+  padding: 2px;
+}
+.linter-status-count a::before {
+  font-size: 12px;
+}
+.linter-status-count.hide-config,
+.linter-status-count.hide-pane {
+  display: none;
+}
+.linter-cursor-line {
+  width: 100%;
+  padding-left: 0;
+}
+linter-decoration {
+  pointer-events: none;
+}
