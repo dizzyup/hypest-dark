@@ -23,12 +23,37 @@
       }
     }
   }
+  .no-icon {
+    padding-left: 24px;
+  }
 }
 
 .fuzzy-finder {
 
+  atom-text-editor[mini]:first-of-type {
+    margin: 2px;
+    height: 32px;
+  }
+
+  .text-smaller, .loading, .error-message {
+    font-size: 12px;
+    color: @text-color-subtle;
+    padding: 6px 10px 4px;
+
+  }
+
+  .error-message {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 4px;
+    border-radius: 6px;
+  }
+
   .list-group {
-    max-height: 345px !important;
+    max-height: 336px !important;
     padding-bottom: 0 !important;
 
     .selected .character-match {
@@ -41,9 +66,21 @@
   }
 
   .primary-line {
+    position: relative;
     font-size: 12px;
     font-weight: 500;
     color: @text-color;
+
+    &.icon {
+      padding-left: 24px;
+    }
+
+    &.icon::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
   }
 
   .secondary-line {
@@ -71,12 +108,15 @@
   }
 
   atom-text-editor + span {
-    font-size: 14px;
-    font-weight: 500;
     display: block;
-    color: @text-color-subtle;
+    font-size: 15px;
+    font-weight: 500;
     text-align: center;
-    padding: 6px 20px 16px;
+    color: @text-color-subtle;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 0;
+    border-radius: 6px;
   }
 }
 
@@ -101,10 +141,29 @@
 
 .project-manager {
 
-  .text-smaller {
+  atom-text-editor[mini]:first-of-type {
+    margin: 2px;
+    height: 32px;
+  }
+
+  &.select-list ol.list-group {
+    margin-top: 0;
+  }
+
+  .text-smaller, .loading, .error-message {
     font-size: 12px;
     color: @text-color-subtle;
-    padding: 6px 10px;
+    padding: 6px 10px 8px;
+  }
+
+  .error-message {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 4px;
+    border-radius: 6px;
   }
 
   li {
@@ -139,6 +198,22 @@
     .secondary-line {
       color: @light-color;
     }
+  }
+}
+
+autocomplete-suggestion-list.select-list.popover-list {
+  width: auto !important; // TODO: Can be removed once the inline style is gone
+  display: inline-block;
+  min-width: 243px; // Try and fail until the specs pass
+  padding: 0;
+  overflow: hidden;
+  color: @text-color;
+
+
+  div:not([style*=display:none]) {
+    padding: 40px;
+    background: red;
+
   }
 }
 
