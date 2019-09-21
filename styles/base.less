@@ -33,7 +33,7 @@ atom-panel-container.left {
 
 atom-panel-container.right {
   box-shadow: -1px 0 0 rgba(0, 0, 0, 0.15);
-  z-index: 1;
+  z-index: 2;
 
   .atom-dock-resize-handle {
     left: 0;
@@ -42,8 +42,7 @@ atom-panel-container.right {
 
 atom-panel-container.bottom {
   box-shadow: 0 -1px 0 @base-border-color;
-  border-right: 1px solid @base-border-color;
-  z-index: 2;
+  z-index: 1;
 
   atom-dock {
     box-shadow: 0 -1px 0 @base-border-color;
@@ -66,7 +65,7 @@ atom-panel-container.bottom {
 .atom-dock-toggle-button {
   padding: 10px;
   overflow: visible;
-  transition: opacity ease .3s, transform ease .3s;
+  transition: opacity ease 0.3s, transform ease 0.3s;
 
   &.left {
     width: 56px;

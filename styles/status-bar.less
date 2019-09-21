@@ -1,4 +1,3 @@
-
 // Status Bar
 // -------------------
 
@@ -8,7 +7,147 @@
 
 .status-bar {
   font-size: @font-size;
+  line-height: 28px;
+  height: 28px;
   color: @text-color;
-  border-top: 1px solid #DAD9DB;
+  border-top: 1px solid #dad9db;
   background-color: @lighter-color;
+
+  .status-bar-left,
+  .status-bar-right {
+    display: flex;
+    align-items: stretch;
+
+    busy-signal {
+      padding: 0 8px;
+    }
+
+    .line-ending-tile {
+      padding: 0 8px;
+      flex-shrink: 0;
+    }
+
+    a {
+      transition: background ease 0.2s;
+
+      &:hover {
+        text-decoration: none;
+        background: @light-color;
+      }
+    }
+
+    .inline-block {
+      margin: 0;
+    }
+
+    .inline-block .inline-block,
+    .github-StatusBarTileController .inline-block {
+      padding: 0 8px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .deprecation-cop-status {
+      padding: 0 8px;
+      cursor: pointer;
+      transition: background ease 0.2s;
+
+      &:hover {
+        background: @light-color;
+      }
+    }
+
+    encoding-selector-status,
+    grammar-selector-status {
+      flex-shrink: 0;
+    }
+
+    status-bar-cursor {
+      flex-shrink: 0;
+    }
+
+    status-bar-selection {
+      flex-shrink: 0;
+      color: @text-color-subtle;
+    }
+
+    status-bar-file {
+      display: inline-flex;
+      align-items: stretch;
+      min-width: 100px;
+
+      &::after {
+        display: none;
+      }
+
+      &.buffer-modified {
+        a::after {
+          content: "";
+          position: relative;
+          display: inline-block;
+          width: 6px;
+          height: 6px;
+          margin-left: 6px;
+          top: -1px;
+          border-radius: 50%;
+          background: @text-color-info;
+        }
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 0 8px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .github-StatusBarTileController {
+      display: inline-flex;
+      align-items: stretch;
+
+      > .inline-block {
+        cursor: pointer;
+        transition: background ease 0.2s;
+
+        &:hover {
+          text-decoration: none;
+          background: @light-color;
+        }
+      }
+
+      .github-PushPull,
+      .github-StatusBarTitle,
+      .github-ChangedFilesCount {
+        flex-shrink: 0;
+      }
+
+      .github-branch {
+        flex: 1 1 20%;
+      }
+
+      .branch-label {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    status-bar-launch-mode {
+      flex-shrink: 0;
+      padding: 0 8px;
+      &::before {
+        content: "\f0dd";
+        color: @text-color-warning;
+        margin: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .status-bar-right {
+    justify-content: flex-end;
+  }
 }
