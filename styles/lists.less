@@ -131,6 +131,11 @@
 
 // Select List -------------------
 .select-list {
+  atom-text-editor[mini]:first-of-type {
+    margin: 2px;
+    height: 32px;
+  }
+  
   li {
     padding: @component-padding/2 @component-padding;
   }
@@ -140,11 +145,6 @@
 }
 
 .project-manager {
-
-  atom-text-editor[mini]:first-of-type {
-    margin: 2px;
-    height: 32px;
-  }
 
   &.select-list ol.list-group {
     margin-top: 0;

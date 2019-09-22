@@ -55,6 +55,38 @@
         0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
     }
   }
+  &.left .tooltip-arrow {
+    border: none;
+    right: -8px;
+    width: 13px;
+    height: 30px;
+    margin-top: -15px;
+
+    &::after {
+      top: 50%;
+      margin-top: -7px;
+      left: auto;
+      right: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    }
+  }
+  &.right .tooltip-arrow {
+    border: none;
+    right: -8px;
+    width: 13px;
+    height: 30px;
+    margin-top: -15px;
+
+    &::after {
+      top: 50%;
+      margin-top: -7px;
+      left: auto;
+      right: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    }
+  }
 
   &.in {
     opacity: 1;

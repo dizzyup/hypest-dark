@@ -66,6 +66,14 @@ atom-panel-container.bottom {
   }
 }
 
+atom-pane-resize-handle.vertical + atom-pane-axis, atom-pane-resize-handle.vertical + atom-pane {
+  border-top: 1px solid #a8a8a8;
+
+  .is-blurred & {
+    border-top: 1px solid fade(#a8a8a8, 50%);
+  }
+}
+
 .atom-dock-toggle-button {
   padding: 10px;
   overflow: visible;
@@ -74,11 +82,13 @@ atom-panel-container.bottom {
   &.left {
     width: 56px;
     left: 100%;
+    margin-top: -30px;
   }
 
   &.right {
     width: 56px;
     right: 100%;
+    margin-top: -30px;
   }
 
   &.bottom {
