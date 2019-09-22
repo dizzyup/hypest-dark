@@ -10,3 +10,72 @@
 .status-modified { color: @text-color-warning; } // orange
 .status-removed  { color: @text-color-error; }   // red
 .status-renamed  { color: @text-color-info; }    // blue
+
+.github-CommitView-editor {
+  &:extend(atom-text-editor[mini]);
+
+  &:focus-within {
+    &:extend(atom-text-editor[mini].is-focused);
+  }
+
+  .github-CommitView-coAuthorToggle {
+    margin-left: 2px;
+    margin-bottom: 2px;
+
+    .github-CommitView-coAuthorToggleIcon.focused {
+      fill: @blue-color;
+    }
+  }
+
+  .github-CommitView-expandButton {
+    margin-right: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+}
+
+.github-StagingView {
+  .github-FilePatchListView-item {
+    cursor: pointer;
+  }
+  .github-FilePatchListView-item:hover {
+    background: @lighter-color;
+  }
+  .github-FilePatchListView-item.is-selected {
+    color: @white-color !important;
+    background: @background-color-highlight !important;
+
+    .icon {
+      color: @white-color !important;
+    }
+  }
+  &:focus-within {
+    .github-FilePatchListView-item.is-selected {
+      color: @white-color !important;
+      background: @background-color-selected !important;
+    }
+  }
+}
+
+.github-RecentCommits {
+  li {
+    cursor: pointer;
+
+    .btn {
+      min-height: 16px;
+    }
+  }
+  li:hover {
+    background: @lighter-color;
+  }
+  li.is-selected {
+    color: @white-color !important;
+    background: @background-color-highlight !important;
+  }
+  &:focus-within {
+    li.is-selected {
+      color: @white-color !important;
+      background: @background-color-selected !important;
+    }
+  }
+}
