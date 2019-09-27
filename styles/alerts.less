@@ -1,0 +1,31 @@
+.alert,
+.settings-view .alert {
+  border: none;
+  border-radius: 6px;
+
+  &.alert-success {
+    color: #fff;
+    background: @green-color;
+  }
+
+  &.alert-info {
+    color: @blue-color;
+    border: 1px solid fade(@blue-color, 60%);
+    background: fade(@blue-color, 5%);
+  }
+
+  &.alert-warning {
+    color: #fff;
+    background: @orange-color;
+  }
+
+  &.alert-danger {
+    color: #fff;
+    background: @red-color;
+  }
+
+  &.icon:before {
+    vertical-align: middle;
+    top: -2px;
+  }
+}

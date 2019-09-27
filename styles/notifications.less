@@ -1,7 +1,7 @@
 atom-notifications {
-  top: 39px;
+  top: 71px;
   bottom: 28px;
-  padding: 80px 0 0;
+  padding: 0;
   pointer-events: auto;
 
   atom-notification {
@@ -11,9 +11,37 @@ atom-notifications {
     background: #fff;
     box-shadow: 0 2px 30px rgba(0,0,0,0.15), 0 1px 3px 1px rgba(0,0,0,.2);
 
+    &:first-child {
+      margin-top: 52px;
+    }
+
+    &:only-child {
+      margin-top: 12px;
+    }
+
     &:after {
       height: 12px;
       bottom: -12px;
+    }
+
+    &.error.icon:before, &.fatal.icon:before {
+      color: #fff;
+      background: @red-color;
+    }
+
+    &.success.icon:before {
+      color: #fff;
+      background: @green-color;
+    }
+
+    &.info.icon:before {
+      color: #fff;
+      background: @blue-color;
+    }
+
+    &.warning.icon:before {
+      color: #fff;
+      background: @orange-color;
     }
 
     &:before {

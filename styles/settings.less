@@ -26,10 +26,6 @@
 
     .nav > li {
 
-      &.active a:hover {
-        background: @blue-color;
-      }
-
       > a {
         display: flex;
         align-items: center;
@@ -44,11 +40,21 @@
           margin-right: 8px;
         }
       }
+
+      &.active > a:hover {
+        background: @blue-color;
+      }
     }
   }
 
   .panels .panels-item {
     background: @lighter-color;
+  }
+
+  .section,
+  .section:first-child,
+  .section:last-child {
+    padding: 30px;
   }
 
   .sub-section {
@@ -63,6 +69,10 @@
     }
   }
 
+  .section-container {
+    margin: 0 auto;
+  }
+
   .section-container .section-heading + .editor-container {
 
     atom-text-editor[mini] {
@@ -72,9 +82,54 @@
   }
 
   .package-card {
+    margin-bottom: 12px;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 1px 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,.05);
+
+    &.disabled {
+      box-shadow: 0 2px 8px rgba(0,0,0,0), 0 1px 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,.05);
+    }
+  }
+
+  .settings-panel .section-body {
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 1px 1px 1px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,.05);
+
+    .control-group {
+      margin: 0 8px;
+      padding: 12px 12px;
+      border-bottom: 1px solid @base-border-color;
+
+      &:last-child {
+        border: none;
+      }
+
+      h3.sub-section-heading {
+        background: #fff;
+      }
+
+      .sub-section-body {
+        margin-bottom: 8px;
+      }
+
+      .checkbox {
+        margin: 0;
+      }
+
+      select, .editor-container {
+        margin: 4px 0;
+      }
+
+      input.input-checkbox {
+        top: 2px;
+      }
+
+      .setting-description {
+        font-size: 12px;
+      }
+    }
   }
 
   .section.packages {
@@ -85,6 +140,10 @@
         min-height: 32px;
       }
     }
+  }
+
+  .control-label {
+    font-weight: normal;
   }
 
   .installed-packages, .package-container {
@@ -126,5 +185,21 @@
 
   .themes-picker .select-container .btn {
     margin-left: 10px;
+  }
+
+  pre {
+    background: fade(@light-color, 50%);
+    border: 1px solid @base-border-color;
+
+    code {
+      background: none;
+      border: none;
+    }
+  }
+
+  code {
+    font-size: 13px;
+    background: fade(@light-color, 50%);
+    border: 1px solid @base-border-color;
   }
 }
