@@ -48,10 +48,10 @@
     box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(0, 0, 0, .05);
   }
 
-  &.disabled {
+  &.disabled, &[disabled] {
     color: @text-color-subtle;
     background: @light-color;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
   }
 
   &.selected {
@@ -137,6 +137,21 @@
     &:active {
       background: @red-color !important;
       box-shadow: 0 0 0 1px darken(@red-color, 25%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-primary, &.btn-info, &.btn-success, &.btn-warning, &.btn-error {
+
+    &.disabled, &[disabled] {
+      color: @text-color-subtle;
+      background: @light-color;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+
+      &:hover {
+        color: @text-color-subtle;
+        background: @light-color;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+      }
     }
   }
 
