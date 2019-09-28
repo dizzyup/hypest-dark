@@ -220,12 +220,14 @@ html.hypest-vibrancy {
   atom-panel-container.left .tab-bar,
   atom-panel-container.right .tab-bar {
     background: transparent;
+    box-shadow: none;
 
     .tab {
       background-color: fade(@white-color, 30%);
       box-shadow: none !important;
       background-clip: padding-box;
       margin: 0;
+      height: 32px;
       border-bottom: 1px solid fade(#A8A8A8, 40%);
       border-left: 1px solid fade(#A8A8A8, 40%);
 
@@ -234,6 +236,7 @@ html.hypest-vibrancy {
       }
 
       &.active {
+        height: 32px;
         background-color: fade(@white-color, 60%);
         border-bottom: 1px solid fade(#A8A8A8, 40%);
         border-left: 1px solid fade(#A8A8A8, 40%);
@@ -254,14 +257,29 @@ html.hypest-vibrancy {
     background: transparent;
   }
 
+  atom-workspace-axis.vertical {
+    border-right: 1px solid fade(#ccc, 70%);
+    border-left: 1px solid fade(#A8A8A8, 40%);
+  }
+
   atom-panel-container.left {
     box-shadow: none;
-    border-right: 1px solid fade(#A8A8A8, 40%);
+    border: none;
+    margin-left: -1px;
+
+    .atom-dock-inner {
+      padding-left: 1px;
+    }
   }
 
   atom-panel-container.right {
     box-shadow: none;
-    border-left: 1px solid fade(#A8A8A8, 40%);
+    border: none;
+    margin-right: -1px;
+
+    .atom-dock-inner {
+      padding-right: 1px;
+    }
   }
 
   .tree-view .list-item,
@@ -290,17 +308,25 @@ html.hypest-vibrancy {
     background: linear-gradient(180deg, fade(#E5E7E6, 75%) 0%, fade(#D4D4D4, 75%) 100%);
   }
 
-  .tab-bar .tab {
-    background: fade(#D4D4D4, 75%);
-    box-shadow: inset 0 -1px 0 0 fade(#A8A8A8, 70%), 1px 0 0 fade(#A8A8A8, 70%);
+  .tab-bar {
+    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 70%);
 
-    &:hover {
-      background: fade(#BBB, 75%);
-    }
+    .tab {
+      background: fade(#D4D4D4, 75%);
+      box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+      height: 31px;
+      margin-bottom: 1px;
 
-    &.active {
-      background: fade(#AAA, 75%);
-      box-shadow: inset 0 -1px 0 0 fade(#A8A8A8, 70%), 1px 0 0 fade(#A8A8A8, 70%);
+      &:hover {
+        background: fade(#BBB, 75%);
+      }
+
+      &.active {
+        background: fade(#AAA, 75%);
+        box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+        height: 32px;
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -319,6 +345,7 @@ html.hypest-vibrancy {
   }
 
   .github-Git, .github-GitHub {
+    box-shadow: 0 -1px 0 fade(#A8A8A8, 40%);
     background-color: fade(@white-color, 60%);
   }
 
