@@ -35,8 +35,13 @@
 }
 
 .github-StagingView {
+
+  .github-FilePatchListView {
+    padding: 4px;
+  }
   .github-FilePatchListView-item {
     cursor: pointer;
+    border-radius: 4px;
   }
   .github-FilePatchListView-item:hover {
     background: @lighter-color;
@@ -58,11 +63,18 @@
 }
 
 .github-RecentCommits {
+
+  .github-RecentCommits-list {
+    padding: 4px;
+  }
   li {
     cursor: pointer;
+    border-radius: 4px;
 
     .btn {
-      min-height: 16px;
+      min-height: 18px;
+      height: 18px;
+      margin-right: 10px;
     }
   }
   li:hover {
@@ -71,12 +83,36 @@
   li.is-selected {
     color: @white-color !important;
     background: @background-color-highlight !important;
+
+    .github-RecentCommit-time {
+      color: @white-color !important;
+    }
   }
   &:focus-within {
     li.is-selected {
       color: @white-color !important;
       background: @background-color-selected !important;
     }
+  }
+}
+
+.github-GithubLoginView .github-GithubLoginView-Subview h1 {
+  margin-bottom: 0;
+}
+
+.github-GitHub-LargeIcon.icon:before {
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.github-StagingView-header {
+  span.icon {
+    margin-top: -4px
+  }
+  .github-StagingView-headerButton--iconOnly::before {
+    font-size: 14px;
+    text-align: center;
+    margin-right: 0;
   }
 }
 
