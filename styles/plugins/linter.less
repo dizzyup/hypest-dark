@@ -86,14 +86,9 @@ linter-message {
 .icon.linter-icon::before {
   font-size: 14px;
 }
+
 atom-text-editor.editor .linter-row {
-  /* Take up the full allowed width */
-  left: 0;
-  right: 0;
-  /* Align the linter dot in the middle */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  left: -5px;
 }
 .linter-ui-default-fix-btn {
   color: #0088ff;
@@ -107,15 +102,12 @@ atom-text-editor.editor .linter-row {
   vertical-align: middle;
 }
 .linter-gutter.linter-gutter-info {
-  color: #0088ff;
   z-index: 1;
 }
 .linter-gutter.linter-gutter-warning {
-  color: #cc8533;
   z-index: 1;
 }
 .linter-gutter.linter-gutter-error {
-  color: #d92626;
   z-index: 1;
 }
 atom-text-editor.editor .linter-highlight.linter-info,
