@@ -1,15 +1,26 @@
-
 // Git
 // -------------------
 
 // Used to color git status
 
-.status          { color: @text-color; }
-.status-added    { color: @text-color-success; } // green
-.status-ignored  { color: @text-color-subtle; }  // faded
-.status-modified { color: @text-color-warning; } // orange
-.status-removed  { color: @text-color-error; }   // red
-.status-renamed  { color: @text-color-info; }    // blue
+.status {
+  color: @text-color;
+}
+.status-added {
+  color: @text-color-success;
+} // green
+.status-ignored {
+  color: @text-color-subtle;
+} // faded
+.status-modified {
+  color: @text-color-warning;
+} // orange
+.status-removed {
+  color: @text-color-error;
+} // red
+.status-renamed {
+  color: @text-color-info;
+} // blue
 
 .github-CommitView-editor {
   &:extend(atom-text-editor[mini]);
@@ -35,16 +46,16 @@
 }
 
 .github-StagingView {
-
   .github-FilePatchListView {
     padding: 4px;
   }
   .github-FilePatchListView-item {
     cursor: pointer;
+    padding: 3px 8px;
     border-radius: 4px;
   }
   .github-FilePatchListView-item:hover {
-    background: @lighter-color;
+    background: fade(@dark-color, 5%);
   }
   .github-FilePatchListView-item.is-selected {
     color: @white-color !important;
@@ -63,7 +74,6 @@
 }
 
 .github-RecentCommits {
-
   .github-RecentCommits-list {
     padding: 4px;
   }
@@ -78,7 +88,7 @@
     }
   }
   li:hover {
-    background: @lighter-color;
+    background: fade(@dark-color, 5%);
   }
   li.is-selected {
     color: @white-color !important;
@@ -107,7 +117,7 @@
 
 .github-StagingView-header {
   span.icon {
-    margin-top: -4px
+    margin-top: -4px;
   }
   .github-StagingView-headerButton--iconOnly::before {
     font-size: 14px;
@@ -116,7 +126,15 @@
   }
 }
 
-.github-Popover, .github-StatusBarTileController-tooltipMenu {
+.github-Accordion-content:empty::before {
+  padding: 30px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.github-Popover,
+.github-StatusBarTileController-tooltipMenu {
   .tooltip-inner.tooltip-inner {
     padding: 8px;
     border-radius: 6px;
