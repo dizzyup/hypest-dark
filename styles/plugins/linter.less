@@ -233,15 +233,33 @@ atom-text-editor.editor .linter-highlight.linter-error,
   font-size: 1em;
 }
 .linter-status-count {
-  display: flex;
-  align-items: stretch;
-  flex-shrink: 0;
+  padding: 2px 0;
+  line-height: 23px;
 }
 .linter-status-count a {
-  padding: 0 6px !important;
+  padding: 3px 8px !important;
+  border-radius: 12px;
+  line-height: 19px;
+  margin: 0 1px;
+  transition: color ease .2s, background ease .2s !important;
+}
+.linter-status-count a.text-warning:hover {
+  color: @white-color;
+  background: @orange-color;
+}
+.linter-status-count a.text-error {
+  color: @white-color;
+  background: @red-color;
+}
+.linter-status-count a.text-error:hover {
+  background: darken(@red-color, 15%);
 }
 .linter-status-count a::before {
   font-size: 12px;
+  margin-right: -2px;
+}
+.linter-status-count a.text-warning::before {
+  margin-left: -2px;
 }
 .linter-status-count.hide-config,
 .linter-status-count.hide-pane {
