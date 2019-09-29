@@ -133,6 +133,164 @@
   font-size: 15px;
 }
 
+// Patch view, gutters & line numbers
+.github-FilePatchView {
+
+  .github-FilePatchView-header,
+  .github-HunkHeaderView {
+    margin: 10px;
+  }
+
+  // Meta section
+  // Used for mode changes
+
+  &-metaDiff {
+    &--added {
+      color: ;
+      background-color: fade(@green-color, 30%);
+    }
+    &--removed {
+      color: ;
+      background-color: fade(@red-color, 30%);
+    }
+  }
+
+  // Line decorations
+
+  .line {
+    padding-left: 4px;
+  }
+  &-line {
+    &--deleted {
+      color: darken(@red-color, 30%);
+      background-color: fade(@red-color, 20%);
+      &.line.cursor-line {
+        background-color: fade(@red-color, 30%);
+      }
+    }
+    &--added {
+      color: darken(@green-color, 30%);
+      background-color: fade(@green-color, 20%);
+      &.line.cursor-line {
+        background-color: fade(@green-color, 30%);
+      }
+    }
+  }
+
+  // Gutter
+
+  .gutter {
+    margin-right: -4px;
+    &.old .line-number, &.new .line-number {
+      min-width: 60px;
+    }
+    .github-editorCommentGutterIcon.decoration {
+      width: calc(~"100% - " 4px);
+    }
+  }
+}
+
+
+// States
+
+// Selected
+.github-FilePatchView {
+  .gutter {
+    &.old .line-number,
+    &.new .line-number,
+    &.icons .line-number,
+    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+      &.github-FilePatchView-line--selected {
+        color: @text-color;
+        background: @light-color;
+        z-index: 1 !important;
+      }
+    }
+  }
+
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Selected + focused
+.github-FilePatchView:focus-within {
+  .gutter {
+    &.old .line-number,
+    &.new .line-number,
+    &.icons .line-number,
+    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+      &.github-FilePatchView-line--selected {
+        color: @text-color;
+        background: @light-color;
+        z-index: 1 !important;
+      }
+    }
+  }
+
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Selected + focused hunkmode
+.github-FilePatchView.github-FilePatchView--hunkMode:focus-within {
+
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Header
+
+.github-FilePatchView-header,
+.github-HunkHeaderView {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.github-HunkHeaderView {
+  &-title,
+  &-stageButton,
+  &-discardButton {
+    cursor: pointer;
+    &:hover  { background-color: @lighter-color; }
+    &:active { background-color: @light-color; }
+  }
+}
+
+// Selected
+.github-HunkHeaderView--isSelected {
+  color: @white-color;
+  background-color: @blue-color;
+  .github-HunkHeaderView-title,
+  .github-HunkHeaderView-stageButton,
+  .github-HunkHeaderView-discardButton {
+    &:hover  { background-color: lighten(@blue-color, 5%); }
+    &:active { background-color: darken(@blue-color, 5%); }
+  }
+}
+
+// Selected + focused
+.github-FilePatchView:focus-within {
+  .github-HunkHeaderView--isSelected {
+    color: @white-color;
+    background-color: @blue-color;
+    .github-HunkHeaderView-title,
+    .github-HunkHeaderView-stageButton,
+    .github-HunkHeaderView-discardButton {
+      &:hover  { background-color: lighten(@blue-color, 5%); }
+      &:active { background-color: darken(@blue-color, 5%); }
+    }
+  }
+}
+
 .github-Popover,
 .github-StatusBarTileController-tooltipMenu {
   .tooltip-inner.tooltip-inner {
