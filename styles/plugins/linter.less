@@ -1,72 +1,88 @@
 #linter-tooltip {
   margin-top: 3px;
   max-width: 64em;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 30px fade(@black-color, 30%),
+    0 1px 3px 1px fade(@black-color, 20%);
 }
+#linter-tooltip linter-message {
+  position: relative;
+  display: block;
+  padding: 5px 8px 5px 18px;
+
+  &:first-child {
+    border-top: none !important;
+  }
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+}
+
+// Error
 #linter-tooltip linter-message.error {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
   background-color: #fff;
-  border-left: 8px solid #ff3f3f;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.error:first-child {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.error:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.error:last-child::before {
-  border-color: transparent transparent #ff3f3f #ff3f3f;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @red-color;
+  }
 }
 #linter-tooltip linter-message.error a {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
 }
+
+// Warning
 #linter-tooltip linter-message.warning {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
   background-color: #fff;
-  border-left: 8px solid #ff8d18;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.warning:first-child {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.warning:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.warning:last-child::before {
-  border-color: transparent transparent #ff8d18 #ff8d18;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @orange-color;
+  }
 }
 #linter-tooltip linter-message.warning a {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
 }
+
+// Info
 #linter-tooltip linter-message.info {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
   background-color: #fff;
-  border-left: 8px solid #0095ff;
-  border-right: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.info:first-child {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.info:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-#linter-tooltip linter-message.info:last-child::before {
-  border-color: transparent transparent #0095ff #0095ff;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @blue-color;
+  }
 }
 #linter-tooltip linter-message.info a {
-  color: rgba(34, 34, 34, 0.8);
+  color: @text-color;
 }
-#linter-tooltip linter-message.info::before {
-  opacity: 0;
-}
-#linter-tooltip linter-message:last-child::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: 0;
-  border: 4px solid;
-  display: none;
-}
+
 #linter-tooltip linter-message a {
   font-weight: bold;
 }
@@ -77,39 +93,35 @@
   display: block;
 }
 #linter-tooltip linter-message .badge {
-  color: rgba(34, 34, 34, 0.9);
+  color: @text-color-subtle;
 }
-linter-message {
-  display: block;
-  padding: 2px 5px;
+#linter-tooltip linter-message .icon::before {
+  margin-right: 0;
 }
-.icon.linter-icon::before {
-  font-size: 14px;
+#linter-tooltip linter-message:last-child::before {
+  display: none;
 }
 
 atom-text-editor.editor .linter-row {
   left: -5px;
 }
 .linter-ui-default-fix-btn {
-  color: #0088ff;
-  background-color: #fff;
-  border-color: #dad9db;
-  border-radius: 2px;
-  margin: 0 10px;
-  padding: 5px 10px;
-  line-height: 100%;
+  &:extend(.btn.btn-primary);
+  color: #fff;
+  border: none;
+  margin: 0 10px 0 0;
+  padding: 4px 8px 3px;
   font-size: 12px;
+  line-height: 13px;
   vertical-align: middle;
+  &:hover {
+    &:extend(.btn.btn-primary:hover);
+  }
+  &:active {
+    &:extend(.btn.btn-primary:active);
+  }
 }
-.linter-gutter.linter-gutter-info {
-  z-index: 1;
-}
-.linter-gutter.linter-gutter-warning {
-  z-index: 1;
-}
-.linter-gutter.linter-gutter-error {
-  z-index: 1;
-}
+
 atom-text-editor.editor .linter-highlight.linter-info,
 .linter-highlight.linter-info {
   background-image: linear-gradient(
@@ -162,7 +174,7 @@ atom-text-editor.editor .linter-highlight.linter-error,
   top: 0;
   left: 1.8rem;
   width: calc(100% - 1.8rem);
-  height: 100%;
+  height: calc(~"100% - " 2px);
   position: absolute;
   background-image: linear-gradient(
       45deg,
@@ -181,7 +193,7 @@ atom-text-editor.editor .linter-highlight.linter-error,
   top: 0;
   left: 1.8rem;
   width: calc(100% - 1.8rem);
-  height: 100%;
+  height: calc(~"100% - " 2px);
   position: absolute;
   background-image: linear-gradient(
       45deg,
@@ -200,7 +212,7 @@ atom-text-editor.editor .linter-highlight.linter-error,
   top: 0;
   left: 1.8rem;
   width: calc(100% - 1.8rem);
-  height: 100%;
+  height: calc(~"100% - " 2px);
   position: absolute;
   background-image: linear-gradient(
       45deg,
