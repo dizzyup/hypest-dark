@@ -45,6 +45,22 @@
   }
 }
 
+.github-Review-reply .github-AtomTextEditor-container {
+  atom-text-editor {
+    &:extend(atom-text-editor[mini]);
+
+    .cursor-line {
+      background: #fff;
+    }
+  }
+
+  &:focus-within {
+    atom-text-editor {
+      &:extend(atom-text-editor[mini].is-focused);
+    }
+  }
+}
+
 .github-StagingView {
   .github-FilePatchListView {
     padding: 4px;
@@ -106,6 +122,12 @@
   }
 }
 
+.github-Git {
+  .btn {
+    cursor: pointer;
+  }
+}
+
 .github-GithubLoginView .github-GithubLoginView-Subview h1 {
   margin-bottom: 0;
 }
@@ -118,6 +140,14 @@
 .github-StagingView-header {
   span.icon {
     margin-top: -4px;
+  }
+  .github-StagingView-headerButton {
+    cursor: pointer;
+    transition: background ease 0.2s;
+
+    &:hover {
+      background: @white-color;
+    }
   }
   .github-StagingView-headerButton--iconOnly::before {
     font-size: 14px;
@@ -336,9 +366,23 @@
   }
 }
 
+.github-Accordion-header {
+  .github-IssueishList-openReviewsButton,
+  .btn {
+    padding: 0 8px;
+    min-height: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
 .github-Reviews {
   .github-Reviews-emptyState {
     text-align: center;
+
+    .btn {
+      text-decoration: none !important;
+    }
   }
   .github-Reviews-topHeader {
     min-height: 32px;
@@ -354,6 +398,34 @@
       }
     }
   }
+  .github-Reviews-progress {
+    display: flex;
+    align-items: center;
+  }
+  .github-Review-navButton {
+    display: flex;
+    justify-content: center;
+    transition: background ease 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background: @light-color;
+    }
+
+    &:before {
+      margin-top: -1px;
+    }
+  }
+  .github-Review-nav + .github-AtomTextEditor-container {
+    atom-text-editor {
+      border-radius: 0;
+    }
+  }
+}
+
+.github-ReviewsFooterView {
+  display: flex;
+  align-items: center;
 }
 
 .github-Popover,
