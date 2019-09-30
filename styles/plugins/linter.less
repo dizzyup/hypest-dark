@@ -1,0 +1,274 @@
+#linter-tooltip {
+  margin-top: 3px;
+  max-width: 64em;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 30px fade(@black-color, 30%),
+    0 1px 3px 1px fade(@black-color, 20%);
+}
+#linter-tooltip linter-message {
+  position: relative;
+  display: block;
+  padding: 5px 8px 5px 18px;
+
+  &:first-child {
+    border-top: none !important;
+  }
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+}
+
+// Error
+#linter-tooltip linter-message.error {
+  color: @text-color;
+  background-color: #fff;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @red-color;
+  }
+}
+#linter-tooltip linter-message.error a {
+  color: @text-color;
+}
+
+// Warning
+#linter-tooltip linter-message.warning {
+  color: @text-color;
+  background-color: #fff;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @orange-color;
+  }
+}
+#linter-tooltip linter-message.warning a {
+  color: @text-color;
+}
+
+// Info
+#linter-tooltip linter-message.info {
+  color: @text-color;
+  background-color: #fff;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 3px;
+    width: 6px;
+    border-radius: 2px;
+    background: @blue-color;
+  }
+}
+#linter-tooltip linter-message.info a {
+  color: @text-color;
+}
+
+#linter-tooltip linter-message a {
+  font-weight: bold;
+}
+#linter-tooltip linter-message p {
+  margin-bottom: 0;
+}
+#linter-tooltip linter-message .linter-line {
+  display: block;
+}
+#linter-tooltip linter-message .badge {
+  color: @text-color-subtle;
+}
+#linter-tooltip linter-message .icon::before {
+  margin-right: 0;
+}
+#linter-tooltip linter-message:last-child::before {
+  display: none;
+}
+
+atom-text-editor.editor .linter-row {
+  left: -5px;
+}
+.linter-ui-default-fix-btn {
+  &:extend(.btn.btn-primary);
+  color: #fff;
+  border: none;
+  margin: 0 10px 0 0;
+  padding: 4px 8px 3px;
+  font-size: 12px;
+  line-height: 13px;
+  vertical-align: middle;
+  &:hover {
+    &:extend(.btn.btn-primary:hover);
+  }
+  &:active {
+    &:extend(.btn.btn-primary:active);
+  }
+}
+
+atom-text-editor.editor .linter-highlight.linter-info,
+.linter-highlight.linter-info {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #0088ff 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #0088ff 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #0088ff 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #0088ff 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+atom-text-editor.editor .linter-highlight.linter-warning,
+.linter-highlight.linter-warning {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #cc8533 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #cc8533 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #cc8533 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #cc8533 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+atom-text-editor.editor .linter-highlight.linter-error,
+.linter-highlight.linter-error {
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #d92626 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #d92626 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #d92626 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #d92626 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view span.name {
+  position: relative;
+}
+.tree-view .linter-info {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: calc(~"100% - " 2px);
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #0088ff 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #0088ff 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #0088ff 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #0088ff 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view .linter-warning {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: calc(~"100% - " 2px);
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #cc8533 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #cc8533 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #cc8533 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #cc8533 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.tree-view .linter-error {
+  top: 0;
+  left: 1.8rem;
+  width: calc(100% - 1.8rem);
+  height: calc(~"100% - " 2px);
+  position: absolute;
+  background-image: linear-gradient(
+      45deg,
+      transparent 65%,
+      #d92626 80%,
+      transparent 90%
+    ),
+    linear-gradient(135deg, transparent 5%, #d92626 15%, transparent 25%),
+    linear-gradient(135deg, transparent 45%, #d92626 55%, transparent 65%),
+    linear-gradient(45deg, transparent 25%, #d92626 35%, transparent 50%);
+  background-size: 8px 2px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.linter-gutter.icon::before {
+  width: 100%;
+  margin-right: 0px;
+  font-size: 1em;
+}
+.linter-status-count {
+  padding: 2px 0;
+  line-height: 23px;
+}
+.linter-status-count a {
+  padding: 3px 8px !important;
+  border-radius: 12px;
+  line-height: 19px;
+  margin: 0 1px;
+  transition: color ease .2s, background ease .2s !important;
+}
+.linter-status-count a.text-warning:hover {
+  color: @white-color;
+  background: @orange-color;
+}
+.linter-status-count a.text-error {
+  color: @white-color;
+  background: @red-color;
+}
+.linter-status-count a.text-error:hover {
+  background: darken(@red-color, 15%);
+}
+.linter-status-count a::before {
+  font-size: 12px;
+  margin-right: -2px;
+}
+.linter-status-count a.text-warning::before {
+  margin-left: -2px;
+}
+.linter-status-count.hide-config,
+.linter-status-count.hide-pane {
+  display: none;
+}
+.linter-cursor-line {
+  width: 100%;
+  padding-left: 0;
+}
+linter-decoration {
+  pointer-events: none;
+}

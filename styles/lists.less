@@ -14,11 +14,111 @@
     &.selected {
       color: @text-color-selected;
       background-color: @background-color-selected;
-      &:before{ display: none; }
+      border-radius: 4px;
+      &:before {
+        display: none;
+      }
+      .icon {
+        color: @white-color;
+      }
     }
+  }
+  .no-icon {
+    padding-left: 24px;
   }
 }
 
+.fuzzy-finder {
+
+  atom-text-editor[mini]:first-of-type {
+    margin: 2px;
+    height: 32px;
+  }
+
+  .text-smaller, .loading, .error-message {
+    font-size: 12px;
+    color: @text-color-subtle;
+    padding: 6px 10px 4px;
+
+  }
+
+  .error-message {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 4px;
+    border-radius: 6px;
+  }
+
+  .list-group {
+    max-height: 336px !important;
+    padding-bottom: 0 !important;
+
+    .selected .character-match {
+      color: @white-color;
+    }
+  }
+
+  .primary-line, .secondary-line {
+    line-height: 1.5;
+  }
+
+  .primary-line {
+    position: relative;
+    font-size: 12px;
+    font-weight: 500;
+    color: @text-color;
+
+    &.icon {
+      padding-left: 24px;
+    }
+
+    &.icon::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  .secondary-line {
+    color: @text-color-subtle;
+    padding-bottom: 2px;
+
+    .character-match {
+      color: @text-color-subtle;
+    }
+  }
+
+  .selected {
+
+    .primary-line {
+      color: @white-color;
+    }
+
+    .secondary-line {
+      color: @light-color;
+
+      .character-match {
+        color: @light-color;
+      }
+    }
+  }
+
+  atom-text-editor + span {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    color: @text-color-subtle;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 0;
+    border-radius: 6px;
+  }
+}
 
 // List Tree -------------------
 .list-tree {
@@ -31,6 +131,11 @@
 
 // Select List -------------------
 .select-list {
+  atom-text-editor[mini]:first-of-type {
+    margin: 2px;
+    height: 32px;
+  }
+  
   li {
     padding: @component-padding/2 @component-padding;
   }
@@ -39,18 +144,91 @@
   }
 }
 
+.project-manager {
+
+  &.select-list ol.list-group {
+    margin-top: 0;
+  }
+
+  .text-smaller, .loading, .error-message {
+    font-size: 12px;
+    color: @text-color-subtle;
+    padding: 6px 10px 8px;
+  }
+
+  .error-message {
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    background: @light-color;
+    padding: 20px 30px;
+    margin: 10px 1px 4px;
+    border-radius: 6px;
+  }
+
+  li {
+    border: none !important;
+  }
+
+  .project-manager-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: @text-color;
+  }
+
+  .primary-line, .secondary-line {
+    line-height: 1.5;
+  }
+
+  .primary-line .icon::before {
+    top: 2px;
+  }
+
+  .secondary-line {
+    color: @text-color-subtle;
+    padding-bottom: 2px;
+  }
+
+  .selected {
+
+    .project-manager-title {
+      color: @white-color;
+    }
+
+    .secondary-line {
+      color: @light-color;
+    }
+  }
+}
+
+.tree-view-dialog {
+  padding: 8px 8px 0;
+
+  label {
+    display: flex;
+    color: @text-color;
+    font-size: 13px;
+    font-weight: 500;
+    padding-bottom: 4px;
+  }
+}
+
+autocomplete-suggestion-list.select-list.popover-list {
+  border-radius: 4px;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
 
 // Popover List -------------------
 // Used as a popover for something like autocomplete.
 .select-list.popover-list {
   @popover-list-padding: @component-padding/2;
-
   padding: @popover-list-padding;
-  border-radius: @component-border-radius;
   background-color: @overlay-background-color;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+  box-shadow: 0 2px 30px fade(@black-color, 30%), 0 1px 3px 1px fade(@black-color, 20%);
 
   .list-group {
+    max-height: 345px;
     margin-top: @popover-list-padding;
     li {
       padding-left: @popover-list-padding;

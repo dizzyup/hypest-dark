@@ -11,6 +11,85 @@
     padding: .75em;
     white-space: nowrap;
     max-width: none;
+    border-radius: 6px;
+    color: @text-color;
+    background: @light-color;
+    box-shadow: 0 2px 8px fade(@black-color, 10%),
+      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+  }
+  .tooltip-arrow {
+    width: 30px;
+    height: 13px;
+    margin-left: -15px;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      background: @light-color;
+      width: 16px;
+      height: 16px;
+      transform: rotate(45deg);
+    }
+  }
+  &.bottom .tooltip-arrow {
+    border: none;
+    top: -8px;
+    margin-left: -15px;
+
+    &::after {
+      top: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 0 1px fade(@black-color, 5%);
+    }
+  }
+  &.top .tooltip-arrow {
+    border: none;
+    bottom: -8px;
+    margin-left: -15px;
+
+    &::after {
+      bottom: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    }
+  }
+  &.left .tooltip-arrow {
+    border: none;
+    right: -8px;
+    width: 13px;
+    height: 30px;
+    margin-top: -15px;
+
+    &::after {
+      top: 50%;
+      margin-top: -7px;
+      left: auto;
+      right: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    }
+  }
+  &.right .tooltip-arrow {
+    border: none;
+    right: -8px;
+    width: 13px;
+    height: 30px;
+    margin-top: -15px;
+
+    &::after {
+      top: 50%;
+      margin-top: -7px;
+      left: auto;
+      right: 8px;
+      box-shadow: 0 0 6px fade(@black-color, 10%),
+        0 0 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    }
+  }
+
+  &.in {
+    opacity: 1;
   }
 
   .keystroke {

@@ -1,24 +1,156 @@
-
 // Mini Editor
 // -------------------
 
 // Mini Editors are the "text inputs" used in find+replace or in the settings.
 
-
 atom-text-editor[mini] {
-  padding-left: @component-padding/2;
+  display: flex;
+  align-items: center;
+  padding-left: @component-padding / 2;
   color: @text-color;
+  min-height: 28px;
+  max-height: 100%;
+  border: none;
   border-radius: @component-border-radius;
   background-color: @input-background-color;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, .05), 0 0 0 1px rgba(0, 0, 0, .15);
+
+  > div {
+    background: none !important;;
+  }
 
   &.is-focused {
-    background-color: darken(@input-background-color, 5%);
+    background-color: @input-background-color;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, .05), 0 0 0 1px rgba(0, 0, 0, .15), 0 0 0 1px fade(@blue-color, 70%), 0 0 0 3px fade(@blue-color, 40%);
+
+    .selection .region {
+      background: #cfe9ff;
+    }
+  }
+
+  .selection .region {
+    background: transparent;
   }
 
   .placeholder-text {
     color: @text-color-subtle;
   }
+}
+
+atom-text-editor.editor {
+
+  .gutter {
+    min-width: auto;
+    background: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: calc(~"100% " - 4px);
+      box-shadow: inset -1px 0 0 fade(@black-color, 5%);
+      background: @lighter-color;
+    }
+
+    .line-number {
+      color: @text-color-subtle;
+      min-width: 60px;
+      padding-left: calc(0.5em - 4px);
+      padding-right: 4px;
+      background: @lighter-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-right: 4px solid @white-color;
+        background: fade(@black-color, 5%);
+        width: 5px;
+      }
+
+      &.cursor-line {
+        color: @text-color;
+        background: @light-color;
+
+        &::after {
+          border-right: 4px solid @white-color;
+          right: 0;
+        }
+      }
+
+      &.cursor-line-no-selection {
+        background: @light-color;
+
+        &::after {
+          border-right: 4px solid @lighter-color;
+          right: 0;
+        }
+      }
+
+      &.git-line-modified {
+        border: none;
+
+        &::before {
+          content: "";
+          position: absolute;
+          right: 4px;
+          width: 2px;
+          top: 0;
+          bottom: 0;
+          background: fade(@orange-color, 80%);
+        }
+      }
+
+      &.git-line-added {
+        border: none;
+
+        &::before {
+          content: "";
+          position: absolute;
+          right: 4px;
+          width: 2px;
+          top: 0;
+          bottom: 0;
+          background: fade(@green-color, 80%);
+        }
+      }
+
+      &.git-line-removed:before,
+      &.git-previous-line-removed:before {
+        left: auto;
+        right: 0;
+        z-index: 4;
+      }
+    }
+  }
+
+  .gutter.line-numbers {
+    min-width: 60px;
+  }
+
+  .gutter[gutter-name="linter-ui-default"] {
+    margin-left: -4px;
+    min-width: 1.4em;
+
+    .line-number {
+      min-width: auto;
+    }
+  }
+
+  .cursor-line {
+    background: @lighter-color;
+  }
+
   .selection .region {
-    background-color: @background-color-selected;
+    border-radius: 0;
+  }
+
+  .wrap-guide {
+    background: none;
+    border-right: 1px dotted @base-border-color;
   }
 }

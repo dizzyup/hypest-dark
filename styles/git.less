@@ -1,12 +1,450 @@
-
 // Git
 // -------------------
 
 // Used to color git status
 
-.status          { color: @text-color; }
-.status-added    { color: @text-color-success; } // green
-.status-ignored  { color: @text-color-subtle; }  // faded
-.status-modified { color: @text-color-warning; } // orange
-.status-removed  { color: @text-color-error; }   // red
-.status-renamed  { color: @text-color-info; }    // blue
+.status {
+  color: @text-color;
+}
+.status-added {
+  color: @text-color-success;
+} // green
+.status-ignored {
+  color: @text-color-subtle;
+} // faded
+.status-modified {
+  color: @text-color-warning;
+} // orange
+.status-removed {
+  color: @text-color-error;
+} // red
+.status-renamed {
+  color: @text-color-info;
+} // blue
+
+.github-CommitView-editor {
+  &:extend(atom-text-editor[mini]);
+
+  &:focus-within {
+    &:extend(atom-text-editor[mini].is-focused);
+  }
+
+  .github-CommitView-coAuthorToggle {
+    margin-left: 2px;
+    margin-bottom: 2px;
+
+    .github-CommitView-coAuthorToggleIcon.focused {
+      fill: @blue-color;
+    }
+  }
+
+  .github-CommitView-expandButton {
+    margin-right: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+}
+
+.github-Review-reply .github-AtomTextEditor-container {
+  atom-text-editor {
+    &:extend(atom-text-editor[mini]);
+
+    .cursor-line {
+      background: #fff;
+    }
+  }
+
+  &:focus-within {
+    atom-text-editor {
+      &:extend(atom-text-editor[mini].is-focused);
+    }
+  }
+}
+
+.github-StagingView {
+  .github-FilePatchListView {
+    padding: 4px;
+  }
+  .github-FilePatchListView-item {
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .github-FilePatchListView-item:hover {
+    background: fade(@dark-color, 5%);
+  }
+  .github-FilePatchListView-item.is-selected {
+    color: @white-color !important;
+    background: @background-color-highlight !important;
+
+    .icon {
+      color: @white-color !important;
+    }
+  }
+  &:focus-within {
+    .github-FilePatchListView-item.is-selected {
+      color: @white-color !important;
+      background: @background-color-selected !important;
+    }
+  }
+}
+
+.github-RecentCommits {
+  .github-RecentCommits-list {
+    padding: 4px;
+  }
+  li {
+    cursor: pointer;
+    border-radius: 4px;
+
+    .btn {
+      min-height: 18px;
+      height: 18px;
+      margin-right: 10px;
+    }
+  }
+  li:hover {
+    background: fade(@dark-color, 5%);
+  }
+  li.is-selected {
+    color: @white-color !important;
+    background: @background-color-highlight !important;
+
+    .github-RecentCommit-time {
+      color: @white-color !important;
+    }
+  }
+  &:focus-within {
+    li.is-selected {
+      color: @white-color !important;
+      background: @background-color-selected !important;
+    }
+  }
+}
+
+.github-Git {
+  .btn {
+    cursor: pointer;
+  }
+}
+
+.github-GithubLoginView .github-GithubLoginView-Subview h1 {
+  margin-bottom: 0;
+}
+
+.github-GitHub-LargeIcon.icon:before {
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.github-StagingView-header {
+  span.icon {
+    margin-top: -4px;
+  }
+  .github-StagingView-headerButton {
+    cursor: pointer;
+    transition: background ease 0.2s;
+
+    &:hover {
+      background: @white-color;
+    }
+  }
+  .github-StagingView-headerButton--iconOnly::before {
+    font-size: 14px;
+    text-align: center;
+    margin-right: 0;
+  }
+}
+
+.github-Accordion-content:empty::before {
+  padding: 30px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.github-Accordion-listItem:active {
+  background: @light-color;
+}
+
+// Patch view, gutters & line numbers
+.github-FilePatchView {
+  .github-FilePatchView-header,
+  .github-HunkHeaderView {
+    margin: 10px;
+  }
+
+  // Meta section
+  // Used for mode changes
+
+  &-metaDiff {
+    &--added {
+      color: ;
+      background-color: fade(@green-color, 30%);
+    }
+    &--removed {
+      color: ;
+      background-color: fade(@red-color, 30%);
+    }
+  }
+
+  // Line decorations
+
+  .line {
+    padding-left: 4px;
+  }
+  &-line {
+    &--deleted {
+      color: darken(@red-color, 30%);
+      background-color: fade(@red-color, 20%);
+      &.line.cursor-line {
+        background-color: fade(@red-color, 30%);
+      }
+    }
+    &--added {
+      color: darken(@green-color, 30%);
+      background-color: fade(@green-color, 20%);
+      &.line.cursor-line {
+        background-color: fade(@green-color, 30%);
+      }
+    }
+  }
+
+  // Gutter
+
+  .gutter {
+    margin-right: -4px;
+    &.old .line-number,
+    &.new .line-number {
+      min-width: 60px;
+    }
+    .github-editorCommentGutterIcon.decoration {
+      width: calc(~"100% - " 4px);
+    }
+  }
+}
+
+// States
+
+// Selected
+.github-FilePatchView {
+  .gutter {
+    &.old .line-number,
+    &.new .line-number,
+    &.icons .line-number,
+    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+      &.github-FilePatchView-line--selected {
+        color: @text-color;
+        background: @light-color;
+        z-index: 1 !important;
+      }
+    }
+  }
+
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Selected + focused
+.github-FilePatchView:focus-within {
+  .gutter {
+    &.old .line-number,
+    &.new .line-number,
+    &.icons .line-number,
+    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+      &.github-FilePatchView-line--selected {
+        color: @text-color;
+        background: @light-color;
+        z-index: 1 !important;
+      }
+    }
+  }
+
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Selected + focused hunkmode
+.github-FilePatchView.github-FilePatchView--hunkMode:focus-within {
+  atom-text-editor {
+    .selection .region {
+      background-color: #cfe9ff;
+    }
+  }
+}
+
+// Header
+
+.github-FilePatchView-header,
+.github-HunkHeaderView {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.github-HunkHeaderView {
+  &-title,
+  &-stageButton,
+  &-discardButton {
+    cursor: pointer;
+    &:hover {
+      background-color: @lighter-color;
+    }
+    &:active {
+      background-color: @light-color;
+    }
+  }
+}
+
+// Selected
+.github-HunkHeaderView--isSelected {
+  color: @white-color;
+  background-color: @blue-color;
+  .github-HunkHeaderView-title,
+  .github-HunkHeaderView-stageButton,
+  .github-HunkHeaderView-discardButton {
+    &:hover {
+      background-color: lighten(@blue-color, 5%);
+    }
+    &:active {
+      background-color: darken(@blue-color, 5%);
+    }
+  }
+}
+
+// Selected + focused
+.github-FilePatchView:focus-within {
+  .github-HunkHeaderView--isSelected {
+    color: @white-color;
+    background-color: @blue-color;
+    .github-HunkHeaderView-title,
+    .github-HunkHeaderView-stageButton,
+    .github-HunkHeaderView-discardButton {
+      &:hover {
+        background-color: lighten(@blue-color, 5%);
+      }
+      &:active {
+        background-color: darken(@blue-color, 5%);
+      }
+    }
+  }
+}
+
+.github-tablist {
+  background: @lighter-color;
+
+  li.github-tab {
+    font-weight: 500;
+    transition: ease 0.2s;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+      background: @white-color;
+    }
+    &.react-tabs__tab--selected {
+      color: @text-color;
+      background: @white-color;
+      z-index: 2;
+      transition: none;
+      border-left: 1px solid @base-border-color;
+      border-right: 1px solid @base-border-color;
+      box-shadow: none;
+    }
+  }
+}
+
+.github-IssueishDetailView-meta {
+  code {
+    color: @text-color;
+    background: @light-color;
+  }
+}
+
+.github-Accordion-header {
+  .github-IssueishList-openReviewsButton,
+  .btn {
+    padding: 0 8px;
+    min-height: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+
+.github-Reviews {
+  .github-Reviews-emptyState {
+    text-align: center;
+
+    .btn {
+      text-decoration: none !important;
+    }
+  }
+  .github-Reviews-topHeader {
+    min-height: 32px;
+    .github-Reviews-headerButton,
+    .github-StubItem-github-reviews-headerButton {
+      padding: 0 8px;
+      min-height: 20px;
+      height: 20px;
+      line-height: 20px;
+      &.icon:before {
+        margin-top: 1px;
+        margin-right: 0;
+      }
+    }
+  }
+  .github-Reviews-progress {
+    display: flex;
+    align-items: center;
+  }
+  .github-Review-navButton {
+    display: flex;
+    justify-content: center;
+    transition: background ease 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background: @light-color;
+    }
+
+    &:before {
+      margin-top: -1px;
+    }
+  }
+  .github-Review-nav + .github-AtomTextEditor-container {
+    atom-text-editor {
+      border-radius: 0;
+    }
+  }
+}
+
+.github-ReviewsFooterView {
+  display: flex;
+  align-items: center;
+}
+
+.github-Popover,
+.github-StatusBarTileController-tooltipMenu {
+  .tooltip-inner.tooltip-inner {
+    padding: 8px;
+    border-radius: 6px;
+    color: @text-color;
+    border: none;
+    background: @light-color;
+    box-shadow: 0 2px 8px fade(@black-color, 10%),
+      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+  }
+  &.top .tooltip-arrow.tooltip-arrow {
+    width: 30px;
+    height: 13px;
+    border: none;
+    background: none;
+    border-radius: 0;
+    transform: none;
+  }
+}

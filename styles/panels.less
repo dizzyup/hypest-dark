@@ -1,4 +1,3 @@
-
 // Panels
 // -------------------
 
@@ -16,12 +15,25 @@
   }
 }
 
-
 // Modal -------------------
 // Used on top of the editor, like the Command Palette.
 
 atom-panel.modal {
-  border: 1px solid @overlay-border-color;
-  border-top: none;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+  margin-top: 8px;
+  padding: 6px;
+  border: none;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 40px fade(@black-color, 30%), 0 2px 10px fade(@black-color, 10%),
+    0 1px 2px 1px fade(@black-color, 10%);
+  background: @lighter-color;
+
+  .go-to-line {
+    padding: 4px;
+
+    .message {
+      color: @text-color;
+      font-size: 12px;
+      padding: 0;
+    }
+  }
 }

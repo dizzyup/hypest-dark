@@ -1,9 +1,10 @@
 {
-  "name": "atom-hypest-ui",
+  "name": "hypest-ui",
   "theme": "ui",
   "version": "0.0.1",
   "description": "A beautiful & minimal macOS theme for Atom",
   "author": "Hector Simpson (https://hector.me)",
+  "main": "./lib/main",
   "keywords": [
     "ui",
     "theme"

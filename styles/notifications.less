@@ -1,0 +1,92 @@
+atom-notifications {
+  top: 71px;
+  bottom: 28px;
+  padding: 0;
+  pointer-events: auto;
+
+  atom-notification {
+    margin: 0 12px 10px 20px;
+    padding-left: 40px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.15), 0 1px 3px 1px rgba(0,0,0,.2);
+
+    &:first-child {
+      margin-top: 52px;
+    }
+
+    &:only-child {
+      margin-top: 12px;
+    }
+
+    &:after {
+      height: 12px;
+      bottom: -12px;
+    }
+
+    &.error.icon:before, &.fatal.icon:before {
+      color: #fff;
+      background: @red-color;
+    }
+
+    &.success.icon:before {
+      color: #fff;
+      background: @green-color;
+    }
+
+    &.info.icon:before {
+      color: #fff;
+      background: @blue-color;
+    }
+
+    &.warning.icon:before {
+      color: #fff;
+      background: @orange-color;
+    }
+
+    &:before {
+      top: 5px !important;
+      left: 5px !important;
+      width: 30px !important;
+      height: calc(~"100% -" 10px) !important;
+      border-radius: 4px !important;
+    }
+
+    .close-all.btn {
+      position: absolute;
+      top: -38px;
+      right: 0;
+      color: @white-color !important;
+      border: none !important;
+      border-radius: 20px;
+      box-shadow: none !important;
+      background: fade(@black-color, 60%) !important;
+
+      &:active {
+        background: fade(@black-color, 80%) !important;
+      }
+    }
+
+    .content {
+      color: inherit !important;
+      background: inherit !important;
+      padding-left: 8px;
+      border-radius: 0 6px 6px 0;
+
+      .item {
+        padding-left: 0 !important;
+      }
+
+      .btn-toolbar {
+        display: flex;
+        align-items: center;
+        padding-bottom: 8px;
+
+        > .btn {
+          margin-right: 12px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

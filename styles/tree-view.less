@@ -1,20 +1,78 @@
-
 // Tree View
 // -------------------
 
 // Used to explore and open files in the current project.
 // Overrides: atom/tree-view
 
+.tree-view {
+  background: @light-color;
 
-.tree-view-resizer {
-  border-right: 1px solid @base-border-color;
+  .tree-view-root {
+    min-width: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .list-tree.has-collapsable-children .list-nested-item > .list-tree > li,
+  .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+    padding-left: 14px;
+  }
+
+  .list-tree.has-collapsable-children .list-nested-item > .list-tree > li,
+  .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+    &.directory {
+      padding-left: 9px;
+    }
+  }
+
+  .list-item,
+  .list-nested-item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    span {
+      z-index: 1;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    &::before {
+      margin-left: 4px;
+      margin-right: 4px;
+      border-radius: 4px;
+      z-index: 0;
+    }
+
+    &.selected::before {
+      background: @background-color-highlight;
+    }
+  }
+
+  &:focus-within {
+    .list-item.selected,
+    .list-nested-item.selected {
+      &::before {
+        background: @background-color-selected;
+      }
+    }
+  }
+
+  .list-item.selected,
+  .list-nested-item.selected {
+    &::before {
+      margin-left: 4px;
+      margin-right: 4px;
+      border-radius: 4px;
+    }
+  }
 }
 
-.tree-view {
-  color: @text-color;
-  background-color: @tree-view-background-color;
-
-  .list-item.selected {
-    color: @text-color-selected;
-  }
+.header > .icon-repo:before {
+  top: 3px;
 }

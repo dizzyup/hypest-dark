@@ -1,4 +1,3 @@
-
 // Base
 // -------------------
 
@@ -7,16 +6,454 @@
 
 // -------------------
 
-
 body {
   font-size: @font-size;
   color: @text-color;
   background-color: @app-background-color;
 }
 
+atom-workspace {
+  color: @text-color;
+}
+
+atom-panel-container.left,
+atom-panel-container.right {
+  .atom-dock-resize-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+}
+
+atom-panel-container.left {
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
+  z-index: 3;
+
+  .atom-dock-resize-handle {
+    right: 0;
+  }
+}
+
+atom-panel-container.right {
+  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.15);
+  z-index: 2;
+
+  .atom-dock-resize-handle {
+    left: 0;
+  }
+}
+
+atom-panel-container.bottom {
+  box-shadow: 0 -1px 0 @base-border-color;
+  z-index: 1;
+
+  atom-dock {
+    box-shadow: 0 -1px 0 @base-border-color;
+    z-index: 2;
+  }
+
+  .atom-dock-resize-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  .find-and-replace {
+    border-top: none;
+  }
+}
+
+atom-pane-resize-handle.vertical + atom-pane-axis, atom-pane-resize-handle.vertical + atom-pane {
+  border-top: 1px solid #a8a8a8;
+
+  .is-blurred & {
+    border-top: 1px solid fade(#a8a8a8, 50%);
+  }
+}
+
+.atom-dock-toggle-button {
+  padding: 10px;
+  overflow: visible;
+  transition: opacity ease 0.3s, transform ease 0.3s;
+
+  &.left {
+    width: 56px;
+    left: 100%;
+    margin-top: -30px;
+  }
+
+  &.right {
+    width: 56px;
+    right: 100%;
+    margin-top: -30px;
+  }
+
+  &.bottom {
+    width: 59px;
+    height: 54px;
+    bottom: 100%;
+  }
+
+  &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.left {
+    transform: translateX(-30px) !important;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:not(.atom-dock-toggle-button-visible) .atom-dock-toggle-button-inner.right {
+    transform: translateX(30px) !important;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:not(.atom-dock-toggle-button-visible)
+    .atom-dock-toggle-button-inner.bottom {
+    transform: translateY(30px) !important;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .atom-dock-toggle-button-inner {
+    width: auto;
+    height: 35px;
+    background: @lighter-color;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 8px fade(@black-color, 10%),
+      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+
+    .icon {
+      transform: none !important;
+      transition: none !important;
+      height: 13px;
+    }
+
+    &.left {
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-left::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M5,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L5,12 L5,12 L5,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,1 L4,1 C4.55228475,1 5,1.44771525 5,2 L5,11 C5,11.5522847 4.55228475,12 4,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 6 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='8.5 8.5 10.5 6.5 8.5 4.5' transform='matrix(-1 0 0 1 19 0)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-right::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M5,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L5,12 L5,12 L5,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,1 L4,1 C4.55228475,1 5,1.44771525 5,2 L5,11 C5,11.5522847 4.55228475,12 4,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 6 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='8.5 8.5 10.5 6.5 8.5 4.5'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+
+    &.right {
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-left::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M1,1 L10,1 C10.5522847,1 11,1.44771525 11,2 L11,11 C11,11.5522847 10.5522847,12 10,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 12 0)'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M11,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L11,12 L11,12 L11,1 Z'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='5.5 8.5 7.5 6.5 5.5 4.5' transform='matrix(-1 0 0 1 13 0)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-right::before {
+        content: "";
+        width: 16px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L14,0 C15.1045695,0 16,0.8954305 16,2 L16,11 C16,12.1045695 15.1045695,13 14,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M1,1 L10,1 C10.5522847,1 11,1.44771525 11,2 L11,11 C11,11.5522847 10.5522847,12 10,12 L1,12 L1,12 L1,1 Z' transform='matrix(-1 0 0 1 12 0)'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M11,1 L14,1 C14.5522847,1 15,1.44771525 15,2 L15,11 C15,11.5522847 14.5522847,12 14,12 L11,12 L11,12 L11,1 Z'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='5.5 8.5 7.5 6.5 5.5 4.5'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+
+    &.bottom {
+      top: 10px;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+
+      .icon-chevron-up::before {
+        content: "";
+        width: 15px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L13,0 C14.1045695,0 15,0.8954305 15,2 L15,11 C15,12.1045695 14.1045695,13 13,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M2,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,9 L14,9 L1,9 L1,2 C1,1.44771525 1.44771525,1 2,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,9 L14,9 L14,11 C14,11.5522847 13.5522847,12 13,12 L2,12 C1.44771525,12 1,11.5522847 1,11 L1,9 L1,9 Z' transform='matrix(-1 0 0 1 15 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='6.5 7.5 8.5 5.5 6.5 3.5' transform='rotate(-90 7.5 5.5)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+      .icon-chevron-down::before {
+        content: "";
+        width: 15px;
+        height: 13px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' viewBox='0 0 16 13'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='%234B4B4B' fill-rule='nonzero' d='M2,0 L13,0 C14.1045695,0 15,0.8954305 15,2 L15,11 C15,12.1045695 14.1045695,13 13,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,2 C0,0.8954305 0.8954305,0 2,0 Z' opacity='.797'/%3E%3Cpath fill='%23E1E1E1' fill-rule='nonzero' d='M2,1 L13,1 C13.5522847,1 14,1.44771525 14,2 L14,9 L14,9 L1,9 L1,2 C1,1.44771525 1.44771525,1 2,1 Z'/%3E%3Cpath fill='%239E9E9E' fill-rule='nonzero' d='M1,9 L14,9 L14,11 C14,11.5522847 13.5522847,12 13,12 L2,12 C1.44771525,12 1,11.5522847 1,11 L1,9 L1,9 Z' transform='matrix(-1 0 0 1 15 0)'/%3E%3Cpolyline stroke='%234B4B4B' stroke-linecap='round' stroke-linejoin='round' points='6.5 7.5 8.5 5.5 6.5 3.5' transform='matrix(0 1 1 0 2 -2)'/%3E%3C/g%3E%3C/svg%3E%0A");
+      }
+    }
+  }
+}
+
 atom-pane {
-  border-right: 1px solid @base-border-color;
-  &:last-child {
+  background: @light-color;
+}
+
+html.hypest-vibrancy {
+  background: transparent;
+
+  body, atom-workspace, atom-pane {
+    background: transparent;
+  }
+
+  atom-panel-container.header .tool-panel,
+  atom-panel-container.footer .tool-panel {
+    background: transparent;
+  }
+
+  atom-panel-container.left atom-pane,
+  atom-panel-container.left atom-pane .tree-view,
+  atom-panel-container.right atom-pane,
+  atom-panel-container.right atom-pane .tree-view {
+    background: transparent;
+  }
+
+  atom-panel-container.left .atom-dock-mask,
+  atom-panel-container.right .atom-dock-mask {
+    background: fade(@white-color, 30%);
+  }
+
+  atom-panel-container.left .tab-bar,
+  atom-panel-container.right .tab-bar {
+    background: transparent;
+    box-shadow: none;
+
+    .tab {
+      background-color: fade(@white-color, 30%);
+      box-shadow: none !important;
+      background-clip: padding-box;
+      margin: 0;
+      height: 32px;
+      border-bottom: 1px solid fade(#A8A8A8, 0%);
+      border-left: 1px solid fade(#A8A8A8, 40%);
+
+      &:hover {
+        background-color: fade(@white-color, 40%);
+      }
+
+      &.active {
+        height: 32px;
+        background-color: fade(@white-color, 60%);
+        border-bottom: 1px solid fade(#A8A8A8, 0%);
+        border-left: 1px solid fade(#A8A8A8, 40%);
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:only-child {
+        background-color: transparent !important;
+        border-bottom: none;
+      }
+    }
+  }
+
+  atom-workspace-axis.vertical atom-pane-container .tab-bar {
+    background: transparent;
+  }
+
+  atom-workspace-axis.vertical {
+    border-right: 1px solid fade(#ccc, 70%);
+    border-left: 1px solid fade(#A8A8A8, 40%);
+  }
+
+  atom-panel-container.left {
+    box-shadow: none;
+    border: none;
+    margin-left: -1px;
+
+    .atom-dock-inner {
+      padding-left: 1px;
+    }
+  }
+
+  atom-panel-container.right {
+    box-shadow: none;
+    border: none;
+    margin-right: -1px;
+
+    .atom-dock-inner {
+      padding-right: 1px;
+    }
+  }
+
+  .tree-view .list-item,
+  .tree-view .list-nested-item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &.selected::before {
+      background: fade(@dark-color, 20%);
+    }
+  }
+
+  .tree-view:focus-within {
+    .list-item.selected,
+    .list-nested-item.selected {
+      &::before {
+        background: fade(@background-color-selected, 80%);
+      }
+    }
+  }
+
+  .title-bar {
+    border-bottom: none;
+    margin-bottom: 1px;
+    box-shadow: 0 1px 0 fade(#A8A8A8, 70%);
+    background: linear-gradient(180deg, fade(#E5E7E6, 75%) 0%, fade(#D4D4D4, 75%) 100%);
+  }
+
+  .tab-bar {
+    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 70%);
+
+    .tab {
+      background: fade(#b8b8b8, 70%);
+      box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+      height: 31px;
+      margin-bottom: 1px;
+
+      &:hover {
+        background: fade(#a8a8a8, 70%);
+      }
+
+      &.active {
+        background: fade(#D4D4D4, 75%);
+        box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+        height: 32px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .status-bar {
+    box-shadow: none;
+    border-top: 1px solid fade(#A8A8A8, 40%);
+    background-clip: padding-box;
+    background-color: fade(@white-color, 50%);
+  }
+
+  .github-CommitView-buttonWrapper,
+  .github-RecentCommits,
+  .github-StagingView-headerButton,
+  .github-StagingView-header {
+    border-color: fade(#A8A8A8, 40%);
+  }
+
+  .github-Git, .github-GitHub {
+    box-shadow: 0 -1px 0 fade(#A8A8A8, 40%);
+    background-color: fade(@white-color, 60%);
+  }
+
+  .github-GitHub-LargeIcon.icon:before {
+    color: fade(@dark-color, 20%);
+  }
+
+  .github-StagingView {
+
+    .github-FilePatchListView-item:hover {
+      background: fade(@dark-color, 5%);
+    }
+    .github-FilePatchListView-item.is-selected {
+      background: fade(@dark-color, 25%) !important;
+    }
+    &:focus-within {
+      .github-FilePatchListView-item.is-selected {
+        background: fade(@background-color-selected, 85%) !important;
+      }
+    }
+  }
+
+  .github-RecentCommits {
+
+    li:hover {
+      background: fade(@dark-color, 5%);
+    }
+    li.is-selected {
+      background: fade(@dark-color, 25%) !important;
+    }
+    &:focus-within {
+      li.is-selected {
+        background: fade(@background-color-selected, 85%) !important;
+      }
+    }
+  }
+
+  .status-bar-left,
+  .status-bar-right {
+
+    a:hover,
+    .deprecation-cop-status:hover,
+    .github-StatusBarTileController > .inline-block:hover {
+      background: fade(@dark-color, 5%);
+    }
+  }
+}
+
+.tool-panel {
+  background: @lighter-color;
+}
+
+.pane-row {
+  atom-pane {
+    box-shadow: -1px 0 0 fade(@darker-color, 15%);
     border-right: none;
+
+    &:first-child {
+      box-shadow: none;
+    }
+  }
+}
+
+html.hypest-vibrancy body.is-blurred {
+  background: @lighter-color;
+
+  .title-bar, .tab {
+    background: fade(@light-color, 60%) !important;
+  }
+
+  .title-bar {
+    box-shadow: 0 1px 0 fade(#A8A8A8, 40%);
+  }
+
+  .tab-bar,
+  .tab.active {
+    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 40%) !important;
+  }
+
+  .tab {
+    box-shadow: 1px 0 0 fade(#A8A8A8, 40%) !important;
+  }
+
+  .tab.active {
+    background: fade(#A8A8A8, 20%) !important;
+    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 10%), 1px 0 0 fade(#A8A8A8, 40%) !important;
+  }
+
+  atom-panel-container.left .tab-bar,
+  atom-panel-container.right .tab-bar {
+    background: transparent  !important;
+    box-shadow: none !important;
+
+    .tab,
+    .tab.active {
+      color: @text-color-subtle !important;
+      border-bottom-color: fade(#A8A8A8, 0%) !important;
+      border-right-color: fade(#A8A8A8, 40%) !important;
+      box-shadow: none !important;
+
+      &:only-child {
+        background: transparent  !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .tab.active {
+      background: fade(#fff, 60%) !important;
+    }
   }
 }

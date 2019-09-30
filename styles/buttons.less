@@ -6,25 +6,182 @@
 
 
 .btn {
-  color: lighten(@text-color, 6%);
-  background-color: @button-background-color;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: @text-color;
+  font-weight: 500;
+  height: auto;
+  min-height: 28px;
+  line-height: 28px;
+  background: linear-gradient(@white-color, @lighter-color);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .1);
+
+  &.btn-xs {
+    min-height: 20px;
+    line-height: 20px;
+  }
+
+  &.btn-sm {
+    min-height: 24px;
+    line-height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  &.btn-lg {
+    border-radius: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   &:hover,
   &:focus {
     color: @text-color-highlight;
     background-color: @button-background-color-hover;
   }
+
   &:active {
-    color: fade(@text-color-selected, 66%);
-    background-color: darken(@button-background-color, 2%);
+    color: @text-color;
+    background: @light-color;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(0, 0, 0, .05);
   }
+
+  &.disabled, &[disabled] {
+    color: @text-color-subtle;
+    background: @light-color;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+  }
+
   &.selected {
     color: @text-color-selected;
-    background-color: @button-background-color-selected;
+    background: @blue-color;
+    box-shadow: 0 0 0 1px darken(@blue-color, 5%);
+    &:hover,
+    &:focus {
+      color: @text-color-selected;
+      background: @blue-color;
+    }
+    &:active {
+      color: @text-color-selected;
+      background: @blue-color;
+      box-shadow: 0 0 0 1px darken(@blue-color, 5%);
+    }
   }
+
   &:focus,
   &:focus:active {
     outline: none;
   }
+
+  &.btn-primary {
+    background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
+    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    &:hover {
+      background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
+      box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    &:active {
+      background: @blue-color !important;
+      box-shadow: 0 0 0 1px darken(@blue-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-info {
+    background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
+    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    &:hover {
+      background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
+      box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    &:active {
+      background: @blue-color !important;
+      box-shadow: 0 0 0 1px darken(@blue-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-success {
+    background: linear-gradient(lighten(@green-color, 5%), @green-color);
+    box-shadow: 0 0 0 1px darken(@green-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    &:hover {
+      background: linear-gradient(lighten(@green-color, 5%), @green-color);
+      box-shadow: 0 0 0 1px darken(@green-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    &:active {
+      background: @green-color !important;
+      box-shadow: 0 0 0 1px darken(@green-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-warning {
+    background: linear-gradient(lighten(@orange-color, 10%), @orange-color);
+    box-shadow: 0 0 0 1px darken(@orange-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    &:hover {
+      background: linear-gradient(lighten(@orange-color, 10%), @orange-color);
+      box-shadow: 0 0 0 1px darken(@orange-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    &:active {
+      background: @orange-color !important;
+      box-shadow: 0 0 0 1px darken(@orange-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-error {
+    background: linear-gradient(lighten(@red-color, 5%), @red-color);
+    box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    &:hover {
+      background: linear-gradient(lighten(@red-color, 5%), @red-color);
+      box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    }
+    &:active {
+      background: @red-color !important;
+      box-shadow: 0 0 0 1px darken(@red-color, 25%), inset 0 1px 0 rgba(0, 0, 0, .05);
+    }
+  }
+
+  &.btn-primary, &.btn-info, &.btn-success, &.btn-warning, &.btn-error {
+
+    &.disabled, &[disabled] {
+      color: @text-color-subtle;
+      background: @light-color;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+
+      &:hover {
+        color: @text-color-subtle;
+        background: @light-color;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+      }
+    }
+  }
+
+  &.icon {
+
+    &:before {
+      top: -1px;
+    }
+  }
+}
+
+.btn-group {
+
+  > .btn {
+    border: none;
+  }
+
+  > .btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  > .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+}
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  margin-left: 1px;
 }
 
 
