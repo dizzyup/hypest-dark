@@ -133,9 +133,12 @@
   font-size: 15px;
 }
 
+.github-Accordion-listItem:active {
+  background: @light-color;
+}
+
 // Patch view, gutters & line numbers
 .github-FilePatchView {
-
   .github-FilePatchView-header,
   .github-HunkHeaderView {
     margin: 10px;
@@ -181,7 +184,8 @@
 
   .gutter {
     margin-right: -4px;
-    &.old .line-number, &.new .line-number {
+    &.old .line-number,
+    &.new .line-number {
       min-width: 60px;
     }
     .github-editorCommentGutterIcon.decoration {
@@ -189,7 +193,6 @@
     }
   }
 }
-
 
 // States
 
@@ -239,7 +242,6 @@
 
 // Selected + focused hunkmode
 .github-FilePatchView.github-FilePatchView--hunkMode:focus-within {
-
   atom-text-editor {
     .selection .region {
       background-color: #cfe9ff;
@@ -260,8 +262,12 @@
   &-stageButton,
   &-discardButton {
     cursor: pointer;
-    &:hover  { background-color: @lighter-color; }
-    &:active { background-color: @light-color; }
+    &:hover {
+      background-color: @lighter-color;
+    }
+    &:active {
+      background-color: @light-color;
+    }
   }
 }
 
@@ -272,8 +278,12 @@
   .github-HunkHeaderView-title,
   .github-HunkHeaderView-stageButton,
   .github-HunkHeaderView-discardButton {
-    &:hover  { background-color: lighten(@blue-color, 5%); }
-    &:active { background-color: darken(@blue-color, 5%); }
+    &:hover {
+      background-color: lighten(@blue-color, 5%);
+    }
+    &:active {
+      background-color: darken(@blue-color, 5%);
+    }
   }
 }
 
@@ -285,8 +295,63 @@
     .github-HunkHeaderView-title,
     .github-HunkHeaderView-stageButton,
     .github-HunkHeaderView-discardButton {
-      &:hover  { background-color: lighten(@blue-color, 5%); }
-      &:active { background-color: darken(@blue-color, 5%); }
+      &:hover {
+        background-color: lighten(@blue-color, 5%);
+      }
+      &:active {
+        background-color: darken(@blue-color, 5%);
+      }
+    }
+  }
+}
+
+.github-tablist {
+  background: @lighter-color;
+
+  li.github-tab {
+    font-weight: 500;
+    transition: ease 0.2s;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    cursor: pointer;
+    &:hover {
+      background: @white-color;
+    }
+    &.react-tabs__tab--selected {
+      color: @text-color;
+      background: @white-color;
+      z-index: 2;
+      transition: none;
+      border-left: 1px solid @base-border-color;
+      border-right: 1px solid @base-border-color;
+      box-shadow: none;
+    }
+  }
+}
+
+.github-IssueishDetailView-meta {
+  code {
+    color: @text-color;
+    background: @light-color;
+  }
+}
+
+.github-Reviews {
+  .github-Reviews-emptyState {
+    text-align: center;
+  }
+  .github-Reviews-topHeader {
+    min-height: 32px;
+    .github-Reviews-headerButton,
+    .github-StubItem-github-reviews-headerButton {
+      padding: 0 8px;
+      min-height: 20px;
+      height: 20px;
+      line-height: 20px;
+      &.icon:before {
+        margin-top: 1px;
+        margin-right: 0;
+      }
     }
   }
 }
