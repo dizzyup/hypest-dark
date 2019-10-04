@@ -147,6 +147,23 @@
     }
   }
 
+  .package-updates-status-view {
+    position: relative;
+    padding: 0 8px !important;
+    border-radius: 12px;
+    line-height: 21px;
+    margin: 3px 0 3px 8px !important;
+    cursor: pointer;
+    color: @white-color;
+    background: @blue-color;
+    transition: color ease 0.2s, background ease 0.2s !important;
+
+    &:hover {
+      text-decoration: none;
+      background: darken(@blue-color, 15%);
+    }
+  }
+
   .status-bar-right {
     justify-content: flex-end;
   }

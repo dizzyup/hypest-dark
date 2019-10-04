@@ -66,7 +66,8 @@ atom-panel-container.bottom {
   }
 }
 
-atom-pane-resize-handle.vertical + atom-pane-axis, atom-pane-resize-handle.vertical + atom-pane {
+atom-pane-resize-handle.vertical + atom-pane-axis,
+atom-pane-resize-handle.vertical + atom-pane {
   border-top: 1px solid #a8a8a8;
 
   .is-blurred & {
@@ -196,7 +197,9 @@ atom-pane {
 html.hypest-vibrancy {
   background: transparent;
 
-  body, atom-workspace, atom-pane {
+  body,
+  atom-workspace,
+  atom-pane {
     background: transparent;
   }
 
@@ -228,8 +231,8 @@ html.hypest-vibrancy {
       background-clip: padding-box;
       margin: 0;
       height: 32px;
-      border-bottom: 1px solid fade(#A8A8A8, 0%);
-      border-left: 1px solid fade(#A8A8A8, 40%);
+      border-bottom: 1px solid fade(#a8a8a8, 0%);
+      border-left: 1px solid fade(#a8a8a8, 40%);
 
       &:hover {
         background-color: fade(@white-color, 40%);
@@ -238,8 +241,8 @@ html.hypest-vibrancy {
       &.active {
         height: 32px;
         background-color: fade(@white-color, 60%);
-        border-bottom: 1px solid fade(#A8A8A8, 0%);
-        border-left: 1px solid fade(#A8A8A8, 40%);
+        border-bottom: 1px solid fade(#a8a8a8, 0%);
+        border-left: 1px solid fade(#a8a8a8, 40%);
       }
 
       &:first-child {
@@ -259,7 +262,7 @@ html.hypest-vibrancy {
 
   atom-workspace-axis.vertical {
     border-right: 1px solid fade(#ccc, 70%);
-    border-left: 1px solid fade(#A8A8A8, 40%);
+    border-left: 1px solid fade(#a8a8a8, 40%);
   }
 
   atom-panel-container.left {
@@ -304,16 +307,20 @@ html.hypest-vibrancy {
   .title-bar {
     border-bottom: none;
     margin-bottom: 1px;
-    box-shadow: 0 1px 0 fade(#A8A8A8, 70%);
-    background: linear-gradient(180deg, fade(#E5E7E6, 75%) 0%, fade(#D4D4D4, 75%) 100%);
+    box-shadow: 0 1px 0 fade(#a8a8a8, 70%);
+    background: linear-gradient(
+      180deg,
+      fade(#e5e7e6, 75%) 0%,
+      fade(#d4d4d4, 75%) 100%
+    );
   }
 
   .tab-bar {
-    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 70%);
+    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 70%);
 
     .tab {
       background: fade(#b8b8b8, 70%);
-      box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+      box-shadow: 1px 0 0 fade(#a8a8a8, 70%);
       height: 31px;
       margin-bottom: 1px;
 
@@ -322,8 +329,8 @@ html.hypest-vibrancy {
       }
 
       &.active {
-        background: fade(#D4D4D4, 75%);
-        box-shadow: 1px 0 0 fade(#A8A8A8, 70%);
+        background: fade(#d4d4d4, 75%);
+        box-shadow: 1px 0 0 fade(#a8a8a8, 70%);
         height: 32px;
         margin-bottom: 0;
       }
@@ -332,7 +339,7 @@ html.hypest-vibrancy {
 
   .status-bar {
     box-shadow: none;
-    border-top: 1px solid fade(#A8A8A8, 40%);
+    border-top: 1px solid fade(#a8a8a8, 40%);
     background-clip: padding-box;
     background-color: fade(@white-color, 50%);
   }
@@ -341,11 +348,12 @@ html.hypest-vibrancy {
   .github-RecentCommits,
   .github-StagingView-headerButton,
   .github-StagingView-header {
-    border-color: fade(#A8A8A8, 40%);
+    border-color: fade(#a8a8a8, 40%);
   }
 
-  .github-Git, .github-GitHub {
-    box-shadow: 0 -1px 0 fade(#A8A8A8, 40%);
+  .github-Git,
+  .github-GitHub {
+    box-shadow: 0 -1px 0 fade(#a8a8a8, 40%);
     background-color: fade(@white-color, 60%);
   }
 
@@ -354,7 +362,6 @@ html.hypest-vibrancy {
   }
 
   .github-StagingView {
-
     .github-FilePatchListView-item:hover {
       background: fade(@dark-color, 5%);
     }
@@ -369,7 +376,6 @@ html.hypest-vibrancy {
   }
 
   .github-RecentCommits {
-
     li:hover {
       background: fade(@dark-color, 5%);
     }
@@ -385,7 +391,6 @@ html.hypest-vibrancy {
 
   .status-bar-left,
   .status-bar-right {
-
     a:hover,
     .deprecation-cop-status:hover,
     .github-StatusBarTileController > .inline-block:hover {
@@ -412,48 +417,120 @@ html.hypest-vibrancy {
 html.hypest-vibrancy body.is-blurred {
   background: @lighter-color;
 
-  .title-bar, .tab {
+  .title-bar,
+  .tab {
     background: fade(@light-color, 60%) !important;
   }
 
   .title-bar {
-    box-shadow: 0 1px 0 fade(#A8A8A8, 40%);
+    box-shadow: 0 1px 0 fade(#a8a8a8, 40%);
   }
 
   .tab-bar,
   .tab.active {
-    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 40%) !important;
+    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 40%) !important;
   }
 
   .tab {
-    box-shadow: 1px 0 0 fade(#A8A8A8, 40%) !important;
+    box-shadow: 1px 0 0 fade(#a8a8a8, 40%) !important;
   }
 
   .tab.active {
-    background: fade(#A8A8A8, 20%) !important;
-    box-shadow: inset 0 -1px 0 fade(#A8A8A8, 10%), 1px 0 0 fade(#A8A8A8, 40%) !important;
+    background: fade(#a8a8a8, 20%) !important;
+    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 10%), 1px 0 0 fade(#a8a8a8, 40%) !important;
   }
 
   atom-panel-container.left .tab-bar,
   atom-panel-container.right .tab-bar {
-    background: transparent  !important;
+    background: transparent !important;
     box-shadow: none !important;
 
     .tab,
     .tab.active {
       color: @text-color-subtle !important;
-      border-bottom-color: fade(#A8A8A8, 0%) !important;
-      border-right-color: fade(#A8A8A8, 40%) !important;
+      border-bottom-color: fade(#a8a8a8, 0%) !important;
+      border-right-color: fade(#a8a8a8, 40%) !important;
       box-shadow: none !important;
 
       &:only-child {
-        background: transparent  !important;
+        background: transparent !important;
         box-shadow: none !important;
       }
     }
 
     .tab.active {
-      background: fade(#fff, 60%) !important;
+      background: fade(@white-color, 60%) !important;
     }
   }
+}
+
+.about {
+  .btn {
+    cursor: pointer;
+  }
+}
+
+.about-updates-box {
+  background: @white-color;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 1px 1px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.about-auto-updates {
+  margin-top: 30px;
+
+  label {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
+
+.about-love {
+  .icon {
+    position: relative;
+    margin: 0 2px;
+  }
+  .icon.icon-code {
+    font-size: 13px;
+    top: -2px;
+  }
+
+  .icon.icon-heart {
+    font-size: 13px;
+    top: -2px;
+  }
+
+  .icon.icon-logo-github {
+    font-size: 14px;
+    top: -3px;
+  }
+}
+
+.about .about-version {
+  font-size: 15px;
+
+  + .about-copy-version {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.show-more-expand {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 16px 0 0 0;
+  background: @light-color;
+  padding: 2px 8px 3px;
+  border-radius: 18px;
+  transition: background ease 0.2s;
+
+  &:hover {
+    background: darken(@light-color, 5%);
+  }
+}
+
+.about-atom-io:hover .about-logo {
+  color: @blue-color;
 }
