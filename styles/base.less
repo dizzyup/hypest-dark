@@ -27,7 +27,7 @@ atom-panel-container.right {
 }
 
 atom-panel-container.left {
-  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 1px 0 0 fade(@black-color, 15%);
   z-index: 3;
 
   .atom-dock-resize-handle {
@@ -36,7 +36,7 @@ atom-panel-container.left {
 }
 
 atom-panel-container.right {
-  box-shadow: -1px 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: -1px 0 0 fade(@black-color, 15%);
   z-index: 2;
 
   .atom-dock-resize-handle {
@@ -68,10 +68,10 @@ atom-panel-container.bottom {
 
 atom-pane-resize-handle.vertical + atom-pane-axis,
 atom-pane-resize-handle.vertical + atom-pane {
-  border-top: 1px solid #a8a8a8;
+  border-top: 1px solid @mid-color;
 
   .is-blurred & {
-    border-top: 1px solid fade(#a8a8a8, 50%);
+    border-top: 1px solid fade(@mid-color, 50%);
   }
 }
 
@@ -231,8 +231,8 @@ html.hypest-vibrancy {
       background-clip: padding-box;
       margin: 0;
       height: 32px;
-      border-bottom: 1px solid fade(#a8a8a8, 0%);
-      border-left: 1px solid fade(#a8a8a8, 40%);
+      border-bottom: 1px solid fade(@mid-color, 0%);
+      border-left: 1px solid fade(@mid-color, 40%);
 
       &:hover {
         background-color: fade(@white-color, 40%);
@@ -241,8 +241,8 @@ html.hypest-vibrancy {
       &.active {
         height: 32px;
         background-color: fade(@white-color, 60%);
-        border-bottom: 1px solid fade(#a8a8a8, 0%);
-        border-left: 1px solid fade(#a8a8a8, 40%);
+        border-bottom: 1px solid fade(@mid-color, 0%);
+        border-left: 1px solid fade(@mid-color, 40%);
       }
 
       &:first-child {
@@ -261,8 +261,8 @@ html.hypest-vibrancy {
   }
 
   atom-workspace-axis.vertical {
-    border-right: 1px solid fade(#ccc, 70%);
-    border-left: 1px solid fade(#a8a8a8, 40%);
+    border-right: 1px solid fade(@mid-color, 40%);
+    border-left: 1px solid fade(@mid-color, 40%);
   }
 
   atom-panel-container.left {
@@ -307,30 +307,30 @@ html.hypest-vibrancy {
   .title-bar {
     border-bottom: none;
     margin-bottom: 1px;
-    box-shadow: 0 1px 0 fade(#a8a8a8, 70%);
+    box-shadow: 0 1px 0 fade(@mid-color, 70%);
     background: linear-gradient(
       180deg,
-      fade(#e5e7e6, 75%) 0%,
-      fade(#d4d4d4, 75%) 100%
+      fade(@title-bar-stop-1, 75%) 0%,
+      fade(@title-bar-stop-2, 75%) 100%
     );
   }
 
   .tab-bar {
-    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 70%);
+    box-shadow: inset 0 -1px 0 fade(@mid-color, 70%);
 
     .tab {
-      background: fade(#b8b8b8, 70%);
-      box-shadow: 1px 0 0 fade(#a8a8a8, 70%);
+      background: fade(@tab-background-color, 70%);
+      box-shadow: 1px 0 0 fade(@mid-color, 70%);
       height: 31px;
       margin-bottom: 1px;
 
       &:hover {
-        background: fade(#a8a8a8, 70%);
+        background: fade(@mid-color, 70%);
       }
 
       &.active {
-        background: fade(#d4d4d4, 75%);
-        box-shadow: 1px 0 0 fade(#a8a8a8, 70%);
+        background: fade(@title-bar-stop-2, 75%);
+        box-shadow: 1px 0 0 fade(@mid-color, 70%);
         height: 32px;
         margin-bottom: 0;
       }
@@ -339,7 +339,7 @@ html.hypest-vibrancy {
 
   .status-bar {
     box-shadow: none;
-    border-top: 1px solid fade(#a8a8a8, 40%);
+    border-top: 1px solid fade(@mid-color, 40%);
     background-clip: padding-box;
     background-color: fade(@white-color, 50%);
   }
@@ -348,12 +348,12 @@ html.hypest-vibrancy {
   .github-RecentCommits,
   .github-StagingView-headerButton,
   .github-StagingView-header {
-    border-color: fade(#a8a8a8, 40%);
+    border-color: fade(@mid-color, 40%);
   }
 
   .github-Git,
   .github-GitHub {
-    box-shadow: 0 -1px 0 fade(#a8a8a8, 40%);
+    box-shadow: 0 -1px 0 fade(@mid-color, 40%);
     background-color: fade(@white-color, 60%);
   }
 
@@ -423,21 +423,22 @@ html.hypest-vibrancy body.is-blurred {
   }
 
   .title-bar {
-    box-shadow: 0 1px 0 fade(#a8a8a8, 40%);
+    box-shadow: 0 1px 0 fade(@mid-color, 40%);
   }
 
   .tab-bar,
   .tab.active {
-    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 40%) !important;
+    box-shadow: inset 0 -1px 0 fade(@mid-color, 40%) !important;
   }
 
   .tab {
-    box-shadow: 1px 0 0 fade(#a8a8a8, 40%) !important;
+    box-shadow: 1px 0 0 fade(@mid-color, 40%) !important;
   }
 
   .tab.active {
-    background: fade(#a8a8a8, 20%) !important;
-    box-shadow: inset 0 -1px 0 fade(#a8a8a8, 10%), 1px 0 0 fade(#a8a8a8, 40%) !important;
+    background: fade(@mid-color, 20%) !important;
+    box-shadow: inset 0 -1px 0 fade(@mid-color, 10%),
+      1px 0 0 fade(@mid-color, 40%) !important;
   }
 
   atom-panel-container.left .tab-bar,
@@ -448,8 +449,8 @@ html.hypest-vibrancy body.is-blurred {
     .tab,
     .tab.active {
       color: @text-color-subtle !important;
-      border-bottom-color: fade(#a8a8a8, 0%) !important;
-      border-right-color: fade(#a8a8a8, 40%) !important;
+      border-bottom-color: fade(@mid-color, 0%) !important;
+      border-right-color: fade(@mid-color, 40%) !important;
       box-shadow: none !important;
 
       &:only-child {
@@ -474,8 +475,8 @@ html.hypest-vibrancy body.is-blurred {
   background: @white-color;
   border: none;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 1px 1px rgba(0, 0, 0, 0.05),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px fade(@black-color, 10%),
+    0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
 }
 
 .about-auto-updates {

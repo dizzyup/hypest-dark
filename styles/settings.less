@@ -11,12 +11,14 @@
   background-position: right 8px center, 0 0;
   border-radius: 4px;
   border: none;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 1px fade(@black-color, 15%),
+    0 1px 2px fade(@black-color, 10%);
   -webkit-appearance: none;
 
   &:hover,
   &:focus {
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 1px fade(@black-color, 15%),
+      0 1px 2px fade(@black-color, 10%);
   }
 }
 
@@ -87,20 +89,20 @@
     margin-bottom: 12px;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 1px 1px rgba(0, 0, 0, 0.05),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px fade(@black-color, 10%),
+      0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
 
     &.disabled {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0), 0 1px 1px 1px rgba(0, 0, 0, 0.05),
-        0 0 0 1px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 8px fade(@black-color, 0),
+        0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
     }
   }
 
   .settings-panel .section-body {
     border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 1px 1px 1px rgba(0, 0, 0, 0.05),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
+    background: @white-color;
+    box-shadow: 0 2px 8px fade(@black-color, 0.1),
+      0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
 
     .control-group {
       margin: 0 8px;
@@ -112,7 +114,7 @@
       }
 
       h3.sub-section-heading {
-        background: #fff;
+        background: @white-color;
       }
 
       .sub-section-body {

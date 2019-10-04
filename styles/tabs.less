@@ -7,7 +7,7 @@
 .tab-bar {
   overflow-x: auto;
   overflow-y: hidden;
-  background: #a8a8a8;
+  background: @mid-color;
   border-radius: 0;
 
   .tab {
@@ -21,19 +21,22 @@
     padding: 0 24px;
     max-width: 100%;
     margin-right: 1px;
-    background: #bebebe;
-    box-shadow: inset 0 -1px 0 0 #a8a8a8;
+    background: @tab-background-color;
+    box-shadow: inset 0 -1px 0 0 @mid-color;
 
     &:hover {
       color: @text-color;
-      background: #a8a8a8;
+      background: @mid-color;
     }
 
     &.active {
       flex: 1 1 100%;
       color: @text-color;
-      background-image: linear-gradient(#d3d3d2, #cdcdcc);
-      box-shadow: inset 0 -1px 0 #bfbfbf;
+      background-image: linear-gradient(
+        @tab-background-color-active-1,
+        @tab-background-color-active-2
+      );
+      box-shadow: inset 0 -1px 0 @tab-background-color;
       transition: none;
     }
 
@@ -115,19 +118,19 @@
 
 .is-blurred {
   .tab-bar {
-    background: #d5d5d5;
+    background: @title-bar-stop-2;
   }
 
   .tab {
     color: @text-color-subtle;
-    background: #e1e1e1;
-    box-shadow: inset 0 -1px 0 0 fade(#a8a8a8, 30%);
+    background: @tab-background-color-active-1;
+    box-shadow: inset 0 -1px 0 0 fade(@mid-color, 30%);
     transition: none;
 
     &.active {
       color: @text-color-subtle;
       background: @light-color;
-      box-shadow: inset 0 -1px 0 fade(#bfbfbf, 50%);
+      box-shadow: inset 0 -1px 0 fade(@tab-background-color, 60%);
     }
   }
 }
@@ -138,13 +141,13 @@ atom-panel-container.bottom {
   .tab-bar {
     overflow-x: auto;
     overflow-y: hidden;
-    background: #dadadb;
+    background: @tab-bar-background-color;
     border-radius: 0;
 
     .tab {
       color: fade(@text-color-subtle, 60%);
       background: @light-color;
-      box-shadow: inset 0 -1px 0 #dadadb;
+      box-shadow: inset 0 -1px 0 @tab-bar-background-color;
 
       &:hover {
         color: @text-color;
@@ -155,7 +158,7 @@ atom-panel-container.bottom {
         color: @text-color;
         font-weight: 500;
         background: @lighter-color;
-        box-shadow: inset 0 -1px 0 #dadadb;
+        box-shadow: inset 0 -1px 0 @tab-bar-background-color;
       }
 
       &:only-child {

@@ -8,8 +8,9 @@ atom-notifications {
     margin: 0 12px 10px 20px;
     padding-left: 40px;
     border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 2px 30px rgba(0,0,0,0.15), 0 1px 3px 1px rgba(0,0,0,.2);
+    background: @white-color;
+    box-shadow: 0 2px 30px fade(@black-color, 15%),
+      0 1px 3px 1px fade(@black-color, 20%);
 
     &:first-child {
       margin-top: 52px;
@@ -24,23 +25,24 @@ atom-notifications {
       bottom: -12px;
     }
 
-    &.error.icon:before, &.fatal.icon:before {
-      color: #fff;
+    &.error.icon:before,
+    &.fatal.icon:before {
+      color: @white-color;
       background: @red-color;
     }
 
     &.success.icon:before {
-      color: #fff;
+      color: @white-color;
       background: @green-color;
     }
 
     &.info.icon:before {
-      color: #fff;
+      color: @white-color;
       background: @blue-color;
     }
 
     &.warning.icon:before {
-      color: #fff;
+      color: @white-color;
       background: @orange-color;
     }
 
