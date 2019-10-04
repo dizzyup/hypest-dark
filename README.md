@@ -1,6 +1,6 @@
 <img src="assets/icon.png?raw=true" alt="Hypest Atom Icon" width="148" height="148" />
 
-# Hypest for Atom
+# Hypest for Atom (β)
 
 A native and refined UI theme for Atom — with light and dark themes, optional
 vibrancy, and theming for several popular bundled and third-party Atom plugins.
