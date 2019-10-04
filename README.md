@@ -16,9 +16,9 @@ select `Hypest` from the theme selection menu in Settings.
 
 `apm i hypest-ui`
 
-### In Atom
+### From the web
 
-[Install](atom://settings-view/show-package?package=tool-bar)
+[Install](https://atom.io/themes/hypest-ui)
 
 ## Plugin support
 
