@@ -2,14 +2,13 @@
   "name": "hypest-ui",
   "theme": "ui",
   "version": "0.0.1",
-  "description": "A beautiful & minimal macOS theme for Atom",
+  "description": "A native and refined UI theme for Atom",
   "author": "Hector Simpson (https://hector.me)",
-  "main": "./lib/main",
   "keywords": [
     "ui",
     "theme"
   ],
-  "repository": "https://github.com/dizzyup/atom-hypest-ui",
+  "repository": "https://github.com/dizzyup/hypest-ui",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
