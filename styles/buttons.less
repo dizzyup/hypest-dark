@@ -1,11 +1,10 @@
-
 // Buttons
 // -------------------
 
 // Overrides: atom/atom/static/buttons.less
 
-
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +15,7 @@
   line-height: 28px;
   background: linear-gradient(@white-color, @lighter-color);
   border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
 
   &.btn-xs {
     min-height: 20px;
@@ -45,13 +44,14 @@
   &:active {
     color: @text-color;
     background: @light-color;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15), inset 0 1px 0 rgba(0, 0, 0, .05);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(0, 0, 0, 0.05);
   }
 
-  &.disabled, &[disabled] {
+  &.disabled,
+  &[disabled] {
     color: @text-color-subtle;
     background: @light-color;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
   }
 
   &.selected {
@@ -77,94 +77,107 @@
 
   &.btn-primary {
     background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
-    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, 0.2);
     &:hover {
       background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
-      box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 0 1px darken(@blue-color, 5%),
+        0 1px 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
       background: @blue-color !important;
-      box-shadow: 0 0 0 1px darken(@blue-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+      box-shadow: 0 0 0 1px darken(@blue-color, 15%),
+        inset 0 1px 0 rgba(0, 0, 0, 0.05);
     }
   }
 
   &.btn-info {
     background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
-    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, 0.2);
     &:hover {
       background: linear-gradient(lighten(@blue-color, 10%), @blue-color);
-      box-shadow: 0 0 0 1px darken(@blue-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 0 1px darken(@blue-color, 5%),
+        0 1px 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
       background: @blue-color !important;
-      box-shadow: 0 0 0 1px darken(@blue-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+      box-shadow: 0 0 0 1px darken(@blue-color, 15%),
+        inset 0 1px 0 rgba(0, 0, 0, 0.05);
     }
   }
 
   &.btn-success {
     background: linear-gradient(lighten(@green-color, 5%), @green-color);
-    box-shadow: 0 0 0 1px darken(@green-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 1px darken(@green-color, 5%), 0 1px 2px rgba(0, 0, 0, 0.2);
     &:hover {
       background: linear-gradient(lighten(@green-color, 5%), @green-color);
-      box-shadow: 0 0 0 1px darken(@green-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 0 1px darken(@green-color, 5%),
+        0 1px 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
       background: @green-color !important;
-      box-shadow: 0 0 0 1px darken(@green-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+      box-shadow: 0 0 0 1px darken(@green-color, 15%),
+        inset 0 1px 0 rgba(0, 0, 0, 0.05);
     }
   }
 
   &.btn-warning {
     background: linear-gradient(lighten(@orange-color, 10%), @orange-color);
-    box-shadow: 0 0 0 1px darken(@orange-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 1px darken(@orange-color, 5%),
+      0 1px 2px rgba(0, 0, 0, 0.2);
     &:hover {
       background: linear-gradient(lighten(@orange-color, 10%), @orange-color);
-      box-shadow: 0 0 0 1px darken(@orange-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 0 1px darken(@orange-color, 5%),
+        0 1px 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
       background: @orange-color !important;
-      box-shadow: 0 0 0 1px darken(@orange-color, 15%), inset 0 1px 0 rgba(0, 0, 0, .05);
+      box-shadow: 0 0 0 1px darken(@orange-color, 15%),
+        inset 0 1px 0 rgba(0, 0, 0, 0.05);
     }
   }
 
   &.btn-error {
     background: linear-gradient(lighten(@red-color, 5%), @red-color);
-    box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, 0.2);
     &:hover {
       background: linear-gradient(lighten(@red-color, 5%), @red-color);
-      box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, .2);
+      box-shadow: 0 0 0 1px darken(@red-color, 5%), 0 1px 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
       background: @red-color !important;
-      box-shadow: 0 0 0 1px darken(@red-color, 25%), inset 0 1px 0 rgba(0, 0, 0, .05);
+      box-shadow: 0 0 0 1px darken(@red-color, 25%),
+        inset 0 1px 0 rgba(0, 0, 0, 0.05);
     }
   }
 
-  &.btn-primary, &.btn-info, &.btn-success, &.btn-warning, &.btn-error {
-
-    &.disabled, &[disabled] {
+  &.btn-primary,
+  &.btn-info,
+  &.btn-success,
+  &.btn-warning,
+  &.btn-error {
+    &.disabled,
+    &[disabled] {
       color: @text-color-subtle;
       background: @light-color;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
 
       &:hover {
         color: @text-color-subtle;
         background: @light-color;
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) !important;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1) !important;
       }
     }
   }
 
   &.icon {
-
     &:before {
+      position: relative;
       top: -1px;
     }
   }
 }
 
 .btn-group {
-
   > .btn {
     border: none;
   }
@@ -180,18 +193,30 @@
   }
 }
 
-.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
   margin-left: 1px;
 }
 
-
 // Colored buttons -----------------------
 
-.btn.btn-primary { .btn-color(@background-color-info); }
-.btn.btn-info    { .btn-color(@background-color-info); }
-.btn.btn-success { .btn-color(@background-color-success); }
-.btn.btn-warning { .btn-color(@background-color-warning); }
-.btn.btn-error   { .btn-color(@background-color-error); }
+.btn.btn-primary {
+  .btn-color(@background-color-info);
+}
+.btn.btn-info {
+  .btn-color(@background-color-info);
+}
+.btn.btn-success {
+  .btn-color(@background-color-success);
+}
+.btn.btn-warning {
+  .btn-color(@background-color-warning);
+}
+.btn.btn-error {
+  .btn-color(@background-color-error);
+}
 
 .btn-color(@bg) {
   color: @text-color-selected;
@@ -212,9 +237,8 @@
   }
 }
 
-
 // Button Group -----------------------
 
 .btn-group > .btn {
-  border-color: hsla(0,0%,0%,.2);
+  border-color: hsla(0, 0%, 0%, 0.2);
 }
