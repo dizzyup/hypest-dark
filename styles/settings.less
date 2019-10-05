@@ -90,6 +90,10 @@
     margin-left: 12px;
   }
 
+  .btn-wrap-group .btn {
+    margin: 12px 12px 0 0;
+  }
+
   .package-card {
     margin-bottom: 12px;
     border: none;
@@ -110,9 +114,9 @@
       0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
 
     .control-group {
-      margin: 0 8px;
-      padding: 12px 12px;
-      border-bottom: 1px solid @base-border-color;
+      margin: 0;
+      padding: 12px 16px;
+      border-bottom: 1px solid fade(@base-border-color, 70%);
 
       &:last-child {
         border: none;
@@ -151,7 +155,7 @@
 
   .section.packages {
     .search-container {
-      padding-bottom: 16px;
+      padding-bottom: 0;
 
       atom-text-editor[mini],
       .btn {
@@ -162,6 +166,33 @@
 
   .control-label {
     font-weight: normal;
+  }
+
+  .package-detail-view {
+    .package-container {
+      margin-bottom: 20px;
+    }
+    p.text,
+    p.link {
+      display: flex;
+      align-items: center;
+
+      &.icon::before {
+        position: relative;
+        top: -2px;
+      }
+
+      .highlight {
+        font-weight: normal;
+        border-radius: 12px;
+        padding: 0 6px;
+        margin: 0 4px;
+      }
+    }
+    p.link.icon::before {
+      position: relative;
+      top: -1px;
+    }
   }
 
   .installed-packages,

@@ -116,6 +116,21 @@
   }
 }
 
+.hypest-close-right {
+  .tab-bar .tab {
+    .close-icon,
+    &.modified .close-icon,
+    &.modified:not(:hover) .close-icon {
+      right: 6px;
+      left: auto;
+    }
+    &.modified::after {
+      left: 9px;
+      right: auto;
+    }
+  }
+}
+
 .is-blurred {
   .tab-bar {
     background: @title-bar-stop-2;

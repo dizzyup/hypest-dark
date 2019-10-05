@@ -12,5 +12,40 @@
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
+  },
+  "main": "lib/hypest-ui",
+  "configSchema": {
+    "vibrancy": {
+      "title": "Enable vibrancy",
+      "description": "Enables tranclucency effects for parts of the window.",
+      "type": "boolean",
+      "default": "false",
+      "order": 1
+    },
+    "syntaxTheme": {
+      "title": "Improve support for dark syntax themes",
+      "description": "Improves the editor styles when using dark syntax themes with the light variant of Hypest.",
+      "type": "boolean",
+      "default": "false",
+      "order": 2
+    },
+    "tabCloseButton": {
+      "title": "Tab close button position",
+      "description": "Choose the position of the close button shown in tabs.",
+      "type": "string",
+      "default": "Left",
+      "enum": [
+        "Left",
+        "Right"
+      ],
+      "order": 3
+    },
+    "hideDockButtons": {
+      "title": "Hide dock toggle buttons",
+      "description": "Showing and hidings docks will require keyboard shortcuts once enabled.",
+      "type": "boolean",
+      "default": "false",
+      "order": 4
+    }
   }
 }

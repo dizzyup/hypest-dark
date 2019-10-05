@@ -135,12 +135,18 @@ atom-text-editor.editor {
   }
 
   .gutter[gutter-name="linter-ui-default"] {
-    margin-left: -4px;
+    margin-left: 0;
+    margin-right: -4px;
     min-width: 1.4em;
 
     .line-number {
       min-width: auto;
     }
+  }
+
+  .gutter + .gutter[gutter-name="linter-ui-default"] {
+    margin-left: -4px;
+    margin-right: 0;
   }
 
   .cursor-line {
@@ -154,5 +160,77 @@ atom-text-editor.editor {
   .wrap-guide {
     background: none;
     border-right: 1px dotted @base-border-color;
+  }
+}
+
+.hypest-dark-syntax {
+  atom-text-editor.editor {
+    .cursor-line {
+      background: fade(@white-color, 5%);
+    }
+    .wrap-guide {
+      border-color: fade(@white-color, 20%);
+    }
+    .gutter {
+      &::before {
+        background: fade(@black-color, 20%);
+        box-shadow: inset -1px 0 0 fade(@white-color, 10%);
+      }
+      .line-number {
+        color: fade(@white-color, 60%);
+        background: fade(@black-color, 10%);
+        &::after {
+          border-left: 1px solid fade(@white-color, 9%);
+          border-right: 4px solid fade(@white-color, 4%);
+        }
+        &.cursor-line {
+          color: @white-color;
+          background: transparent;
+          &::after {
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: fade(@light-color, 20%);
+            background-clip: padding-box;
+            border-color: transparent;
+          }
+        }
+        &.cursor-line-no-selection {
+          background: transparent;
+          &::after {
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: fade(@light-color, 20%);
+            background-clip: padding-box;
+            border-color: transparent;
+          }
+        }
+        &.git-line-modified {
+          &::before {
+            background: fade(@orange-color, 100%);
+          }
+        }
+        &.git-line-added {
+          &::before {
+            background: fade(@green-color, 100%);
+          }
+        }
+      }
+    }
+    .gutter:not(.line-numbers) {
+      .line-number {
+        &.cursor-line {
+          &::after {
+            border-color: transparent;
+          }
+        }
+        &.cursor-line-no-selection {
+          &::after {
+            border-color: fade(@light-color, 10%);
+          }
+        }
+      }
+    }
   }
 }

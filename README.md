@@ -25,4 +25,5 @@ select `Hypest` from the theme selection menu in Settings.
 Hypest UI includes custom theming to support a few of the most popular bundled Atom
 plugins, and a few major third-party ones, including:
 
-- atom/git
+- [git](https://github.atom.io)
+- [linter-ui-default](https://atom.io/packages/linter-ui-default)
