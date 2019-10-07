@@ -13,18 +13,17 @@ atom-text-editor[mini] {
   border: none;
   border-radius: @component-border-radius;
   background-color: @input-background-color;
-  box-shadow: inset 0 1px 0 fade(@black-color, 5%),
-    0 0 0 1px fade(@black-color, 15%);
+  box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+    0 0 0 1px fade(@black-color, 5%);
 
   > div {
     background: none !important;
   }
 
   &.is-focused {
-    background-color: @input-background-color;
-    box-shadow: inset 0 1px 0 fade(@black-color, 5%),
-      0 0 0 1px fade(@black-color, 15%), 0 0 0 1px fade(@blue-color, 70%),
-      0 0 0 3px fade(@blue-color, 40%);
+    background-color: lighten(@input-background-color, 2%);
+    box-shadow: inset 0 0 0 1px fade(@white-color, 0%),
+      0 0 0 1px fade(@blue-color, 30%), 0 0 0 3px fade(@blue-color, 50%);
 
     .selection .region {
       background: @region-selection-color;
@@ -163,7 +162,7 @@ atom-text-editor.editor {
   }
 }
 
-.hypest-dark-syntax {
+html:not(.hypest-light-syntax) {
   atom-text-editor.editor {
     .cursor-line {
       background: fade(@white-color, 5%);
@@ -232,5 +231,21 @@ atom-text-editor.editor {
         }
       }
     }
+  }
+}
+
+html.hypest-light-syntax {
+  atom-text-editor.editor {
+    .gutter {
+      .line-number {
+        color: lighten(@mid-color, 30%);
+        &.cursor-line {
+          color: @dark-color;
+        }
+      }
+    }
+  }
+  .wrap-guide {
+    border-right: 1px dotted lighten(@mid-color, 50%);
   }
 }

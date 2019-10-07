@@ -10,8 +10,8 @@
   line-height: 28px;
   height: 28px;
   color: @text-color;
-  border-top: 1px solid @base-border-color;
-  background-color: @lighter-color;
+  border-top: 1px solid @mid-color;
+  background-color: darken(@dark-color, 5%);
 
   .status-bar-left,
   .status-bar-right {
@@ -32,7 +32,7 @@
 
       &:hover {
         text-decoration: none;
-        background: @light-color;
+        background: @mid-color;
       }
     }
 
@@ -53,7 +53,7 @@
       transition: background ease 0.2s;
 
       &:hover {
-        background: @light-color;
+        background: @mid-color;
       }
     }
 
@@ -114,7 +114,7 @@
 
         &:hover {
           text-decoration: none;
-          background: @light-color;
+          background: @mid-color;
         }
       }
 

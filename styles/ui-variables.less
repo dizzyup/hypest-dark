@@ -10,13 +10,13 @@
 // A good start is to change the color of the `@base-background-color` variable.
 
 // Base colors
-@base-background-color: @white-color;
-@base-border-color: #dad9db;
+@base-background-color: @darker-color;
+@base-border-color: @dark-color;
 
 @black-color: #000;
-@darker-color: #161616;
-@dark-color: #222;
-@mid-color: #a8a8a8;
+@darker-color: #131415;
+@dark-color: #2e2f30;
+@mid-color: #454647;
 @light-color: #f2f2f2;
 @lighter-color: #fafafa;
 @white-color: #fff;
@@ -27,9 +27,9 @@
 @red-color: #ff3f3f;
 
 // Text Colors
-@text-color: fade(@dark-color, 80%);
-@text-color-subtle: fade(@dark-color, 40%);
-@text-color-highlight: fade(@dark-color, 90%);
+@text-color: fade(@white-color, 70%);
+@text-color-subtle: fade(@white-color, 40%);
+@text-color-highlight: fade(@white-color, 90%);
 @text-color-selected: fade(@white-color, 90%);
 
 @text-color-info: @blue-color;
@@ -43,7 +43,7 @@
 @background-color-warning: @orange-color;
 @background-color-error: @red-color;
 
-@background-color-highlight: fade(@black-color, 25%);
+@background-color-highlight: fade(@white-color, 10%);
 @background-color-selected: @blue-color;
 @app-background-color: @base-background-color;
 
@@ -51,8 +51,8 @@
 @pane-item-background-color: @base-background-color;
 @pane-item-border-color: @base-border-color;
 
-@input-background-color: @app-background-color;
-@input-border-color: @base-border-color;
+@input-background-color: darken(@mid-color, 5%);
+@input-border-color: @darker-color;
 
 @tool-panel-background-color: @base-background-color;
 @tool-panel-border-color: @base-border-color;
@@ -74,7 +74,7 @@
 @tree-view-background-color: @light-color;
 @tree-view-border-color: @base-border-color;
 
-@region-selection-color: #cfe9ff;
+@region-selection-color: fade(@white-color, 10%);
 
 // Site colors
 @ui-site-color-1: hsl(208, 100%, 50%); // blue
@@ -95,17 +95,17 @@
 @component-line-height: 25px;
 
 // Title Bar
-@title-bar-stop-1: #e5e7e6;
-@title-bar-stop-2: #d4d4d4;
+@title-bar-stop-1: @mid-color;
+@title-bar-stop-2: @dark-color;
 
 // Tabs
 @tab-height: 32px;
 
-@tab-bar-background-color: #dadadb;
+@tab-bar-background-color: @black-color;
 @tab-bar-border-color: @base-border-color;
-@tab-background-color: #b8b8b8;
-@tab-background-color-active-1: #d3d3d2;
-@tab-background-color-active-2: #cdcdcc;
+@tab-background-color: darken(@dark-color, 5%);
+@tab-background-color-active-1: @dark-color;
+@tab-background-color-active-2: darken(@dark-color, 2%);
 @tab-border-color: @base-border-color;
 
 // Misc

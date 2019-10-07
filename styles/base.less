@@ -27,7 +27,7 @@ atom-panel-container.right {
 }
 
 atom-panel-container.left {
-  box-shadow: 1px 0 0 fade(@black-color, 15%);
+  box-shadow: 1px 0 0 @mid-color;
   z-index: 3;
 
   .atom-dock-resize-handle {
@@ -36,7 +36,7 @@ atom-panel-container.left {
 }
 
 atom-panel-container.right {
-  box-shadow: -1px 0 0 fade(@black-color, 15%);
+  box-shadow: -1px 0 0 @mid-color;
   z-index: 2;
 
   .atom-dock-resize-handle {
@@ -45,11 +45,11 @@ atom-panel-container.right {
 }
 
 atom-panel-container.bottom {
-  box-shadow: 0 -1px 0 @base-border-color;
+  box-shadow: 0 -1px 0 @mid-color;
   z-index: 1;
 
   atom-dock {
-    box-shadow: 0 -1px 0 @base-border-color;
+    box-shadow: 0 -1px 0 @mid-color;
     z-index: 2;
   }
 
@@ -120,11 +120,12 @@ atom-pane-resize-handle.vertical + atom-pane {
   .atom-dock-toggle-button-inner {
     width: auto;
     height: 35px;
-    background: @lighter-color;
+    background: @mid-color;
     border-radius: 6px;
     border: none;
-    box-shadow: 0 2px 8px fade(@black-color, 10%),
-      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+      0 2px 8px fade(@black-color, 10%), 0 1px 2px fade(@black-color, 10%),
+      0 0 0 1px fade(@black-color, 5%);
 
     .icon {
       transform: none !important;
@@ -195,16 +196,16 @@ atom-pane-resize-handle.vertical + atom-pane {
 }
 
 atom-pane {
-  background: @light-color;
+  background: @dark-color;
 }
 
 .tool-panel {
-  background: @lighter-color;
+  background: fade(@mid-color, 40%);
 }
 
 .pane-row {
   atom-pane {
-    box-shadow: -1px 0 0 fade(@darker-color, 15%);
+    box-shadow: -1px 0 0 fade(@black-color, 15%);
     border-right: none;
 
     &:first-child {
@@ -220,11 +221,12 @@ atom-pane {
 }
 
 .about-updates-box {
-  background: @white-color;
+  background: @dark-color;
   border: none;
   border-radius: 6px;
-  box-shadow: 0 2px 8px fade(@black-color, 10%),
-    0 1px 1px 1px fade(@black-color, 5%), 0 0 0 1px fade(@black-color, 5%);
+  box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+    0 2px 8px fade(@black-color, 10%), 0 1px 1px 1px fade(@black-color, 5%),
+    0 0 0 1px fade(@black-color, 5%);
 }
 
 .about-auto-updates {
@@ -270,13 +272,13 @@ atom-pane {
   cursor: pointer;
   font-size: 14px;
   margin: 16px 0 0 0;
-  background: @light-color;
+  background: @darker-color;
   padding: 2px 8px 3px;
   border-radius: 18px;
   transition: background ease 0.2s;
 
   &:hover {
-    background: darken(@light-color, 5%);
+    background: darken(@darker-color, 5%);
   }
 }
 

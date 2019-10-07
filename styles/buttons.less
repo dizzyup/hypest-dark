@@ -13,10 +13,10 @@
   height: auto;
   min-height: 28px;
   line-height: 28px;
-  background: linear-gradient(@white-color, @lighter-color);
+  background: linear-gradient(@mid-color, darken(@mid-color, 5%));
   border-radius: 4px;
-  box-shadow: 0 0 0 1px fade(@black-color, 15%),
-    0 1px 2px fade(@black-color, 10%);
+  box-shadow: 0 0 0 1px fade(@black-color, 25%),
+    0 1px 2px fade(@black-color, 15%);
 
   &.btn-xs {
     min-height: 20px;
@@ -44,16 +44,16 @@
 
   &:active {
     color: @text-color;
-    background: @light-color;
-    box-shadow: 0 0 0 1px fade(@black-color, 15%),
-      inset 0 1px 0 fade(@black-color, 5%);
+    background: @dark-color;
+    box-shadow: 0 0 0 1px fade(@black-color, 12%),
+      inset 0 1px 0 fade(@black-color, 10%);
   }
 
   &.disabled,
   &[disabled] {
     color: @text-color-subtle;
-    background: @light-color;
-    box-shadow: 0 0 0 1px fade(@black-color, 10%) !important;
+    background: fade(@black-color, 20%);
+    box-shadow: 0 0 0 1px fade(@black-color, 30%) !important;
   }
 
   &.selected {
@@ -165,13 +165,13 @@
     &.disabled,
     &[disabled] {
       color: @text-color-subtle;
-      background: @light-color;
-      box-shadow: 0 0 0 1px fade(@black-color, 10%) !important;
+      background: fade(@black-color, 20%);
+      box-shadow: 0 0 0 1px fade(@black-color, 30%) !important;
 
       &:hover {
         color: @text-color-subtle;
-        background: @light-color;
-        box-shadow: 0 0 0 1px fade(@black-color, 10%) !important;
+        background: fade(@black-color, 20%);
+        box-shadow: 0 0 0 1px fade(@black-color, 30%) !important;
       }
     }
   }

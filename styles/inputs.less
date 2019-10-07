@@ -1,9 +1,10 @@
-
 // Inputs
 // -------------------
 
-
-input.input-text, input.input-search, textarea.input-textarea, input.input-number {
+input.input-text,
+input.input-search,
+textarea.input-textarea,
+input.input-number {
   padding-left: @component-padding / 2;
   color: @text-color;
   font-size: 13px;
@@ -11,10 +12,13 @@ input.input-text, input.input-search, textarea.input-textarea, input.input-numbe
   border: none;
   border-radius: @component-border-radius;
   background-color: @input-background-color;
-  box-shadow: inset 0 1px 0 fade(@black-color, .05), 0 0 0 1px fade(@black-color, .15);
+  box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+    0 0 0 1px fade(@black-color, 5%);
 
   &:focus {
-    box-shadow: inset 0 1px 0 fade(@black-color, .05), 0 0 0 1px fade(@black-color, .15), 0 0 0 1px fade(@blue-color, 70%), 0 0 0 3px fade(@blue-color, 40%);
+    background-color: lighten(@input-background-color, 2%);
+    box-shadow: inset 0 0 0 1px fade(@white-color, 0%),
+      0 0 0 1px fade(@blue-color, 30%), 0 0 0 3px fade(@blue-color, 50%);
   }
 
   &::placeholder {
@@ -23,7 +27,6 @@ input.input-text, input.input-search, textarea.input-textarea, input.input-numbe
 }
 
 input.input-number {
-
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -36,23 +39,32 @@ label.input-label {
   font-weight: 500;
 }
 
-select.input-select, select.form-control {
+input.input-checkbox {
+  background: @mid-color;
+}
+
+select.input-select,
+select.form-control {
   cursor: pointer;
   color: @text-color;
   font-size: 13px;
   min-height: 28px;
   line-height: 28px;
   padding: 0 8px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cg fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline stroke='%234D4D4D' stroke-width='1.5' points='1 4 4 1 7 4'/%3E%3Cpolyline stroke='%234D4D4D' stroke-width='1.5' points='1 11 4 8 7 11' transform='matrix(1 0 0 -1 0 19)'/%3E%3C/g%3E%3C/svg%3E%0A"), linear-gradient(@white-color, @lighter-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='12' viewBox='0 0 8 12'%3E%3Cg fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline stroke='%23FFFFFF' stroke-width='1.5' points='1 4 4 1 7 4'/%3E%3Cpolyline stroke='%23FFFFFF' stroke-width='1.5' points='1 11 4 8 7 11' transform='matrix(1 0 0 -1 0 19)'/%3E%3C/g%3E%3C/svg%3E%0A"),
+    linear-gradient(@mid-color, darken(@mid-color, 5%));
   background-size: 8px 12px, 100% 100%;
   background-repeat: no-repeat, no-repeat;
   background-position: right 8px center, 0 0;
   border-radius: 4px;
   border: none;
-  box-shadow: 0 0 0 1px fade(@black-color, .15), 0 1px 2px fade(@black-color, .1);
+  box-shadow: 0 0 0 1px fade(@black-color, 15%),
+    0 1px 2px fade(@black-color, 10%);
   -webkit-appearance: none;
 
-  &:hover, &:focus {
-    box-shadow: 0 0 0 1px fade(@black-color, .15), 0 1px 2px fade(@black-color, .1);
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0 1px fade(@black-color, 15%),
+      0 1px 2px fade(@black-color, 10%);
   }
 }

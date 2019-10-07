@@ -1,5 +1,5 @@
 root = document.documentElement
-themeName = 'hypest-ui'
+themeName = 'hypest-dark'
 
 module.exports =
   activate: (state) ->
@@ -37,12 +37,12 @@ unsetVibrancy = ->
 
 setSyntaxTheme = (syntaxTheme) ->
   if syntaxTheme
-    document.documentElement.classList.add("hypest-dark-syntax");
+    document.documentElement.classList.add("hypest-light-syntax");
   else
     unsetSyntaxTheme()
 
 unsetSyntaxTheme = ->
-  document.documentElement.classList.remove("hypest-dark-syntax");
+  document.documentElement.classList.remove("hypest-light-syntax");
 
 # Tab Close Button -----------------------
 

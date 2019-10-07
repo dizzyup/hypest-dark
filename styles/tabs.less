@@ -26,17 +26,17 @@
 
     &:hover {
       color: @text-color;
-      background: @mid-color;
+      background: darken(@dark-color, 10%);
     }
 
     &.active {
       flex: 1 1 100%;
-      color: @text-color;
+      color: @white-color;
       background-image: linear-gradient(
         @tab-background-color-active-1,
         @tab-background-color-active-2
       );
-      box-shadow: inset 0 -1px 0 @tab-background-color;
+      box-shadow: inset 0 -1px 0 @mid-color;
       transition: none;
     }
 
@@ -87,7 +87,7 @@
     &.modified .close-icon,
     &.modified:not(:hover) .close-icon {
       &:hover {
-        background: fade(@dark-color, 10%);
+        background: @darker-color;
       }
     }
     .close-icon::before {
@@ -138,14 +138,11 @@
 
   .tab {
     color: @text-color-subtle;
-    background: @tab-background-color-active-1;
-    box-shadow: inset 0 -1px 0 0 fade(@mid-color, 30%);
     transition: none;
 
     &.active {
       color: @text-color-subtle;
-      background: @light-color;
-      box-shadow: inset 0 -1px 0 fade(@tab-background-color, 60%);
+      background: @dark-color;
     }
   }
 }
@@ -156,29 +153,29 @@ atom-panel-container.bottom {
   .tab-bar {
     overflow-x: auto;
     overflow-y: hidden;
-    background: @tab-bar-background-color;
+    background: transparent;
     border-radius: 0;
 
     .tab {
       color: fade(@text-color-subtle, 60%);
-      background: @light-color;
-      box-shadow: inset 0 -1px 0 @tab-bar-background-color;
+      background: @tab-background-color;
+      box-shadow: inset 0 -1px 0 @mid-color, 1px 0 0 @mid-color;
 
       &:hover {
         color: @text-color;
-        background: @lighter-color;
+        background: @dark-color;
       }
 
       &.active {
         color: @text-color;
         font-weight: 500;
-        background: @lighter-color;
-        box-shadow: inset 0 -1px 0 @tab-bar-background-color;
+        background: @dark-color;
+        box-shadow: inset 0 -1px 0 @mid-color, 1px 0 0 @mid-color;
       }
 
       &:only-child {
         text-align: left !important;
-        background: @light-color !important;
+        background: @dark-color !important;
         box-shadow: none !important;
         padding: 0 10px;
 

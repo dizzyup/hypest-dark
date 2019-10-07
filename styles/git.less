@@ -25,11 +25,20 @@
 .github-CommitView-editor {
   &:extend(atom-text-editor[mini]);
 
+  atom-text-editor {
+    background: transparent;
+  }
+
   &:focus-within {
     &:extend(atom-text-editor[mini].is-focused);
+
+    atom-text-editor {
+      background: transparent;
+    }
   }
 
   .github-CommitView-coAuthorToggle {
+    background: transparent;
     margin-left: 2px;
     margin-bottom: 2px;
 
@@ -39,6 +48,7 @@
   }
 
   .github-CommitView-expandButton {
+    background: transparent;
     margin-right: 2px;
     margin-bottom: 2px;
     cursor: pointer;
@@ -48,6 +58,7 @@
 .github-Review-reply .github-AtomTextEditor-container {
   atom-text-editor {
     &:extend(atom-text-editor[mini]);
+    background: transparent;
 
     .cursor-line {
       background: @white-color;
@@ -57,6 +68,7 @@
   &:focus-within {
     atom-text-editor {
       &:extend(atom-text-editor[mini].is-focused);
+      background: transparent;
     }
   }
 }
@@ -90,6 +102,7 @@
 }
 
 .github-RecentCommits {
+  border-color: @mid-color;
   .github-RecentCommits-list {
     padding: 4px;
   }
@@ -125,6 +138,11 @@
 .github-Git {
   .btn {
     cursor: pointer;
+
+    &.disabled,
+    &[disabled] {
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -138,6 +156,7 @@
 }
 
 .github-StagingView-header {
+  border-color: @mid-color;
   span.icon {
     margin-top: -4px;
   }
@@ -167,6 +186,10 @@
   background: @light-color;
 }
 
+.github-CommitView-buttonWrapper {
+  border-color: @mid-color;
+}
+
 // Patch view, gutters & line numbers
 .github-FilePatchView {
   .github-FilePatchView-header,
@@ -179,11 +202,9 @@
 
   &-metaDiff {
     &--added {
-      color: ;
       background-color: fade(@green-color, 30%);
     }
     &--removed {
-      color: ;
       background-color: fade(@red-color, 30%);
     }
   }
@@ -242,6 +263,7 @@
   }
 
   atom-text-editor {
+    background: transparent;
     .selection .region {
       background-color: @region-selection-color;
     }
@@ -264,6 +286,7 @@
   }
 
   atom-text-editor {
+    background: transparent;
     .selection .region {
       background-color: @region-selection-color;
     }
@@ -273,6 +296,7 @@
 // Selected + focused hunkmode
 .github-FilePatchView.github-FilePatchView--hunkMode:focus-within {
   atom-text-editor {
+    background: transparent;
     .selection .region {
       background-color: @region-selection-color;
     }
@@ -418,6 +442,7 @@
   }
   .github-Review-nav + .github-AtomTextEditor-container {
     atom-text-editor {
+      background: transparent;
       border-radius: 0;
     }
   }
@@ -435,9 +460,10 @@
     border-radius: 6px;
     color: @text-color;
     border: none;
-    background: @light-color;
-    box-shadow: 0 2px 8px fade(@black-color, 10%),
-      0 1px 2px fade(@black-color, 10%), 0 0 0 1px fade(@black-color, 5%);
+    background: @mid-color;
+    box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+      0 2px 8px fade(@black-color, 10%), 0 1px 2px fade(@black-color, 10%),
+      0 0 0 1px fade(@black-color, 5%);
   }
   &.top .tooltip-arrow.tooltip-arrow {
     width: 30px;
