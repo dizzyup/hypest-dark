@@ -25,7 +25,7 @@ module.exports =
 
 setVibrancy = (vibrancy) ->
   if vibrancy
-    require("electron").remote.getCurrentWindow().setVibrancy("medium-light");
+    require("electron").remote.getCurrentWindow().setVibrancy("dark");
     document.documentElement.classList.add("hypest-vibrancy");
   else
     unsetVibrancy()

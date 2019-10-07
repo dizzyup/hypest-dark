@@ -2,7 +2,7 @@ html.hypest-vibrancy {
   background: transparent;
 
   body {
-    background-color: fade(@app-background-color, 0%);
+    background-color: fade(@app-background-color, 50%);
   }
 
   atom-workspace,
@@ -24,7 +24,7 @@ html.hypest-vibrancy {
 
   atom-panel-container.left .atom-dock-mask,
   atom-panel-container.right .atom-dock-mask {
-    background: fade(@white-color, 30%);
+    background: fade(@black-color, 30%);
   }
 
   atom-panel-container.left .tab-bar,
@@ -33,7 +33,7 @@ html.hypest-vibrancy {
     box-shadow: none;
 
     .tab {
-      background-color: fade(@white-color, 30%);
+      background-color: fade(@black-color, 30%);
       box-shadow: none !important;
       background-clip: padding-box;
       margin: 0;
@@ -42,12 +42,12 @@ html.hypest-vibrancy {
       border-left: 1px solid fade(@mid-color, 40%);
 
       &:hover {
-        background-color: fade(@white-color, 40%);
+        background-color: fade(@black-color, 40%);
       }
 
       &.active {
         height: 32px;
-        background-color: fade(@white-color, 60%);
+        background-color: fade(@black-color, 60%);
         border-bottom: 1px solid fade(@mid-color, 40%);
         border-left: 1px solid fade(@mid-color, 40%);
       }
@@ -114,8 +114,8 @@ html.hypest-vibrancy {
     box-shadow: 0 1px 0 fade(@mid-color, 70%);
     background: linear-gradient(
       180deg,
-      fade(@title-bar-stop-1, 75%) 0%,
-      fade(@title-bar-stop-2, 75%) 100%
+      fade(@dark-color, 85%) 0%,
+      fade(@darker-color, 75%) 100%
     );
   }
 
@@ -129,11 +129,11 @@ html.hypest-vibrancy {
       margin-bottom: 1px;
 
       &:hover {
-        background: fade(@mid-color, 70%);
+        background: fade(@darker-color, 70%);
       }
 
       &.active {
-        background: fade(@title-bar-stop-2, 75%);
+        background: fade(@darker-color, 75%);
         box-shadow: 1px 0 0 fade(@mid-color, 70%),
           0 -1px 0 fade(@mid-color, 70%);
         height: 31px;
@@ -146,7 +146,7 @@ html.hypest-vibrancy {
     box-shadow: none;
     border-top: 1px solid fade(@mid-color, 40%);
     background-clip: padding-box;
-    background-color: fade(@white-color, 50%);
+    background-color: fade(@black-color, 50%);
   }
 
   .github-CommitView-buttonWrapper,
@@ -159,7 +159,7 @@ html.hypest-vibrancy {
   .github-Git,
   .github-GitHub {
     box-shadow: 0 -1px 0 fade(@mid-color, 40%);
-    background-color: fade(@white-color, 60%);
+    background-color: fade(@black-color, 60%);
   }
 
   .github-GitHub-LargeIcon.icon:before {
@@ -205,30 +205,30 @@ html.hypest-vibrancy {
 }
 
 html.hypest-vibrancy body.is-blurred {
-  background: @lighter-color;
+  background: @dark-color;
 
   .title-bar,
   .tab {
-    background: fade(@light-color, 60%) !important;
+    background: fade(@darker-color, 30%) !important;
   }
 
   .title-bar {
-    box-shadow: 0 1px 0 fade(@mid-color, 40%);
+    box-shadow: 0 1px 0 fade(@dark-color, 40%);
   }
 
   .tab-bar,
   .tab.active {
-    box-shadow: inset 0 -1px 0 fade(@mid-color, 40%) !important;
+    box-shadow: inset 0 -1px 0 fade(@dark-color, 40%) !important;
   }
 
   .tab {
-    box-shadow: 1px 0 0 fade(@mid-color, 40%) !important;
+    box-shadow: 1px 0 0 fade(@dark-color, 40%) !important;
   }
 
   .tab.active {
-    background: fade(@mid-color, 20%) !important;
+    background: fade(@darker-color, 5%) !important;
     box-shadow: inset 0 -1px 0 fade(@mid-color, 0%),
-      1px 0 0 fade(@mid-color, 40%) !important;
+      1px 0 0 fade(@dark-color, 40%) !important;
   }
 
   atom-panel-container.left .tab-bar,
@@ -250,7 +250,7 @@ html.hypest-vibrancy body.is-blurred {
     }
 
     .tab.active {
-      background: fade(@white-color, 60%) !important;
+      background: fade(@darker-color, 60%) !important;
     }
   }
 }
