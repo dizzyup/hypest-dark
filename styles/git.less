@@ -27,6 +27,10 @@
 
   atom-text-editor {
     background: transparent;
+
+    .cursor-line::before {
+      display: none;
+    }
   }
 
   &:focus-within {
@@ -451,6 +455,10 @@
 .github-ReviewsFooterView {
   display: flex;
   align-items: center;
+}
+
+.github-CommitView-editor .github-CommitView-hardwrap {
+  display: none;
 }
 
 .github-Popover,

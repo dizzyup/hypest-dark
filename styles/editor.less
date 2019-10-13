@@ -37,59 +37,53 @@ atom-text-editor[mini] {
   .placeholder-text {
     color: @text-color-subtle;
   }
+
+  .cursor-line {
+    position: relative;
+    background: fade(@white-color, 5%);
+
+    &::before {
+      display: none;
+    }
+  }
 }
 
-atom-text-editor.editor {
-  .gutter {
-    min-width: auto;
-    background: transparent;
+.lines {
+  padding-left: 3px;
+
+  .cursor-line {
+    position: relative;
+    background: fade(@white-color, 5%);
 
     &::before {
       content: "";
       position: absolute;
-      left: 0;
+      left: -3px;
       top: 0;
       bottom: 0;
-      width: calc(~"100% " - 4px);
-      box-shadow: inset -1px 0 0 fade(@black-color, 5%);
-      background: @lighter-color;
+      width: 3px;
+      background: fade(@white-color, 5%);
     }
+  }
+}
+
+atom-text-editor.editor {
+  .gutter {
+    background: fade(@black-color, 5%);
+    box-shadow: inset -1px 0 0 fade(@white-color, 10%);
 
     .line-number {
       color: @text-color-subtle;
-      min-width: 60px;
-      padding-left: calc(0.5em - 4px);
       padding-right: 4px;
-      background: @lighter-color;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        border-right: 4px solid @white-color;
-        background: fade(@black-color, 5%);
-        width: 5px;
-      }
+      background: fade(@black-color, 5%);
 
       &.cursor-line {
         color: @text-color;
-        background: @light-color;
-
-        &::after {
-          border-right: 4px solid @white-color;
-          right: 0;
-        }
+        background: fade(@white-color, 10%);
       }
 
       &.cursor-line-no-selection {
-        background: @light-color;
-
-        &::after {
-          border-right: 4px solid @lighter-color;
-          right: 0;
-        }
+        background: fade(@white-color, 15%);
       }
 
       &.git-line-modified {
@@ -98,11 +92,11 @@ atom-text-editor.editor {
         &::before {
           content: "";
           position: absolute;
-          right: 4px;
+          right: 0;
           width: 2px;
           top: 0;
           bottom: 0;
-          background: fade(@orange-color, 80%);
+          background: fade(@orange-color, 100%);
         }
       }
 
@@ -112,140 +106,70 @@ atom-text-editor.editor {
         &::before {
           content: "";
           position: absolute;
-          right: 4px;
+          right: 0;
           width: 2px;
           top: 0;
           bottom: 0;
-          background: fade(@green-color, 80%);
+          background: fade(@green-color, 100%);
         }
       }
 
       &.git-line-removed:before,
       &.git-previous-line-removed:before {
         left: auto;
-        right: 0;
+        right: -4px;
         z-index: 4;
+        bottom: 0;
+        border-left: 5px solid @red-color;
+        border-top-width: 3px;
+        border-bottom-width: 3px;
       }
     }
   }
 
-  .gutter.line-numbers {
-    min-width: 60px;
-  }
+  .gutter[gutter-name="github-comment-icon"] {
+    order: -99;
+    margin-right: -1px;
+    min-width: 2em;
 
-  .gutter[gutter-name="linter-ui-default"] {
-    margin-left: 0;
-    margin-right: -4px;
-    min-width: 1.4em;
+    .github-editorCommentGutterIcon.react-atom-decoration {
+      padding: 0;
 
-    .line-number {
-      min-width: auto;
+      .icon-comment::before {
+        color: @blue-color;
+        margin-top: 1px;
+        margin-right: 1px;
+      }
     }
   }
 
-  .gutter + .gutter[gutter-name="linter-ui-default"] {
-    margin-left: -4px;
-    margin-right: 0;
-  }
+  .github-editorCommentHighlight {
+    box-shadow: inset 0 0 0 1px fade(@white-color, 15%);
+    width: calc(~"100% " - 6px);
+    background: fade(@white-color, 5%);
 
-  .cursor-line {
-    background: @lighter-color;
+    &.cursor-line {
+      box-shadow: inset 0 0 0 1px fade(@white-color, 15%);
+      background: fade(@white-color, 15%);
+    }
   }
 
   .selection .region {
     border-radius: 0;
+    background: fade(@white-color, 15%);
   }
 
   .wrap-guide {
     background: none;
     border-right: 1px dotted @base-border-color;
   }
-}
 
-html:not(.hypest-light-syntax) {
-  atom-text-editor.editor {
-    .cursor-line {
-      background: fade(@white-color, 5%);
-    }
-    .wrap-guide {
-      border-color: fade(@white-color, 20%);
-    }
-    .gutter {
-      &::before {
-        background: fade(@black-color, 20%);
-        box-shadow: inset -1px 0 0 fade(@white-color, 10%);
-      }
-      .line-number {
-        color: fade(@white-color, 60%);
-        background: fade(@black-color, 10%);
-        &::after {
-          border-left: 1px solid fade(@white-color, 9%);
-          border-right: 4px solid fade(@white-color, 4%);
-        }
-        &.cursor-line {
-          color: @white-color;
-          background: transparent;
-          &::after {
-            left: 0;
-            right: 0;
-            width: 100%;
-            background: fade(@light-color, 20%);
-            background-clip: padding-box;
-            border-color: transparent;
-          }
-        }
-        &.cursor-line-no-selection {
-          background: transparent;
-          &::after {
-            left: 0;
-            right: 0;
-            width: 100%;
-            background: fade(@light-color, 20%);
-            background-clip: padding-box;
-            border-color: transparent;
-          }
-        }
-        &.git-line-modified {
-          &::before {
-            background: fade(@orange-color, 100%);
-          }
-        }
-        &.git-line-added {
-          &::before {
-            background: fade(@green-color, 100%);
-          }
-        }
-      }
-    }
-    .gutter:not(.line-numbers) {
-      .line-number {
-        &.cursor-line {
-          &::after {
-            border-color: transparent;
-          }
-        }
-        &.cursor-line-no-selection {
-          &::after {
-            border-color: fade(@light-color, 10%);
-          }
-        }
-      }
-    }
+  .invisible-character, .indent-guide {
+    color: @base-border-color;
   }
-}
 
-html.hypest-light-syntax {
-  atom-text-editor.editor {
-    .gutter {
-      .line-number {
-        color: lighten(@mid-color, 30%);
-        &.cursor-line {
-          color: @dark-color;
-        }
-      }
-    }
-  }
-  .wrap-guide {
-    border-right: 1px dotted lighten(@mid-color, 50%);
+  .indent-guide {
+    box-shadow: none;
+    border-left: 1px dashed @base-border-color;
   }
 }
