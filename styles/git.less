@@ -179,15 +179,43 @@
   }
 }
 
-.github-Accordion-content:empty::before {
-  padding: 30px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-}
+.github-Accordion {
+  border-bottom: 1px solid @base-border-color;
 
-.github-Accordion-listItem:active {
-  background: @light-color;
+  .github-Accordion-header {
+    padding: 10px;
+    border: none;
+
+    .github-IssueishList-openReviewsButton,
+    .btn {
+      padding: 0 8px;
+      min-height: 20px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+
+  .github-Accordion-content {
+    overflow: hidden;
+    margin: 0 10px 10px;
+    border-radius: 5px;
+    border: 1px solid @base-border-color;
+  }
+
+  .github-Accordion-content:empty::before {
+    padding: 30px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  .github-Accordion-listItem {
+    cursor: pointer;
+  }
+
+  .github-Accordion-listItem:active {
+    background: @lighter-color;
+  }
 }
 
 .github-CommitView-buttonWrapper {
@@ -394,16 +422,6 @@
   }
 }
 
-.github-Accordion-header {
-  .github-IssueishList-openReviewsButton,
-  .btn {
-    padding: 0 8px;
-    min-height: 20px;
-    height: 20px;
-    line-height: 20px;
-  }
-}
-
 .github-Reviews {
   .github-Reviews-emptyState {
     text-align: center;
@@ -414,6 +432,8 @@
   }
   .github-Reviews-topHeader {
     min-height: 32px;
+    padding: 10px;
+
     .github-Reviews-headerButton,
     .github-StubItem-github-reviews-headerButton {
       padding: 0 8px;
@@ -455,6 +475,11 @@
 .github-ReviewsFooterView {
   display: flex;
   align-items: center;
+}
+
+.github-Review,
+.github-ReviewSummary {
+  border-radius: 5px;
 }
 
 .github-CommitView-editor .github-CommitView-hardwrap {

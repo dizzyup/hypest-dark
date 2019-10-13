@@ -8,7 +8,12 @@
   overflow-x: auto;
   overflow-y: hidden;
   background: @mid-color;
+  height: 32px;
   border-radius: 0;
+
+  &:empty {
+    height: 0px;
+  }
 
   .tab {
     text-align: center;

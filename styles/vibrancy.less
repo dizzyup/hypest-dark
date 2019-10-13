@@ -152,18 +152,40 @@ html.hypest-vibrancy {
   .github-CommitView-buttonWrapper,
   .github-RecentCommits,
   .github-StagingView-headerButton,
-  .github-StagingView-header {
+  .github-StagingView-header,
+  .github-StagingView-header,
+  .github-Reviews-section,
+  .github-Reviews-topHeader,
+  .github-ReviewSummary,
+  .github-Review-footer,
+  .github-Review-comments,
+  .github-Review-nav,
+  .github-Review-reference,
+  .github-Review,
+  .github-Accordion,
+  .github-Accordion-content {
     border-color: fade(@mid-color, 40%);
   }
 
   .github-Git,
-  .github-GitHub {
+  .github-GitHub,
+  .github-Reviews {
     box-shadow: 0 -1px 0 fade(@mid-color, 40%);
     background-color: fade(@black-color, 60%);
   }
 
+  .github-Review,
+  .github-ReviewSummary {
+    background-color: fade(@black-color, 60%);
+  }
+
+  .github-Accordion-content {
+    background-color: fade(@black-color, 60%);
+    border-color: fade(@mid-color, 40%);
+  }
+
   .github-GitHub-LargeIcon.icon:before {
-    color: fade(@dark-color, 20%);
+    color: fade(@white-color, 20%);
   }
 
   .github-StagingView {
@@ -199,7 +221,13 @@ html.hypest-vibrancy {
     a:hover,
     .deprecation-cop-status:hover,
     .github-StatusBarTileController > .inline-block:hover {
-      background: fade(@dark-color, 5%);
+      background: fade(@light-color, 5%);
+    }
+    .linter-status-count a.text-warning:hover {
+      background: @orange-color;
+    }
+    .linter-status-count a.text-error:hover {
+      background: darken(@red-color, 15%);
     }
   }
 }

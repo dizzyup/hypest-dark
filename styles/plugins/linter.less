@@ -23,7 +23,7 @@
 // Error
 #linter-tooltip linter-message.error {
   color: @text-color;
-  background-color: @white-color;
+  background-color: @mid-color;
   border: none;
 
   &::after {
@@ -44,7 +44,7 @@
 // Warning
 #linter-tooltip linter-message.warning {
   color: @text-color;
-  background-color: @white-color;
+  background-color: @mid-color;
   border: none;
 
   &::after {
@@ -65,7 +65,7 @@
 // Info
 #linter-tooltip linter-message.info {
   color: @text-color;
-  background-color: @white-color;
+  background-color: @mid-color;
   border: none;
 
   &::after {
@@ -102,6 +102,9 @@
   display: none;
 }
 
+atom-text-editor.editor .linter-row {
+  left: -1px;
+}
 .linter-ui-default-fix-btn {
   &:extend(.btn.btn-primary);
   color: @white-color;
