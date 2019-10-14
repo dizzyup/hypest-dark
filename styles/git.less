@@ -62,17 +62,19 @@
 .github-Review-reply .github-AtomTextEditor-container {
   atom-text-editor {
     &:extend(atom-text-editor[mini]);
-    background: transparent;
+
+    .lines {
+      padding-left: 0;
+    }
 
     .cursor-line {
-      background: @white-color;
+      background: transparent;
     }
   }
 
   &:focus-within {
     atom-text-editor {
       &:extend(atom-text-editor[mini].is-focused);
-      background: transparent;
     }
   }
 }
@@ -169,7 +171,7 @@
     transition: background ease 0.2s;
 
     &:hover {
-      background: @white-color;
+      background: fade(@white-color, 5%);
     }
   }
   .github-StagingView-headerButton--iconOnly::before {
@@ -181,6 +183,10 @@
 
 .github-Accordion {
   border-bottom: 1px solid @base-border-color;
+
+  &:last-of-type {
+    border: none;
+  }
 
   .github-Accordion-header {
     padding: 10px;
@@ -214,7 +220,7 @@
   }
 
   .github-Accordion-listItem:active {
-    background: @lighter-color;
+    background: @black-color;
   }
 }
 
@@ -224,9 +230,18 @@
 
 // Patch view, gutters & line numbers
 .github-FilePatchView {
+
   .github-FilePatchView-header,
   .github-HunkHeaderView {
     margin: 10px;
+  }
+
+  .lines {
+    padding: 0;
+  }
+
+  .react-atom-decoration {
+    background: transparent;
   }
 
   // Meta section
@@ -234,6 +249,7 @@
 
   &-metaDiff {
     &--added {
+      color: @green-color;
       background-color: fade(@green-color, 30%);
     }
     &--removed {
@@ -243,36 +259,20 @@
 
   // Line decorations
 
-  .line {
-    padding-left: 4px;
-  }
   &-line {
     &--deleted {
-      color: darken(@red-color, 30%);
+      color: @red-color;
       background-color: fade(@red-color, 20%);
       &.line.cursor-line {
         background-color: fade(@red-color, 30%);
       }
     }
     &--added {
-      color: darken(@green-color, 30%);
+      color: @green-color;
       background-color: fade(@green-color, 20%);
       &.line.cursor-line {
         background-color: fade(@green-color, 30%);
       }
-    }
-  }
-
-  // Gutter
-
-  .gutter {
-    margin-right: -4px;
-    &.old .line-number,
-    &.new .line-number {
-      min-width: 60px;
-    }
-    .github-editorCommentGutterIcon.decoration {
-      width: calc(~"100% - " 4px);
     }
   }
 }
@@ -288,7 +288,7 @@
     &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
       &.github-FilePatchView-line--selected {
         color: @text-color;
-        background: @light-color;
+        background: fade(@white-color, 5%);
         z-index: 1 !important;
       }
     }
@@ -311,7 +311,7 @@
     &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
       &.github-FilePatchView-line--selected {
         color: @text-color;
-        background: @light-color;
+        background: fade(@white-color, 5%);
         z-index: 1 !important;
       }
     }
@@ -344,15 +344,17 @@
 }
 
 .github-HunkHeaderView {
+  background: transparent;
+
   &-title,
   &-stageButton,
   &-discardButton {
     cursor: pointer;
     &:hover {
-      background-color: @lighter-color;
+      background-color: fade(@white-color, 5%);
     }
     &:active {
-      background-color: @light-color;
+      background-color: fade(@white-color, 15%);
     }
   }
 }
@@ -392,7 +394,7 @@
 }
 
 .github-tablist {
-  background: @lighter-color;
+  background: @darker-color;
 
   li.github-tab {
     font-weight: 500;
@@ -401,11 +403,11 @@
     border-right: 1px solid transparent;
     cursor: pointer;
     &:hover {
-      background: @white-color;
+      background: fade(@white-color, 4%);
     }
     &.react-tabs__tab--selected {
       color: @text-color;
-      background: @white-color;
+      background: fade(@white-color, 7%);
       z-index: 2;
       transition: none;
       border-left: 1px solid @base-border-color;
@@ -418,7 +420,14 @@
 .github-IssueishDetailView-meta {
   code {
     color: @text-color;
-    background: @light-color;
+    background: @dark-color;
+  }
+}
+
+.github-Reviews-section,
+.github-StubItem-github-reviews-section {
+  &:last-of-type {
+    border: none;
   }
 }
 
@@ -456,8 +465,14 @@
     transition: background ease 0.2s;
     cursor: pointer;
 
+    &[disabled] {
+      color: fade(@white-color, 20%);
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
     &:hover {
-      background: @light-color;
+      background: fade(@white-color, 5%);
     }
 
     &:before {
@@ -468,7 +483,29 @@
     atom-text-editor {
       background: transparent;
       border-radius: 0;
+      padding: 0;
+
+      .lines {
+        padding-left: 0;
+      }
+
+      .cursor-line {
+        background: transparent;
+      }
     }
+  }
+  .github-DotComMarkdownHtml pre, .github-DotComMarkdownHtml code {
+    background: @dark-color;
+  }
+}
+
+.github-EmojiReactions-add.btn {
+  background: linear-gradient(@mid-color, darken(@mid-color, 5%)) !important;
+
+  &:focus.btn, &:active.btn {
+    background: @dark-color !important;
+    box-shadow: 0 0 0 1px fade(@black-color, 50%),
+      inset 0 1px 0 fade(@black-color, 5%) !important;
   }
 }
 

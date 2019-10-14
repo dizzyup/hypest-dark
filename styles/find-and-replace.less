@@ -7,3 +7,24 @@
 .find-and-replace {
   border-top: 1px solid @mid-color;
 }
+
+.find-and-replace,
+.project-find {
+
+  header.header {
+    display: flex;
+    align-items: center;
+
+    .description {
+      flex-grow: 1;
+    }
+
+    .close-button {
+      order: 99;
+
+      .icon::before {
+        vertical-align: top;
+      }
+    }
+  }
+}
