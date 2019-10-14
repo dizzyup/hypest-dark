@@ -1,0 +1,175 @@
+.TeletypePopoverTooltip.tooltip {
+  width: 360px;
+
+  .tooltip-inner.tooltip-inner.tooltip-inner.tooltip-inner.tooltip-inner.tooltip-inner.tooltip-inner.tooltip-inner {
+    padding: 10px;
+    border-radius: 6px;
+    color: @text-color;
+    border: none;
+    background: @mid-color;
+    box-shadow: inset 0 0 0 1px fade(@white-color, 10%),
+      0 2px 8px fade(@black-color, 10%), 0 1px 2px fade(@black-color, 10%),
+      0 0 0 1px fade(@black-color, 5%);
+    max-height: none;
+
+    .SignInComponent {
+      padding: 18px;
+
+      p {
+        font-size: 12px;
+        line-height: 1.2;
+        padding-bottom: 8px;
+      }
+    }
+
+    atom-text-editor[mini],
+    input.input-text {
+      background: fade(@light-color, 10%) !important;
+    }
+
+    .PortalListComponent {
+
+      * {
+        font-size: 100% !important;
+      }
+
+      .HostPortalComponent-connection-info {
+        padding: 8px 12px 6px;
+        border-color: fade(@white-color, 10%);
+
+        .HostPortalComponent-connection-info-portal-url .btn {
+          margin-left: 10px;
+          padding: 0 8px;
+        }
+
+        .HostPortalComponent-connection-info-heading {
+          padding-bottom: 4px;
+        }
+      }
+
+      .HostPortalComponent-status {
+        padding: 4px 12px;
+        border-color: fade(@white-color, 10%);
+
+        .PortalParticipants-participant {
+          border-radius: 50%;
+          box-shadow: 0 0 0 1px fade(@dark-color, 10%), 0 1px 2px fade(@dark-color, 10%);
+        }
+
+        .HostPortalComponent-share-toggle {
+
+          label {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+          }
+
+          .input-toggle {
+            margin-left: 8px;
+          }
+        }
+      }
+
+      .JoinPortalComponent--prompt {
+        height: auto;
+        padding: 10px 12px 10px;
+        align-items: stretch;
+        border-color: fade(@white-color, 10%);
+
+        .btn {
+          margin-left: 10px;
+          padding: 0 8px;
+        }
+      }
+
+      .JoinPortalComponent--no-prompt {
+        height: auto;
+        padding: 10px 12px 10px;
+        align-items: stretch;
+        border-color: fade(@white-color, 10%);
+
+        label {
+          &:extend(.btn);
+          padding: 0 8px;
+
+          &:active {
+            &:extend(.btn:active);
+          }
+        }
+      }
+    }
+  }
+  &.top .tooltip-arrow.tooltip-arrow {
+    width: 30px;
+    height: 13px;
+    border: none;
+    background: none;
+    border-radius: 0;
+    transform: none;
+    bottom: -7px;
+  }
+}
+
+.status-bar .status-bar-right {
+
+  .PortalStatusBarIndicator {
+    padding: 2px 0;
+    line-height: 23px;
+
+    &:hover {
+      background: transparent;
+    }
+
+    .icon {
+      padding: 3px 2px !important;
+      border-radius: 18px;
+      line-height: 19px;
+      margin: 0 2px;
+      transition: color ease .2s, background ease .2s !important;
+
+      &:hover {
+        background: @mid-color;
+      }
+    }
+
+    &.transmitting {
+
+      .icon {
+        background: @blue-color;
+
+        &:before {
+          color: @white-color;
+        }
+      }
+
+      &:hover {
+
+        .icon {
+          background: darken(@blue-color, 5%);
+        }
+      }
+    }
+
+    &.outdated, &.initialization-error {
+
+      .icon {
+        background: @orange-color;
+
+        &:before {
+          color: @white-color;
+        }
+      }
+
+      &:hover {
+
+        .icon {
+          background: darken(@orange-color, 5%);
+        }
+      }
+    }
+
+    .icon:before {
+      margin: 0 5px;
+    }
+  }
+}

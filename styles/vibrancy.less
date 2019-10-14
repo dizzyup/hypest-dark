@@ -165,7 +165,8 @@ html.hypest-vibrancy {
   .github-Review-reference,
   .github-Review,
   .github-Accordion,
-  .github-Accordion-content {
+  .github-Accordion-content,
+  .github-Accordion-listItem {
     border-color: fade(@mid-color, 40%);
   }
 
@@ -222,14 +223,18 @@ html.hypest-vibrancy {
   .status-bar-right {
     a:hover,
     .deprecation-cop-status:hover,
-    .github-StatusBarTileController > .inline-block:hover {
+    .github-StatusBarTileController > .inline-block:hover,
+    .PortalStatusBarIndicator .icon:hover {
       background: fade(@light-color, 5%);
     }
     .linter-status-count a.text-warning:hover {
       background: @orange-color;
     }
     .linter-status-count a.text-error:hover {
-      background: darken(@red-color, 15%);
+      background: darken(@red-color, 5%);
+    }
+    .PortalStatusBarIndicator .icon.transmitting:hover {
+      background: darken(@blue-color, 5%);
     }
   }
 }

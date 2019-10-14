@@ -25,6 +25,10 @@
     .line-ending-tile {
       padding: 0 8px;
       flex-shrink: 0;
+
+      &:empty {
+        display: none;
+      }
     }
 
     a {
@@ -160,7 +164,7 @@
 
     &:hover {
       text-decoration: none;
-      background: darken(@blue-color, 15%);
+      background: darken(@blue-color, 5%);
     }
   }
 

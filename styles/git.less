@@ -182,7 +182,7 @@
 }
 
 .github-Accordion {
-  border-bottom: 1px solid @base-border-color;
+  border-bottom: 1px solid @mid-color;
 
   &:last-of-type {
     border: none;
@@ -205,7 +205,8 @@
     overflow: hidden;
     margin: 0 10px 10px;
     border-radius: 5px;
-    border: 1px solid @base-border-color;
+    background: fade(@darker-color, 25%);
+    border: 1px solid @mid-color;
   }
 
   .github-Accordion-content:empty::before {
@@ -217,10 +218,11 @@
 
   .github-Accordion-listItem {
     cursor: pointer;
+    border-color: @mid-color;
   }
 
   .github-Accordion-listItem:active {
-    background: @black-color;
+    background: fade(@darker-color, 50%);
   }
 }
 
@@ -233,7 +235,9 @@
 
   .github-FilePatchView-header,
   .github-HunkHeaderView {
+    color: @text-color;
     margin: 10px;
+    background: transparent;
   }
 
   .lines {
@@ -242,6 +246,13 @@
 
   .react-atom-decoration {
     background: transparent;
+  }
+
+  .github-FilePatchView-showDiffButton {
+    &:extend(.btn);
+    font-size: 13px;
+    padding: 0 8px;
+    margin: 10px 0 20px;
   }
 
   // Meta section
@@ -295,6 +306,7 @@
   }
 
   atom-text-editor {
+    color: @text-color;
     background: transparent;
     .selection .region {
       background-color: @region-selection-color;
@@ -343,6 +355,10 @@
   overflow: hidden;
 }
 
+.github-CommitDetailView-header {
+  background: transparent;
+}
+
 .github-HunkHeaderView {
   background: transparent;
 
@@ -366,6 +382,8 @@
   .github-HunkHeaderView-title,
   .github-HunkHeaderView-stageButton,
   .github-HunkHeaderView-discardButton {
+  background-color: fade(@white-color, 10%);
+
     &:hover {
       background-color: lighten(@blue-color, 5%);
     }
@@ -383,6 +401,8 @@
     .github-HunkHeaderView-title,
     .github-HunkHeaderView-stageButton,
     .github-HunkHeaderView-discardButton {
+    background-color: @blue-color;
+
       &:hover {
         background-color: lighten(@blue-color, 5%);
       }
@@ -417,7 +437,11 @@
   }
 }
 
-.github-IssueishDetailView-meta {
+.github-IssueishDetailView,
+.github-CommitDetailView,
+.github-FilePatchView {
+  background: @darker-color;
+
   code {
     color: @text-color;
     background: @dark-color;
@@ -426,6 +450,7 @@
 
 .github-Reviews-section,
 .github-StubItem-github-reviews-section {
+  border-color: @mid-color;
   &:last-of-type {
     border: none;
   }
@@ -442,6 +467,7 @@
   .github-Reviews-topHeader {
     min-height: 32px;
     padding: 10px;
+    border-color: @mid-color;
 
     .github-Reviews-headerButton,
     .github-StubItem-github-reviews-headerButton {
@@ -463,6 +489,7 @@
     display: flex;
     justify-content: center;
     transition: background ease 0.2s;
+    border-color: @mid-color;
     cursor: pointer;
 
     &[disabled] {
@@ -479,18 +506,22 @@
       margin-top: -1px;
     }
   }
-  .github-Review-nav + .github-AtomTextEditor-container {
-    atom-text-editor {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
+  .github-Review-nav {
+    border-color: @mid-color;
 
-      .lines {
-        padding-left: 0;
-      }
-
-      .cursor-line {
+    & + .github-AtomTextEditor-container {
+      atom-text-editor {
         background: transparent;
+        border-radius: 0;
+        padding: 0;
+
+        .lines {
+          padding-left: 0;
+        }
+
+        .cursor-line {
+          background: transparent;
+        }
       }
     }
   }
@@ -509,14 +540,18 @@
   }
 }
 
-.github-ReviewsFooterView {
+.github-ReviewsFooterView,
+.github-Review-footer {
   display: flex;
   align-items: center;
+  border-color: @mid-color;
 }
 
 .github-Review,
 .github-ReviewSummary {
   border-radius: 5px;
+  background: fade(@darker-color, 25%);
+  border-color: @mid-color;
 }
 
 .github-CommitView-editor .github-CommitView-hardwrap {
@@ -542,5 +577,6 @@
     background: none;
     border-radius: 0;
     transform: none;
+    bottom: -7px;
   }
 }
