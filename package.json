@@ -2,11 +2,13 @@
   "name": "hypest-dark",
   "theme": "ui",
   "version": "0.3.0",
-  "description": "A native and refined UI theme for Atom",
+  "description": "A dark, native and refined UI theme for Atom",
   "author": "Hector Simpson (https://hector.me)",
   "keywords": [
     "ui",
-    "theme"
+    "theme",
+    "mac",
+    "dark"
   ],
   "repository": "https://github.com/dizzyup/hypest-dark",
   "license": "MIT",
@@ -24,7 +26,7 @@
     },
     "syntaxTheme": {
       "title": "Improve support for light syntax themes",
-      "description": "Improves the editor styles when using light syntax themes with the dark variant of Hypest.",
+      "description": "Improves editor styles when using light syntax themes.",
       "type": "boolean",
       "default": "false",
       "order": 2

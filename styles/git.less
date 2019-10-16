@@ -152,11 +152,13 @@
   }
 }
 
-.github-GithubLoginView .github-GithubLoginView-Subview h1 {
+.github-GithubLoginView .github-GithubLoginView-Subview h1,
+.github-Git.no-repository h1 {
   margin-bottom: 0;
 }
 
-.github-GitHub-LargeIcon.icon:before {
+.github-GitHub-LargeIcon.icon:before,
+.github-Git-LargeIcon.icon:before {
   width: auto;
   margin-bottom: 10px;
 }
@@ -168,6 +170,7 @@
   }
   .github-StagingView-headerButton {
     cursor: pointer;
+    border-color: @mid-color;
     transition: background ease 0.2s;
 
     &:hover {
@@ -440,7 +443,7 @@
 .github-IssueishDetailView,
 .github-CommitDetailView,
 .github-FilePatchView {
-  background: @darker-color;
+  background: darken(@dark-color, 7%);
 
   code {
     color: @text-color;
@@ -456,6 +459,10 @@
   }
 }
 
+.github-Accordion[open] .github-Accordion-header {
+  color: @text-color;
+}
+
 .github-Reviews {
   .github-Reviews-emptyState {
     text-align: center;
@@ -465,6 +472,7 @@
     }
   }
   .github-Reviews-topHeader {
+    color: @text-color;
     min-height: 32px;
     padding: 10px;
     border-color: @mid-color;
@@ -578,5 +586,18 @@
     border-radius: 0;
     transform: none;
     bottom: -7px;
+  }
+}
+
+.github-AtomTextEditor-container {
+  atom-text-editor {
+
+    .lines {
+      padding-left: 0;
+    }
+
+    .cursor-line {
+      background: transparent;
+    }
   }
 }

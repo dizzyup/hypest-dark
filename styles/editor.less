@@ -148,13 +148,13 @@ atom-text-editor.editor {
   }
 
   .github-editorCommentHighlight {
-    box-shadow: inset 0 0 0 1px fade(@white-color, 15%);
+    box-shadow: inset 0 0 0 1px fade(@blue-color, 15%);
     width: calc(~"100% " - 6px);
-    background: fade(@white-color, 5%);
+    background: fade(@blue-color, 5%);
 
     &.cursor-line {
-      box-shadow: inset 0 0 0 1px fade(@white-color, 15%);
-      background: fade(@white-color, 15%);
+      box-shadow: inset 0 0 0 1px fade(@blue-color, 15%);
+      background: fade(@blue-color, 15%);
     }
   }
 
@@ -175,5 +175,66 @@ atom-text-editor.editor {
   .indent-guide {
     box-shadow: none;
     border-left: 1px dashed @base-border-color;
+  }
+}
+
+.hypest-light-syntax {
+  atom-text-editor[mini] {
+    &.is-focused {
+      .selection .region {
+        background: @region-selection-color;
+      }
+    }
+    .selection .region {
+      background: transparent;
+    }
+  }
+  .lines {
+    .cursor-line {
+      background: @lighter-color;
+
+      &::before {
+        background: @lighter-color;
+      }
+    }
+  }
+  atom-text-editor.editor {
+    .gutter {
+      background: @lighter-color;
+      box-shadow: inset -1px 0 0 fade(@dark-color, 10%);
+      .line-number {
+        color: lighten(@mid-color, 20%);
+        background: @lighter-color;
+        box-shadow: inset -1px 0 0 fade(@dark-color, 10%);
+        &.cursor-line {
+          color: lighten(@mid-color, 5%);
+          background: @light-color;
+        }
+        &.cursor-line-no-selection {
+          background: @light-color;
+        }
+      }
+    }
+    .gutter[gutter-name="github-comment-icon"] {
+      background: @white-color;
+    }
+    .github-editorCommentHighlight {
+      &.cursor-line {
+        box-shadow: inset 0 0 0 1px @light-color;
+        background: @lighter-color;
+      }
+    }
+    .selection .region {
+      background: #cfe9ff;
+    }
+    .wrap-guide {
+      border-right: 1px dotted darken(@light-color, 5%);
+    }
+    .invisible-character, .indent-guide {
+      color: darken(@light-color, 5%);
+    }
+    .indent-guide {
+      border-left: 1px dashed darken(@light-color, 5%);
+    }
   }
 }
