@@ -68,7 +68,7 @@
     }
 
     .cursor-line {
-      background: transparent;
+      background: transparent !important;
     }
   }
 
@@ -278,14 +278,14 @@
       color: @red-color;
       background-color: fade(@red-color, 20%);
       &.line.cursor-line {
-        background-color: fade(@red-color, 30%);
+        background-color: fade(@red-color, 30%) !important;
       }
     }
     &--added {
       color: @green-color;
       background-color: fade(@green-color, 20%);
       &.line.cursor-line {
-        background-color: fade(@green-color, 30%);
+        background-color: fade(@green-color, 30%) !important;
       }
     }
   }
@@ -302,7 +302,7 @@
     &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
       &.github-FilePatchView-line--selected {
         color: @text-color;
-        background: fade(@white-color, 5%);
+        background: fade(@white-color, 5%) !important;
         z-index: 1 !important;
       }
     }
@@ -326,7 +326,7 @@
     &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
       &.github-FilePatchView-line--selected {
         color: @text-color;
-        background: fade(@white-color, 5%);
+        background: fade(@white-color, 5%) !important;
         z-index: 1 !important;
       }
     }
@@ -528,7 +528,7 @@
         }
 
         .cursor-line {
-          background: transparent;
+          background: transparent !important;
         }
       }
     }
@@ -597,7 +597,7 @@
     }
 
     .cursor-line {
-      background: transparent;
+      background: transparent !important;
     }
   }
 }

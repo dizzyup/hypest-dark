@@ -31,7 +31,7 @@ atom-text-editor[mini] {
   }
 
   .selection .region {
-    background: transparent;
+    background: transparent !important;
   }
 
   .placeholder-text {
@@ -44,7 +44,7 @@ atom-text-editor[mini] {
 
   .cursor-line {
     position: relative;
-    background: fade(@white-color, 5%);
+    background: fade(@white-color, 5%) !important;
 
     &::before {
       display: none;
@@ -57,7 +57,7 @@ atom-text-editor[mini] {
 
   .cursor-line {
     position: relative;
-    background: fade(@white-color, 5%);
+    background: fade(@white-color, 5%) !important;
 
     &::before {
       content: "";
@@ -66,14 +66,14 @@ atom-text-editor[mini] {
       top: 0;
       bottom: 0;
       width: 3px;
-      background: fade(@white-color, 5%);
+      background: fade(@white-color, 5%) !important;
     }
   }
 }
 
 atom-text-editor.editor {
   .gutter {
-    background: fade(@black-color, 5%);
+    background: fade(@black-color, 25%);
     box-shadow: inset -1px 0 0 fade(@white-color, 10%);
 
     .line-number {
@@ -82,12 +82,13 @@ atom-text-editor.editor {
       background: fade(@black-color, 5%);
 
       &.cursor-line {
-        color: @text-color;
-        background: fade(@white-color, 10%);
+        color: @light-color !important;
+        opacity: 1;
+        background: fade(@white-color, 10%) !important;
       }
 
       &.cursor-line-no-selection {
-        background: fade(@white-color, 15%);
+        background: fade(@white-color, 15%) !important;
       }
 
       &.git-line-modified {
@@ -135,6 +136,7 @@ atom-text-editor.editor {
     order: -99;
     margin-right: -1px;
     min-width: 2em;
+    background: fade(@black-color, 25%);
 
     .github-editorCommentGutterIcon.react-atom-decoration {
       padding: 0;
@@ -154,27 +156,27 @@ atom-text-editor.editor {
 
     &.cursor-line {
       box-shadow: inset 0 0 0 1px fade(@blue-color, 15%);
-      background: fade(@blue-color, 15%);
+      background: fade(@blue-color, 15%) !important;
     }
   }
 
   .selection .region {
     border-radius: 0;
-    background: fade(@white-color, 15%);
+    background: fade(@white-color, 15%) !important;
   }
 
   .wrap-guide {
     background: none;
-    border-right: 1px dotted @base-border-color;
+    border-right: 1px dotted fade(@white-color, 10%);
   }
 
   .invisible-character, .indent-guide {
-    color: @base-border-color;
+    color: fade(@white-color, 10%);
   }
 
   .indent-guide {
     box-shadow: none;
-    border-left: 1px dashed @base-border-color;
+    border-left: 1px dashed fade(@white-color, 5%);
   }
 }
 
@@ -182,7 +184,7 @@ atom-text-editor.editor {
   atom-text-editor[mini] {
     &.is-focused {
       .selection .region {
-        background: @region-selection-color;
+        background: @region-selection-color !important;
       }
     }
     .selection .region {
@@ -191,10 +193,10 @@ atom-text-editor.editor {
   }
   .lines {
     .cursor-line {
-      background: @lighter-color;
+      background: @lighter-color !important;
 
       &::before {
-        background: @lighter-color;
+        background: @lighter-color !important;
       }
     }
   }
@@ -207,11 +209,11 @@ atom-text-editor.editor {
         background: @lighter-color;
         box-shadow: inset -1px 0 0 fade(@dark-color, 10%);
         &.cursor-line {
-          color: lighten(@mid-color, 5%);
-          background: @light-color;
+          color: lighten(@mid-color, 5%) !important;
+          background: @light-color !important;
         }
         &.cursor-line-no-selection {
-          background: @light-color;
+          background: @light-color !important;
         }
       }
     }
@@ -221,11 +223,11 @@ atom-text-editor.editor {
     .github-editorCommentHighlight {
       &.cursor-line {
         box-shadow: inset 0 0 0 1px @light-color;
-        background: @lighter-color;
+        background: @lighter-color !important;
       }
     }
     .selection .region {
-      background: #cfe9ff;
+      background: #cfe9ff !important;
     }
     .wrap-guide {
       border-right: 1px dotted darken(@light-color, 5%);
