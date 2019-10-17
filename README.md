@@ -1,20 +1,26 @@
-<img src="assets/icon.png?raw=true" alt="Hypest Atom Icon" width="142" height="142" />
+<img src="https://raw.githubusercontent.com/dizzyup/hypest-dark/master/assets/icon.png?raw=true"
+  alt="Hypest Icon" width="142" height="142" />
 
 # Hypest Dark for Atom (β)
 
-A dark, native and refined UI theme for Atom — with optional vibrancy, and theming for several popular third-party Atom plugins. Also available in a [light version](https://atom.io/themes/hypest-light).
+A dark, native and refined UI theme for Atom — with optional vibrancy, and
+theming for several popular third-party Atom plugins. Also available in a
+[light version](https://atom.io/themes/hypest-light).
 
 > Hypest is currently still in development and there may be rough, unstyled edges.
 > More robust syntax theme support and bundled syntax themes are planned.
 
-<img src="assets/preview.jpg?raw=true" alt="Hypest Screenshot" width="600" />
+<img src="https://raw.githubusercontent.com/dizzyup/hypest-dark/master/assets/preview.jpg"
+  alt="Hypest Preview" width="600" />
 
 ## Installation
 
 You can install Hypest Dark from within Atom or via the terminal. Once installed
 select `Hypest Dark` from the theme selection menu in Settings.
 
-By default Hypest Dark is optimized for dark syntax themes. If you wish to use a light theme, for now you'll need to toggle the setting for 'Improve support for light syntax themes'.
+By default Hypest Dark is optimized for dark syntax themes. If you wish to use
+a light theme, for now you'll need to toggle the setting for 'Improve support
+for light syntax themes'.
 
 ### From the terminal
 
