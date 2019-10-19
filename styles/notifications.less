@@ -121,5 +121,30 @@ atom-notifications {
         }
       }
     }
+
+    code {
+      white-space: nowrap;
+      word-wrap: break-word;
+    }
+
+    &.error code, &.fatal.code {
+      color: @white-color;
+      background: @red-color;
+    }
+
+    &.success code {
+      color: @white-color;
+      background: @green-color;
+    }
+
+    &.info code {
+      color: @white-color;
+      background: @blue-color;
+    }
+
+    &.warning code {
+      color: @white-color;
+      background: @orange-color;
+    }
   }
 }
