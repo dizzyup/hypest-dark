@@ -1,9 +1,14 @@
 root = document.documentElement
+container = document.querySelector('atom-workspace')
 
 themeName = 'hypest-dark'
 
 module.exports =
   activate: (state) ->
+    dummyEditor = document.createElement('atom-text-editor')
+    dummyEditor.classList.add("hypest-dummy-editor")
+    container.appendChild(dummyEditor)
+
     atom.config.observe "#{themeName}.vibrancy", (value) ->
       setVibrancy(value)
 
@@ -16,10 +21,10 @@ module.exports =
     atom.config.observe "#{themeName}.hideDockButtons", (value) ->
       setHideDockButtons(value)
 
-    atom.themes.onDidChangeActiveThemes ->
-      setSyntaxTheme()
-
   deactivate: ->
+    dummyEditor = document.querySelector('atom-text-editor.hypest-dummy-editor')
+    dummyEditor.parentNode.removeChild(dummyEditor)
+
     unsetVibrancy()
     unsetSyntaxTheme()
     unsetTabCloseButton()
@@ -28,35 +33,23 @@ module.exports =
 # Syntax theme -----------------------
 
 setSyntaxTheme = (syntaxTheme) ->
-  editor = document.querySelector('atom-pane-container.panes atom-text-editor.editor')
+  editor = document.querySelector('atom-text-editor.hypest-dummy-editor')
   editorColor = getComputedStyle(editor).backgroundColor
 
   rgb = editorColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-  r = rgb[1]
-  g = rgb[2]
-  b = rgb[3]
-  contrast = Math.round((r * 299 + g * 587 + b * 114) / 1000)
-
-  console.log(contrast)
-  console.log(syntaxTheme)
+  contrast = Math.round((rgb[1] * 299 + rgb[2] * 587 + rgb[3] * 114) / 1000)
 
   if syntaxTheme is 'Always match light theme'
     setLightTheme()
-    console.log('is always light')
   else if syntaxTheme is 'Always match dark theme'
     setDarkTheme()
-    console.log('is always dark')
   else if syntaxTheme is 'Detect automatically'
-    console.log('detected successfully')
     if (contrast >= 200)
       setLightTheme()
-      console.log('light detected')
     else if (contrast < 200)
       setDarkTheme()
-      console.log('dark detected')
     else
-      setLightTheme()
-      console.log('fallback to light')
+      setDarkTheme()
 
 setLightTheme = ->
   document.documentElement.classList.remove("hypest-dark-syntax")
@@ -80,17 +73,6 @@ setVibrancy = (vibrancy) ->
 
 unsetVibrancy = ->
   document.documentElement.classList.remove("hypest-vibrancy")
-
-# Dark Syntax -----------------------
-
-setSyntaxTheme = (syntaxTheme) ->
-  if syntaxTheme
-    document.documentElement.classList.add("hypest-light-syntax")
-  else
-    unsetSyntaxTheme()
-
-unsetSyntaxTheme = ->
-  document.documentElement.classList.remove("hypest-light-syntax")
 
 # Tab Close Button -----------------------
 
