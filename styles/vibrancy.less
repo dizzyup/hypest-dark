@@ -155,7 +155,7 @@ html.hypest-vibrancy {
       }
 
       &.active {
-        color: @text-color;
+        color: fade(@white-color, 85%);
         background: fade(@darker-color, 55%);
         box-shadow: 1px 0 0 fade(@mid-color, 70%),
           0 -1px 0 fade(@mid-color, 70%);
@@ -310,6 +310,7 @@ html.hypest-vibrancy body.is-blurred {
   }
 
   .tab.active {
+    color: @text-color !important;
     background: fade(@darker-color, 40%) !important;
   }
 
@@ -320,7 +321,6 @@ html.hypest-vibrancy body.is-blurred {
 
     .tab,
     .tab.active {
-      color: @text-color-subtle !important;
       border-bottom-color: fade(@light-color, 10%) !important;
       border-right-color: fade(@light-color, 10%) !important;
       box-shadow: none !important;
