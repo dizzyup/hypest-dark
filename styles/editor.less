@@ -79,14 +79,16 @@ atom-text-editor.editor {
 
     .line-number {
       padding-right: 4px;
-      background: fade(@black-color, 5%);
+      background: transparent;
       box-shadow: none;
 
       &.cursor-line {
+        box-shadow: inset -1px 0 0 fade(@white-color, 5%);
         background: fade(@white-color, 10%) !important;
       }
 
       &.cursor-line-no-selection {
+        box-shadow: inset -1px 0 0 fade(@white-color, 5%);
         background: fade(@white-color, 15%) !important;
       }
 
@@ -176,7 +178,7 @@ atom-text-editor.editor {
 
   .indent-guide {
     box-shadow: none;
-    border-left: 1px dashed fade(@white-color, 5%);
+    border-left: 1px solid fade(@white-color, 5%);
   }
 }
 
