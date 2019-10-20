@@ -258,6 +258,28 @@
     margin: 10px 0 20px;
   }
 
+  .gutter {
+    background: fade(@black-color, 25%);
+    box-shadow: inset -1px 0 0 fade(@white-color, 10%);
+  }
+
+  .gutter[gutter-name="github-comment-icon"] {
+    order: -99;
+    margin-right: -1px;
+    background: fade(@black-color, 25%);
+    min-width: 2em;
+
+    .github-editorCommentGutterIcon.react-atom-decoration {
+      padding: 0;
+
+      .icon-comment::before {
+        color: @blue-color;
+        margin-top: 1px;
+        margin-right: 1px;
+      }
+    }
+  }
+
   // Meta section
   // Used for mode changes
 
@@ -298,13 +320,21 @@
   .gutter {
     &.old .line-number,
     &.new .line-number,
-    &.icons .line-number,
-    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+    &.icons .line-number {
+      color: @text-color;
+      background: transparent;
+      z-index: 1 !important;
+      box-shadow: inset -1px 0 0 fade(@white-color, 3%);
+
       &.github-FilePatchView-line--selected {
         color: @text-color;
         background: fade(@white-color, 5%) !important;
-        z-index: 1 !important;
-        box-shadow: inset -1px 0 0 fade(@white-color, 5%);
+      }
+    }
+    &[gutter-name="github-comment-icon"] {
+
+      .github-editorCommentGutterIcon.github-FilePatchView-line--selected {
+        background: transparent;
       }
     }
   }
@@ -323,12 +353,20 @@
   .gutter {
     &.old .line-number,
     &.new .line-number,
-    &.icons .line-number,
-    &[gutter-name="github-comment-icon"] .github-editorCommentGutterIcon {
+    &.icons .line-number {
+      color: @text-color;
+      background: transparent;
+      z-index: 1 !important;
+
       &.github-FilePatchView-line--selected {
         color: @text-color;
-        background: fade(@white-color, 5%) !important;
-        z-index: 1 !important;
+        background: @blue-color !important;
+      }
+    }
+    &[gutter-name="github-comment-icon"] {
+
+      .github-editorCommentGutterIcon.github-FilePatchView-line--selected {
+        background: transparent;
       }
     }
   }
@@ -524,12 +562,8 @@
         border-radius: 0;
         padding: 0;
 
-        .lines {
-          padding-left: 0;
-        }
-
-        .cursor-line {
-          background: transparent !important;
+        .gutter-container {
+          display: none;
         }
       }
     }
@@ -590,15 +624,44 @@
   }
 }
 
-.github-AtomTextEditor-container {
-  atom-text-editor {
+.hypest-light-syntax, .hypest-dark-syntax {
 
-    .lines {
-      padding-left: 0;
-    }
+  .github-AtomTextEditor-container {
+    atom-text-editor,
+    atom-text-editor.editor:not(.mini) {
+      color: @text-color;
 
-    .cursor-line {
-      background: transparent !important;
+      .lines {
+        padding-left: 0 !important;
+      }
+
+      .gutter {
+        background: fade(@black-color, 25%);
+        box-shadow: inset -1px 0 0 fade(@white-color, 10%);
+      }
+
+      .gutter[gutter-name="github-comment-icon"] {
+        background: fade(@black-color, 25%);
+      }
+
+      .cursor {
+        border-color: @text-color;
+      }
+
+      .region.selection {
+        background: fade(@white-color, 5%);
+      }
+
+      &.is-focused {
+
+        .region.selection {
+          background: @region-selection-color;
+        }
+
+        .cursor-line {
+          background: transparent;
+        }
+      }
     }
   }
 }
