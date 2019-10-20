@@ -118,7 +118,7 @@
     font-weight: 500;
     text-align: center;
     color: @text-color-subtle;
-    background: @light-color;
+    background: @mid-color;
     padding: 20px 30px;
     margin: 10px 1px 0;
     border-radius: 6px;
@@ -222,6 +222,11 @@ autocomplete-suggestion-list.select-list.popover-list {
   border-radius: 4px;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+
+  .suggestion-description {
+    background: lighten(@darker-color, 5%);
+    box-shadow: inset 0 0 0 1px fade(@white-color, 10%);
+  }
 }
 
 // Popover List -------------------
