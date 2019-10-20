@@ -9,7 +9,8 @@
 }
 
 .find-and-replace,
-.project-find {
+.project-find,
+.preview-pane {
 
   header.header {
     display: flex;
@@ -26,5 +27,55 @@
         vertical-align: top;
       }
     }
+  }
+
+  .options-label,
+  .options-label,
+  .options-label {
+    color: @text-color-subtle;
+
+    & .options {
+      color: @text-color;
+      margin-right: 12px;
+    }
+  }
+}
+
+.preview-pane {
+
+  .preview-header {
+    background: darken(@dark-color, 5%);
+    border-color: @base-border-color;
+  }
+
+  .results-view .context-row,
+  .results-view .list-nested-item,
+  .results-view .match-row,
+  .results-view .match-row.separator {
+    box-shadow: inset 0 1px 0 @base-border-color;
+
+    .preview {
+      color: @text-color;
+    }
+
+    &.selected {
+
+      .preview {
+        color: @white-color;
+
+        .match.highlight-info {
+          color: @blue-color;
+          background: @white-color;
+        }
+      }
+
+      .path-match-number {
+        color: fade(@white-color, 70%);
+      }
+    }
+  }
+
+  .results-view-container .list-tree div:first-child .list-nested-item {
+    box-shadow: none;
   }
 }

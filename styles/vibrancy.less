@@ -2,7 +2,7 @@ html.hypest-vibrancy {
   background: transparent;
 
   body {
-    background-color: fade(@app-background-color, 70%);
+    background-color: fade(@app-background-color, 80%);
   }
 
   atom-workspace,
@@ -13,6 +13,10 @@ html.hypest-vibrancy {
   atom-panel-container.header .tool-panel,
   atom-panel-container.footer .tool-panel {
     background: transparent;
+  }
+
+  .tool-panel {
+    background: fade(@darker-color, 50%);
   }
 
   atom-panel-container.left atom-pane,
@@ -70,7 +74,7 @@ html.hypest-vibrancy {
   .pane-row {
     atom-pane {
       border: none;
-      margin-left: 1px;
+      margin-left: 0;
       box-shadow: -1px 0 0 fade(@light-color, 10%), -1px 0 0 fade(@app-background-color, 70%);
 
       &:first-child {
@@ -78,6 +82,10 @@ html.hypest-vibrancy {
         box-shadow: none;
       }
     }
+  }
+
+  .pane-column atom-pane-resize-handle.vertical + atom-pane {
+    margin-top: 1px;
   }
 
   atom-panel-container.left {
@@ -147,7 +155,7 @@ html.hypest-vibrancy {
       }
 
       &.active {
-        color: @text-color;
+        color: fade(@white-color, 85%);
         background: fade(@darker-color, 55%);
         box-shadow: 1px 0 0 fade(@mid-color, 70%),
           0 -1px 0 fade(@mid-color, 70%);
@@ -302,6 +310,7 @@ html.hypest-vibrancy body.is-blurred {
   }
 
   .tab.active {
+    color: @text-color !important;
     background: fade(@darker-color, 40%) !important;
   }
 
@@ -312,7 +321,6 @@ html.hypest-vibrancy body.is-blurred {
 
     .tab,
     .tab.active {
-      color: @text-color-subtle !important;
       border-bottom-color: fade(@light-color, 10%) !important;
       border-right-color: fade(@light-color, 10%) !important;
       box-shadow: none !important;

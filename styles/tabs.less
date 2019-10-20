@@ -80,8 +80,8 @@
       right: auto;
       border: none;
       opacity: 0;
-      border-radius: 3px;
-      transition: opacity ease 0.3s, color ease 0.1s, background ease 0.1s;
+      border-radius: 2px;
+      transition: opacity ease 0.1s, background ease 0.1s;
     }
     &:hover {
       .close-icon,
@@ -95,16 +95,20 @@
     &.modified .close-icon,
     &.modified:not(:hover) .close-icon {
       &:hover {
-        background: fade(@darker-color, 50%);
+        background: fade(@lighter-color, 8%);
       }
     }
     .close-icon::before {
+      content: '';
       position: relative;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      text-align: center;
+      opacity: .7;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23FFF' d='M0.152012026,0.152012026 C0.354694727,-0.0506706753 0.683308314,-0.0506706753 0.885991015,0.152012026 L0.885991015,0.152012026 L4,3.267 L7.11400899,0.152012026 C7.31669169,-0.0506706753 7.64530527,-0.0506706753 7.84798797,0.152012026 C8.05067068,0.354694727 8.05067068,0.683308314 7.84798797,0.885991015 L4.733,4 L7.84798797,7.11400899 C8.02815038,7.29417139 8.04816842,7.57383473 7.90804211,7.77610846 L7.84798797,7.84798797 C7.64530527,8.05067068 7.31669169,8.05067068 7.11400899,7.84798797 L7.11400899,7.84798797 L4,4.733 L0.885991015,7.84798797 C0.683308314,8.05067068 0.354694727,8.05067068 0.152012026,7.84798797 C-0.0506706753,7.64530527 -0.0506706753,7.31669169 0.152012026,7.11400899 L3.267,4 L0.152012026,0.885991015 C-0.0281503752,0.705828614 -0.0481684197,0.426165266 0.0919578922,0.223891544 Z'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+      background-position: center center;
     }
 
     &.is-dragging {
