@@ -57,7 +57,7 @@ atom-text-editor[mini] {
 
   .cursor-line {
     position: relative;
-    background: fade(@white-color, 5%) !important;
+    background: fade(@white-color, 5%);
 
     &::before {
       content: "";
@@ -66,24 +66,23 @@ atom-text-editor[mini] {
       top: 0;
       bottom: 0;
       width: 3px;
-      background: fade(@white-color, 5%) !important;
+      background: fade(@white-color, 5%);
     }
   }
 }
 
 atom-text-editor.editor {
+
   .gutter {
     background: fade(@black-color, 25%);
     box-shadow: inset -1px 0 0 fade(@white-color, 10%);
 
     .line-number {
-      color: @text-color-subtle;
       padding-right: 4px;
       background: fade(@black-color, 5%);
+      box-shadow: none;
 
       &.cursor-line {
-        color: @light-color !important;
-        opacity: 1;
         background: fade(@white-color, 10%) !important;
       }
 

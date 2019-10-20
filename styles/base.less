@@ -9,7 +9,6 @@
 body {
   font-size: @font-size;
   color: @text-color;
-  background-color: @app-background-color;
 }
 
 atom-workspace {
@@ -207,7 +206,7 @@ atom-pane {
 atom-pane-resize-handle.vertical {
   & + * {
     border: none !important;
-    box-shadow: 0 -1px 0 fade(@darker-color, 25%);
+    box-shadow: 0 -1px 0 @mid-color;
   }
 }
 
@@ -215,7 +214,7 @@ atom-pane-resize-handle.horizontal {
 
   & + * {
     border: none !important;
-    box-shadow: -1px 0 0 fade(@darker-color, 15%);
+    box-shadow: -1px 0 0 @mid-color;
   }
 }
 
