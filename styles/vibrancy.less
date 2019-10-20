@@ -2,7 +2,7 @@ html.hypest-vibrancy {
   background: transparent;
 
   body {
-    background-color: fade(@app-background-color, 70%);
+    background-color: fade(@app-background-color, 80%);
   }
 
   atom-workspace,
@@ -13,6 +13,10 @@ html.hypest-vibrancy {
   atom-panel-container.header .tool-panel,
   atom-panel-container.footer .tool-panel {
     background: transparent;
+  }
+
+  .tool-panel {
+    background: fade(@darker-color, 50%);
   }
 
   atom-panel-container.left atom-pane,
@@ -70,7 +74,7 @@ html.hypest-vibrancy {
   .pane-row {
     atom-pane {
       border: none;
-      margin-left: 1px;
+      margin-left: 0;
       box-shadow: -1px 0 0 fade(@light-color, 10%), -1px 0 0 fade(@app-background-color, 70%);
 
       &:first-child {
@@ -78,6 +82,10 @@ html.hypest-vibrancy {
         box-shadow: none;
       }
     }
+  }
+
+  .pane-column atom-pane-resize-handle.vertical + atom-pane {
+    margin-top: 1px;
   }
 
   atom-panel-container.left {
