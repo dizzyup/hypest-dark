@@ -60,7 +60,7 @@ html.hypest-vibrancy {
         border-left: none;
       }
 
-      &:only-child {
+      &[data-type="TreeView"]:only-child {
         background-color: transparent !important;
         border-bottom: none;
       }
@@ -151,6 +151,7 @@ html.hypest-vibrancy {
       margin-bottom: 1px;
 
       &:hover {
+        color: fade(@white-color, 85%);
         background: fade(@darker-color, 70%);
       }
 
@@ -325,7 +326,7 @@ html.hypest-vibrancy body.is-blurred {
       border-right-color: fade(@light-color, 10%) !important;
       box-shadow: none !important;
 
-      &:only-child {
+      &[data-type="TreeView"]:only-child {
         background: transparent !important;
         box-shadow: none !important;
       }
