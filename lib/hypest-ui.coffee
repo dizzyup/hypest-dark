@@ -9,6 +9,8 @@ module.exports =
     dummyEditor.classList.add("hypest-dummy-editor")
     container.appendChild(dummyEditor)
 
+    atom.workspace.getCenter().paneContainer.element.classList.add("hypest-workspace")
+
     atom.config.observe "#{themeName}.vibrancy", (value) ->
       setVibrancy(value)
 
@@ -25,6 +27,8 @@ module.exports =
     dummyEditor = document.querySelector('atom-text-editor.hypest-dummy-editor')
     dummyEditor.parentNode.removeChild(dummyEditor)
 
+    atom.workspace.getCenter().paneContainer.element.classList.remove("hypest-workspace")
+
     unsetVibrancy()
     unsetSyntaxTheme()
     unsetTabCloseButton()
@@ -37,7 +41,7 @@ setSyntaxTheme = (syntaxTheme) ->
   editorColor = getComputedStyle(editor).backgroundColor
 
   rgb = editorColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/)
-  contrast = Math.round((rgb[1] * 299 + rgb[2] * 587 + rgb[3] * 114) / 1000)
+  contrast = if (rgb != null) then Math.round((rgb[1] * 299 + rgb[2] * 587 + rgb[3] * 114) / 1000) else 0
 
   if syntaxTheme is 'Always match light theme'
     setLightTheme()

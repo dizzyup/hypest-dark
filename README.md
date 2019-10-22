@@ -23,7 +23,7 @@ installed select `Hypest Dark` from the theme selection menu in Settings.
 
 ### From the web
 
-[Install](https://atom.io/themes/hypest-dark)
+[Install on Atom.io](https://atom.io/themes/hypest-dark)
 
 ## Theme settings
 
