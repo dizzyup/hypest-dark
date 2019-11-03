@@ -22,6 +22,7 @@
 }
 
 .settings-view {
+
   .config-menu {
     padding: 6px;
     min-width: 200px;
@@ -67,7 +68,13 @@
     padding: 30px 20px;
   }
 
+  .panels-item > .section:first-child {
+    box-shadow: none;
+  }
+
   .section {
+    border: none !important;
+    box-shadow: inset 0 1px 0 @base-border-color;
 
     .section-heading {
       display: flex;
@@ -182,7 +189,7 @@
     border-radius: 6px;
     background: @dark-color;
     box-shadow: inset 0 0 0 1px fade(@white-color, 7%),
-      0 2px 8px fade(@black-color, 0.1), 0 1px 1px 1px fade(@black-color, 5%),
+      0 2px 8px fade(@black-color, 30%), 0 1px 1px 1px fade(@black-color, 10%),
       0 0 0 1px fade(@black-color, 5%);
 
     .control-group {
@@ -236,6 +243,32 @@
     }
     .alert {
       margin-top: -1px;
+    }
+  }
+
+  .package-readme {
+
+    h1, h2 {
+      font-weight: 700;
+      margin-top: 1em;
+    }
+
+    h3 {
+      margin-top: 1em;
+    }
+
+    h1, h2 {
+      margin-bottom: 0.8em;
+      padding-bottom: 0.6em;
+      border-bottom: 1px solid fade(@black-color, 10%);
+    }
+
+    img {
+      margin-top: 1em;
+      margin-bottom: 0.8em;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px fade(@black-color, 5%),
+        0 1px 1px fade(@black-color, 5%);
     }
   }
 
