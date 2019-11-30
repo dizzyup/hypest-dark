@@ -60,3 +60,4 @@ few major third-party ones, including:
 - [find-and-replace](https://atom.io/packages/find-and-replace)
 - [project-manager](https://atom.io/packages/project-manager)
 - [file-icons](https://atom.io/packages/file-icons)
+- [minimap](https://atom.io/packages/minimap)
