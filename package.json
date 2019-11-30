@@ -47,12 +47,19 @@
       ],
       "order": 3
     },
+    "scrollbars": {
+      "title": "Theme scrollbars",
+      "description": "Scrollbars will always be visible when themed.",
+      "type": "boolean",
+      "default": "false",
+      "order": 4
+    },
     "hideDockButtons": {
       "title": "Hide dock toggle buttons",
       "description": "Showing and hidings docks will require keyboard shortcuts once enabled.",
       "type": "boolean",
       "default": "false",
-      "order": 4
+      "order": 5
     }
   }
 }

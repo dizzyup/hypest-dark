@@ -20,6 +20,9 @@ module.exports =
     atom.config.observe "#{themeName}.tabCloseButton", (value) ->
       setTabCloseButton(value)
 
+    atom.config.observe "#{themeName}.scrollbars", (value) ->
+      setScrollbars(value)
+
     atom.config.observe "#{themeName}.hideDockButtons", (value) ->
       setHideDockButtons(value)
 
@@ -32,6 +35,7 @@ module.exports =
     unsetVibrancy()
     unsetSyntaxTheme()
     unsetTabCloseButton()
+    unsetScrollbars()
     unsetHideDockButtons()
 
 # Syntax theme -----------------------
@@ -88,6 +92,17 @@ setTabCloseButton = (tabCloseButton) ->
 
 unsetTabCloseButton = ->
   document.documentElement.classList.remove("hypest-close-right")
+
+# Scrollbars -----------------------
+
+setScrollbars = (scrollbars) ->
+  if scrollbars
+    document.documentElement.classList.add("hypest-scrollbars")
+  else
+    unsetScrollbars()
+
+unsetScrollbars = ->
+  document.documentElement.classList.remove("hypest-scrollbars")
 
 # Dock Buttons -----------------------
 
